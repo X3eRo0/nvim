@@ -41,4 +41,5 @@ return require('packer').startup(function(use)
       end
     }
     use {'s1n7ax/nvim-terminal'}
+    use {'brooth/far.vim'}
 end)

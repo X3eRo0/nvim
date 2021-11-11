@@ -16,7 +16,7 @@ require('nvim-terminal').setup({
         width = 50,
 
         -- Height of the terminal
-        height = 15,
+        height = 10,
     },
 
     -- keymap to disablesb all the default keymaps
