@@ -12,8 +12,8 @@ map('i', 'kj', '<ESC>', {noremap = true, silent = false})
 
 map('n', '<leader>e', ':NvimTreeToggle<CR>', {noremap = true, silent = true})
 map('n', '<leader>s', ':source $MYVIMRC<CR>', {noremap = true, silent = true})
-map('n', '<leader>sh', ':split<CR>', {noremap = true, silent = true})
-map('n', '<leader>sv', ':vsplit<CR>', {noremap = true, silent = true})
+map('n', '<leader>hh', ':split<CR>', {noremap = true, silent = true})
+map('n', '<leader>vv', ':vsplit<CR>', {noremap = true, silent = true})
 
 map('v', '<', '<gv', {noremap = true, silent = false})
 map('v', '>', '>gv', {noremap = true, silent = false})
