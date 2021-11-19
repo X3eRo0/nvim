@@ -41,7 +41,6 @@ return require('packer').startup(function(use)
         require('gitsigns').setup{current_line_blame = true}
       end
     }
-    use {'s1n7ax/nvim-terminal'}
     use {'brooth/far.vim'}
     use {'tpope/vim-surround'}
     use {
@@ -52,6 +51,8 @@ return require('packer').startup(function(use)
             create_mappings = true,
             line_mapping = "gcc",
         })
-
     }
+    use {'nvim-lua/plenary.nvim'}
+    use {'windwp/nvim-spectre'}
+    use {'monaqa/dial.nvim'}
 end)

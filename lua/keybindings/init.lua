@@ -11,7 +11,7 @@ map('i', 'jk', '<ESC>', {noremap = true, silent = false})
 map('i', 'kj', '<ESC>', {noremap = true, silent = false})
 
 map('n', '<leader>e', ':NvimTreeToggle<CR>', {noremap = true, silent = true})
-map('n', '<leader>s', ':source $MYVIMRC<CR>', {noremap = true, silent = true})
+map('n', '<leader>S', ':source $MYVIMRC<CR>', {noremap = true, silent = true})
 map('n', '<leader>hh', ':split<CR>', {noremap = true, silent = true})
 map('n', '<leader>vv', ':vsplit<CR>', {noremap = true, silent = true})
 map('v', '<C-g>', '"_d', {noremap = true, silent = true})
@@ -20,12 +20,15 @@ map('v', '<C-p>', '"_dP', {noremap = true, silent = true})
 map('v', '<', '<gv', {noremap = true, silent = false})
 map('v', '>', '>gv', {noremap = true, silent = false})
 
-map('t', '<ESC>', '<C-\\><C-n>', {noremap = true, silent = false})
+map('n', '<leader>sr', ':lua require("spectre").open()<CR>', {noremap = true, silent = false})
+map('n', '<leader>sw', ':lua require("spectre").open_visual({select_word=true})<CR>', {noremap = true, silent = false})
+map('v', '<leader>s', ':lua require("spectre").open_visual()<CR>', {noremap = true, silent = false})
+map('n', '<leader>sp', 'viw:lua require("spectre").open_file_search()<CR>', {noremap = true, silent = false})
 
-local terminal = require('nvim-terminal').DefaultTerminal;
-local silent = { silent = true }
+map('n', 'C-a', '<Plug>(dial-increment)', {noremap = true, silent = false})
+map('n', 'C-x', '<Plug>(dial-decrement)', {noremap = true, silent = false})
 
-vim.api.nvim_set_keymap('n', '<leader>t', ':lua NTGlobal["terminal"]:toggle()<cr>', silent)
-vim.api.nvim_set_keymap('n', '<leader>1', ':lua NTGlobal["terminal"]:open(1)<cr>', silent)
-vim.api.nvim_set_keymap('n', '<leader>+', ':lua NTGlobal["window"]:change_height(2)<cr>', silent)
-vim.api.nvim_set_keymap('n', '<leader>-', ':lua NTGlobal["window"]:change_height(-2)<cr>', silent)
+map('v', 'C-a', '<Plug>(dial-increment)', {noremap = true, silent = false})
+map('v', 'C-x', '<Plug>(dial-decrement)', {noremap = true, silent = false})
+map('v', 'gC-a', '<Plug>(dial-increment-additional)', {noremap = true, silent = false})
+map('v', 'gC-x', '<Plug>(dial-decrement-additional)', {noremap = true, silent = false})

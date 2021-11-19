@@ -10,7 +10,7 @@ require('whichkey-config')
 require('telescope-config')
 require('colorizer-config')
 require('dashboard-config')
-require('terminal-config')
+require('spectre-config')
 require('lsp')
 require('plugins/material')
 vim.g.material_style = 'deep ocean'
