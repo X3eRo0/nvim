@@ -14,13 +14,15 @@ map('n', '<leader>e', ':NvimTreeToggle<CR>', {noremap = true, silent = true})
 map('n', '<leader>s', ':source $MYVIMRC<CR>', {noremap = true, silent = true})
 map('n', '<leader>hh', ':split<CR>', {noremap = true, silent = true})
 map('n', '<leader>vv', ':vsplit<CR>', {noremap = true, silent = true})
+map('v', '<C-g>', '"_d', {noremap = true, silent = true})
+map('v', '<C-p>', '"_dP', {noremap = true, silent = true})
 
 map('v', '<', '<gv', {noremap = true, silent = false})
 map('v', '>', '>gv', {noremap = true, silent = false})
 
 map('t', '<ESC>', '<C-\\><C-n>', {noremap = true, silent = false})
 
-terminal = require('nvim-terminal').DefaultTerminal;
+local terminal = require('nvim-terminal').DefaultTerminal;
 local silent = { silent = true }
 
 vim.api.nvim_set_keymap('n', '<leader>t', ':lua NTGlobal["terminal"]:toggle()<cr>', silent)
