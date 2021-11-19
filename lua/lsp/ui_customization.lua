@@ -29,17 +29,41 @@ local function setup_diags()
     local hl = "DiagnosticSign" .. type
     vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
   end
-
-  vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+  
+   vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     vim.lsp.diagnostic.on_publish_diagnostics,
     {
       virtual_text = false,
       signs = true,
       update_in_insert = false,
-      underline = true,
+      float = {
+          source = 'always',
+          border = 'single',
+      }
     }
   )
+  _G.LspDiagnosticsShowPopup = function()
+    return vim.diagnostic.open_float(0, {scope="cursor"})
+  end
 end
+-- Show diagnostics in a pop-up window on hover
+_G.LspDiagnosticsPopupHandler = function()
+  local current_cursor = vim.api.nvim_win_get_cursor(0)
+  local last_popup_cursor = vim.w.lsp_diagnostics_last_cursor or {nil, nil}
+
+  -- Show the popup diagnostics window,
+  -- but only once for the current cursor location (unless moved afterwards).
+  if not (current_cursor[1] == last_popup_cursor[1] and current_cursor[2] == last_popup_cursor[2]) then
+    vim.w.lsp_diagnostics_last_cursor = current_cursor
+    vim.diagnostic.open_float(0, {scope="cursor"})   -- for neovim 0.6.0+, replaces show_{line,position}_diagnostics
+  end
+end
+vim.cmd [[
+augroup LSPDiagnosticsOnHover
+  autocmd!
+  autocmd CursorHold <buffer>   lua _G.LspDiagnosticsPopupHandler()
+augroup END
+]]
 -- NOTE: https://github.com/neovim/nvim-lspconfig/wiki/UI-customization
 function M.on_attach()
   vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { border = border })
