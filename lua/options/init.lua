@@ -36,4 +36,10 @@ vim.bo.autoindent = true
 vim.o.expandtab = true
 vim.bo.expandtab = true
 
+-- blankline options
+
+vim.opt.list = true
+vim.opt.listchars:append("eol:↴")
+-- vim.opt.listchars:append("space:⋅")
+
 vim.cmd [[autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif]]

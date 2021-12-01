@@ -1,6 +1,6 @@
 require('lualine').setup({
   options = {
-    theme = 'ayu_dark',
+    theme = 'codedark',
     section_separators = '',
     component_separators = ''
   }

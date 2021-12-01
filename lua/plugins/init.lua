@@ -38,7 +38,7 @@ return require('packer').startup(function(use)
         'nvim-lua/plenary.nvim'
       },
       config = function()
-        require('gitsigns').setup{current_line_blame = true}
+        require('gitsigns').setup{current_line_blame = true, signcolumn = false}
       end
     }
     use {'brooth/far.vim'}
@@ -47,7 +47,7 @@ return require('packer').startup(function(use)
         'terrortylor/nvim-comment',
         require('nvim_comment').setup({
             marker_padding = true,
-            comment_empty = true,
+            comment_empty = false,
             create_mappings = true,
             line_mapping = "gcc",
         })
@@ -55,4 +55,16 @@ return require('packer').startup(function(use)
     use {'nvim-lua/plenary.nvim'}
     use {'windwp/nvim-spectre'}
     use {'monaqa/dial.nvim'}
+    use {'lukas-reineke/indent-blankline.nvim'}
+    use({
+        'rose-pine/neovim',
+        as = 'rose-pine',
+        config = function()
+            -- Options (see available options below)
+            vim.g.rose_pine_variant = 'base'
+
+            -- Load colorscheme after options
+            vim.cmd('colorscheme rose-pine')
+        end
+    })
 end)
