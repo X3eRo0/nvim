@@ -14,5 +14,6 @@ require('spectre-config')
 require('lsp')
 require('plugins/material')
 require('blankline-config')
+require('format-config')
 -- vim.g.material_style = 'deep ocean'
 vim.cmd('colorscheme rose-pine')
