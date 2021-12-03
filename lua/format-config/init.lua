@@ -16,7 +16,7 @@ require("formatter").setup(
                 function()
                     return {
                         exe = "shfmt",
-                        args = {"-i", 2},
+                        args = {"-i", 4},
                         stdin = true
                     }
                 end
