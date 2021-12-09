@@ -37,15 +37,22 @@ map("v", "gC-x", "<Plug>(dial-decrement-additional)", {noremap = true, silent = 
 map("n", "<leader>dw", "<cmd>lua require('diaglist').open_all_diagnostics()<cr>", {noremap = true, silent = false})
 map("n", "<leader>d0", "<cmd>lua require('diaglist').open_buffer_diagnostics()", {noremap = true, silent = false})
 
--- local terminal = require("toggleterm.terminal").Terminal
--- local toggle_lazygit = function()
---     local lazygit = terminal:new({cmd = "lazygit", direction = "float"})
---     return lazygit:toggle()
--- end
-
+map(
+    "n",
+    "<leader>tp",
+    ":lua require('toggleterm.terminal').Terminal:new({cmd = 'python', direction = 'float'}):toggle() <CR>",
+    {noremap = true, silent = true}
+)
 map(
     "n",
     "<leader>tl",
     ":lua require('toggleterm.terminal').Terminal:new({cmd = 'lazygit', direction = 'float'}):toggle()<CR>",
-    {noremap = true, silent = false}
+    {noremap = true, silent = true}
+)
+
+map(
+    "n",
+    "<leader>tt",
+    ":lua require('toggleterm.terminal').Terminal:new({direction = 'float'}):toggle()<CR>",
+    {noremap = true, silent = true}
 )
