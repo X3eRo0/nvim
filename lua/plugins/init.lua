@@ -32,7 +32,7 @@ return require("packer").startup(
         use {"hrsh7th/vim-vsnip"}
         use {"onsails/lspkind-nvim"}
         use {"norcalli/nvim-colorizer.lua"}
-        use {"glepnir/dashboard-nvim"}
+        -- use {"glepnir/dashboard-nvim"}
         use {
             "lewis6991/gitsigns.nvim",
             requires = {
@@ -80,5 +80,6 @@ return require("packer").startup(
             cmd = "CodeActionMenu"
         }
         use {"kosayoda/nvim-lightbulb"}
+        use {"akinsho/toggleterm.nvim"}
     end
 )
