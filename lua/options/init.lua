@@ -42,4 +42,11 @@ vim.opt.list = true
 vim.opt.listchars:append("eol:↴")
 -- vim.opt.listchars:append("space:⋅")
 
+vim.cmd [[let g:neovide_no_idle=v:true]]
+vim.cmd [[let g:neovide_cursor_animation_length=0.05]]
+vim.cmd [[let g:neovide_cursor_trail_length=0.0]]
+vim.cmd [[let g:neovide_cursor_antialiasing=v:true]]
+vim.cmd [[let g:neovide_window_floating_opacity=0]]
+vim.cmd [[let g:neovide_floating_blur=0]]
+vim.cmd [[set guifont=JetBrains\ Mono:h13]]
 vim.cmd [[autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif]]
