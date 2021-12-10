@@ -36,7 +36,7 @@ map("v", "gC-a", "<Plug>(dial-increment-additional)", {noremap = true, silent = 
 map("v", "gC-x", "<Plug>(dial-decrement-additional)", {noremap = true, silent = false})
 map("n", "<leader>dw", "<cmd>lua require('diaglist').open_all_diagnostics()<cr>", {noremap = true, silent = false})
 map("n", "<leader>d0", "<cmd>lua require('diaglist').open_buffer_diagnostics()", {noremap = true, silent = false})
-
+map("n", "<leader>E", "<cmd>e ~/.config/nvim/init.lua<cr>", {noremap = true, silent = false})
 map(
     "n",
     "<leader>tp",

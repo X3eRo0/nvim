@@ -15,9 +15,9 @@ return require("packer").startup(
 
         use {
             "hoob3rt/lualine.nvim",
-            requires = {"kyazdani42/nvim-web-devicons", opt = true},
-            event = "BufWinEnter",
-            config = "require('lualine-config')"
+            -- requires = {"kyazdani42/nvim-web-devicons", opt = true},
+            -- event = "BufWinEnter",
+            -- config = "require('lualine-config')"
         }
 
         use {
@@ -29,7 +29,7 @@ return require("packer").startup(
 
         use {
             "kyazdani42/nvim-tree.lua",
-            requires = "kyazdani42/nvim-web-devicons",
+            requires = "kyazdani42/nvim-web-devicons"
         }
 
         use {
@@ -78,14 +78,18 @@ return require("packer").startup(
                 "nvim-lua/plenary.nvim"
             },
             config = function()
-                require("gitsigns").setup {current_line_blame = true, signcolumn = false}
+                require("gitsigns").setup {
+                    current_line_blame = true,
+                    signcolumn = true,
+                    numhl = true
+                }
             end
         }
         use {"tpope/vim-surround"}
         use {
             "terrortylor/nvim-comment",
-            config="require('comment-config')",
-            cmd="CommentToggle"
+            config = "require('comment-config')",
+            cmd = "CommentToggle"
         }
         use {
             "windwp/nvim-spectre",
@@ -124,6 +128,15 @@ return require("packer").startup(
         use {
             "akinsho/toggleterm.nvim",
             config = "require('toggleterm-config')"
+        }
+        use {
+            "glepnir/galaxyline.nvim",
+            branch = "main",
+            event = "BufWinEnter",
+            -- your statusline
+            config = "require('galaxyline-config')",
+            -- some optional icons
+            requires = {"kyazdani42/nvim-web-devicons", opt = true}
         }
     end
 )
