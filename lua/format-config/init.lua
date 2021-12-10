@@ -51,6 +51,42 @@ require("formatter").setup(
                     }
                 end
             },
+            html = {
+                -- prettier
+                function()
+                    return {
+                        exe = "prettier",
+                        args = {
+                            "--stdin-filepath",
+                            vim.fn.shellescape(vim.api.nvim_buf_get_name(0)),
+                            "--single-quote",
+                            "--tab-width",
+                            "4",
+                            "--end-of-line",
+                            "lf"
+                        },
+                        stdin = true
+                    }
+                end
+            },
+            htmldjango = {
+                -- prettier
+                function()
+                    return {
+                        exe = "prettier",
+                        args = {
+                            "--stdin-filepath",
+                            vim.fn.shellescape(vim.api.nvim_buf_get_name(0)),
+                            "--single-quote",
+                            "--tab-width",
+                            "4",
+                            "--end-of-line",
+                            "lf"
+                        },
+                        stdin = true
+                    }
+                end
+            },
             lua = {
                 -- luafmt
                 function()

@@ -32,9 +32,12 @@ local function setup_diags()
         vim.lsp.with(
         vim.lsp.diagnostic.on_publish_diagnostics,
         {
-            virtual_text = true,
+            virtual_text = {
+                spacing = 5,
+                severity_limit = "Warning"
+            },
             signs = true,
-            update_in_insert = false,
+            update_in_insert = true,
             float = {
                 source = "always",
                 border = "single"

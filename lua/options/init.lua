@@ -36,12 +36,14 @@ vim.bo.autoindent = true
 vim.o.expandtab = true
 vim.bo.expandtab = true
 
+-- vim.cmd [[colorscheme material]]
+-- vim.g.material_style = 'darker'
 -- blankline options
 
 vim.opt.list = true
 vim.opt.listchars:append("eol:↴")
 -- vim.opt.listchars:append("space:⋅")
-
+vim.cmd [[let g:nvim_tree_refresh_wait = 500]]
 vim.cmd [[let g:neovide_no_idle=v:true]]
 vim.cmd [[let g:neovide_cursor_animation_length=0.05]]
 vim.cmd [[let g:neovide_cursor_trail_length=0.0]]

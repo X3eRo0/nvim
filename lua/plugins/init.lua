@@ -2,8 +2,20 @@ return require("packer").startup(
     function(use)
         -- Packer can manage itself
         use {"wbthomason/packer.nvim"}
-        use {"tiagovla/tokyodark.nvim", config = "vim.cmd('colorscheme rose-pine')"}
-        use {"marko-cerovac/material.nvim"}
+        use {
+            "tiagovla/tokyodark.nvim"
+            -- config = "vim.cmd('colorscheme rose-pine')"
+        }
+        use {
+            "marko-cerovac/material.nvim",
+            config = function()
+                -- Options (see available options below)
+                vim.g.material_style = "darker"
+               -- Load colorscheme after options
+                vim.cmd("colorscheme material")
+            end
+        }
+
         use {"mangeshrex/uwu.vim"}
 
         use {
@@ -14,7 +26,7 @@ return require("packer").startup(
         }
 
         use {
-            "hoob3rt/lualine.nvim",
+            "hoob3rt/lualine.nvim"
             -- requires = {"kyazdani42/nvim-web-devicons", opt = true},
             -- event = "BufWinEnter",
             -- config = "require('lualine-config')"
@@ -34,7 +46,6 @@ return require("packer").startup(
 
         use {
             "windwp/nvim-ts-autotag",
-            event = "InsertEnter",
             after = "nvim-treesitter"
         }
 
@@ -110,7 +121,7 @@ return require("packer").startup(
                     vim.g.rose_pine_variant = "base"
 
                     -- Load colorscheme after options
-                    vim.cmd("colorscheme rose-pine")
+                    -- vim.cmd("colorscheme rose-pine")
                 end
             }
         )
