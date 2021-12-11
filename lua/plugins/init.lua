@@ -99,8 +99,6 @@ return require("packer").startup(
         use {"tpope/vim-surround"}
         use {
             "terrortylor/nvim-comment",
-            config = "require('comment-config')",
-            cmd = "CommentToggle"
         }
         use {
             "windwp/nvim-spectre",
