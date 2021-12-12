@@ -77,6 +77,8 @@ return require("packer").startup(
         use {"hrsh7th/nvim-cmp"}
         use {"hrsh7th/cmp-vsnip"}
         use {"hrsh7th/vim-vsnip"}
+        use {"hrsh7th/vim-vsnip-integ"}
+        use {"rafamadriz/friendly-snippets"}
         use {"onsails/lspkind-nvim"}
         use {
             "norcalli/nvim-colorizer.lua",
