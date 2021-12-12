@@ -100,7 +100,7 @@ return require("packer").startup(
         }
         use {"tpope/vim-surround"}
         use {
-            "terrortylor/nvim-comment",
+            "terrortylor/nvim-comment"
         }
         use {
             "windwp/nvim-spectre",
@@ -130,12 +130,7 @@ return require("packer").startup(
             config = "require('format-config')",
             cmd = "Format"
         }
-        use {"RishabhRD/popfix"}
-        use {"RishabhRD/nvim-lsputils"}
-        use {
-            "weilbith/nvim-code-action-menu",
-            cmd = "CodeActionMenu"
-        }
+        use {"tami5/lspsaga.nvim"}
         use {
             "akinsho/toggleterm.nvim",
             config = "require('toggleterm-config')"
