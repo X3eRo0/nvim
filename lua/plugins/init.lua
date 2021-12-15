@@ -3,16 +3,16 @@ return require("packer").startup(
         -- Packer can manage itself
         use {"wbthomason/packer.nvim"}
         use {
-            "tiagovla/tokyodark.nvim"
-            -- config = "vim.cmd('colorscheme rose-pine')"
+            "tiagovla/tokyodark.nvim",
+            config = "vim.cmd('colorscheme rose-pine')"
         }
         use {
             "marko-cerovac/material.nvim",
             config = function()
                 -- Options (see available options below)
-                vim.g.material_style = "darker"
+                -- vim.g.material_style = "darker"
                 -- Load colorscheme after options
-                vim.cmd("colorscheme material")
+                -- vim.cmd("colorscheme material")
             end
         }
 
