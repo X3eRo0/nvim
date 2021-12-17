@@ -171,5 +171,6 @@ return require("packer").startup(
                 )
             end
         }
+        use {"mhinz/vim-startify"}
     end
 )
