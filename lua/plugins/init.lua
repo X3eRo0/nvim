@@ -4,15 +4,23 @@ return require("packer").startup(
         use {"wbthomason/packer.nvim"}
         use {
             "tiagovla/tokyodark.nvim",
-            config = "vim.cmd('colorscheme rose-pine')"
+            -- config = "vim.cmd('colorscheme rose-pine')"
         }
         use {
             "marko-cerovac/material.nvim",
             config = function()
                 -- Options (see available options below)
-                -- vim.g.material_style = "darker"
+                vim.g.material_style = "deep ocean"
                 -- Load colorscheme after options
                 -- vim.cmd("colorscheme material")
+            end
+        }
+
+        use {
+            "catppuccin/nvim",
+            as = "catppuccin",
+            config = function ()
+                vim.cmd("colorscheme catppuccin")
             end
         }
 
@@ -23,13 +31,6 @@ return require("packer").startup(
             run = ":TSUpdate",
             event = "BufWinEnter",
             config = "require('treesitter-config')"
-        }
-
-        use {
-            "hoob3rt/lualine.nvim"
-            -- requires = {"kyazdani42/nvim-web-devicons", opt = true},
-            -- event = "BufWinEnter",
-            -- config = "require('lualine-config')"
         }
 
         use {

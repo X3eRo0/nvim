@@ -5,7 +5,9 @@ map("n", "<C-l>", "<C-w>l", {noremap = true, silent = false})
 map("n", "<C-j>", "<C-w>j", {noremap = true, silent = false})
 map("n", "<C-k>", "<C-w>k", {noremap = true, silent = false})
 
-map("n", "<C-c>", ":bd<CR>", {noremap = true, silent = false})
+map("n", "<C-c>", "<C-w>c", {noremap = true, silent = false})
+map("n", "<C-d>", ":bd<CR>", {noremap = true, silent = false})
+map("n", "<C-D>", ":bd!<CR>", {noremap = true, silent = false})
 
 map("i", "jk", "<ESC>", {noremap = true, silent = false})
 map("i", "kj", "<ESC>", {noremap = true, silent = false})
@@ -40,6 +42,10 @@ map("v", "gC-x", "<Plug>(dial-decrement-additional)", {noremap = true, silent = 
 map("n", "<leader>dw", "<cmd>lua require('diaglist').open_all_diagnostics()<cr>", {noremap = true, silent = false})
 map("n", "<leader>d0", "<cmd>lua require('diaglist').open_buffer_diagnostics()", {noremap = true, silent = false})
 map("n", "<leader>E", "<cmd>e ~/.config/nvim/init.lua<cr>", {noremap = true, silent = false})
+map("n", "<C-Left>", ":vertical resize +3<CR>", {noremap = true, silent = true})
+map("n", "<C-Right>", ":vertical resize -3<CR>", {noremap = true, silent = true})
+map("n", "<C-Up>", ":resize +3<CR>", {noremap = true, silent = true})
+map("n", "<C-Down>", ":resize -3<CR>", {noremap = true, silent = true})
 map(
     "n",
     "<leader>tp",
