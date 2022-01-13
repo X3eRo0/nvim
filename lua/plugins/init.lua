@@ -3,7 +3,7 @@ return require("packer").startup(
         -- Packer can manage itself
         use {"wbthomason/packer.nvim"}
         use {
-            "tiagovla/tokyodark.nvim",
+            "tiagovla/tokyodark.nvim"
             -- config = "vim.cmd('colorscheme rose-pine')"
         }
         use {
@@ -19,7 +19,7 @@ return require("packer").startup(
         use {
             "catppuccin/nvim",
             as = "catppuccin",
-            config = function ()
+            config = function()
                 vim.cmd("colorscheme catppuccin")
             end
         }
