@@ -19,9 +19,9 @@ return require("packer").startup(
         use {
             "catppuccin/nvim",
             as = "catppuccin",
-            config = function()
-                vim.cmd("colorscheme catppuccin")
-            end
+            -- config = function()
+            --     vim.cmd("colorscheme catppuccin")
+            -- end
         }
 
         use {"mangeshrex/uwu.vim"}
@@ -173,5 +173,14 @@ return require("packer").startup(
             end
         }
         use {"mhinz/vim-startify"}
+        use {
+            "sainnhe/sonokai",
+            config = function()
+                vim.g.sonokai_style = "andromeda"
+                vim.g.sonokai_enable_italic = 0
+                vim.g.sonokai_disable_italic_comment = 0
+                vim.cmd("colorscheme sonokai")
+            end
+        }
     end
 )
