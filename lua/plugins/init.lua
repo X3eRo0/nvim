@@ -18,7 +18,7 @@ return require("packer").startup(
 
         use {
             "catppuccin/nvim",
-            as = "catppuccin",
+            as = "catppuccin"
             -- config = function()
             --     vim.cmd("colorscheme catppuccin")
             -- end
@@ -180,6 +180,19 @@ return require("packer").startup(
                 vim.g.sonokai_enable_italic = 0
                 vim.g.sonokai_disable_italic_comment = 0
                 vim.cmd("colorscheme sonokai")
+            end
+        }
+        use {
+            "fedepujol/move.nvim",
+            config = function()
+                vim.api.nvim_set_keymap("n", "<A-j>", ":MoveLine(2)<CR>", {noremap = true, silent = true})
+                vim.api.nvim_set_keymap("n", "<A-k>", ":MoveLine(0)<CR>", {noremap = true, silent = true})
+                vim.api.nvim_set_keymap("v", "<A-j>", ":MoveBlock(2)<CR>", {noremap = true, silent = true})
+                vim.api.nvim_set_keymap("v", "<A-k>", ":MoveBlock(0)<CR>", {noremap = true, silent = true})
+                vim.api.nvim_set_keymap("n", "<A-l>", ":MoveHChar(2)<CR>", {noremap = true, silent = true})
+                vim.api.nvim_set_keymap("n", "<A-h>", ":MoveHChar(-1)<CR>", {noremap = true, silent = true})
+                vim.api.nvim_set_keymap("v", "<A-l>", ":MoveHBlock(1)<CR>", {noremap = true, silent = true})
+                vim.api.nvim_set_keymap("v", "<A-h>", ":MoveHBlock(-1)<CR>", {noremap = true, silent = true})
             end
         }
     end
