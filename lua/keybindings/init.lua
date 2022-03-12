@@ -6,8 +6,8 @@ map("n", "<C-j>", "<C-w>j", {noremap = true, silent = false})
 map("n", "<C-k>", "<C-w>k", {noremap = true, silent = false})
 
 map("n", "<C-c>", "<C-w>c", {noremap = true, silent = false})
-map("n", "<C-g>", ":bd<CR>", {noremap = true, silent = false})
-map("n", "<C-G>", ":bd!<CR>", {noremap = true, silent = false})
+map("n", "<C-g>", ":Bdelete<CR>", {noremap = true, silent = false})
+map("n", "<C-G>", ":Bdelete!<CR>", {noremap = true, silent = false})
 
 map("i", "jk", "<ESC>", {noremap = true, silent = false})
 map("i", "kj", "<ESC>", {noremap = true, silent = false})

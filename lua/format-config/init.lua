@@ -5,7 +5,7 @@ require("formatter").setup(
                 -- prettier
                 function()
                     return {
-                        exe = "prettier",
+                        exe = "/home/x3ero0/node_modules/.bin/prettier",
                         args = {"--stdin-filepath", vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)), "--single-quote"},
                         stdin = true
                     }
@@ -55,7 +55,7 @@ require("formatter").setup(
                 -- prettier
                 function()
                     return {
-                        exe = "prettier",
+                        exe = "/home/x3ero0/node_modules/.bin/prettier",
                         args = {
                             "--stdin-filepath",
                             vim.fn.shellescape(vim.api.nvim_buf_get_name(0)),
@@ -73,7 +73,7 @@ require("formatter").setup(
                 -- prettier
                 function()
                     return {
-                        exe = "prettier",
+                        exe = "/home/x3ero0/node_modules/.bin/prettier",
                         args = {
                             "--stdin-filepath",
                             vim.fn.shellescape(vim.api.nvim_buf_get_name(0)),
@@ -91,7 +91,7 @@ require("formatter").setup(
                 -- luafmt
                 function()
                     return {
-                        exe = "luafmt",
+                        exe = "/home/x3ero0/node_modules/.bin/luafmt",
                         args = {"--stdin"},
                         stdin = true
                     }

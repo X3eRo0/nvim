@@ -75,7 +75,13 @@ gls.left = {
     {
         GitBranch = {
             provider = function()
-                return string.format("%s ", vcs.get_git_branch())
+                if in_vcs() and wide_enough(85) then
+                    local branch = vcs.get_git_branch()
+                    if branch ~= nil then
+                        return string.format("%s ", branch)
+                    end
+                    return ""
+                end
             end,
             condition = function()
                 return condition.check_git_workspace() and condition.checkwidth()

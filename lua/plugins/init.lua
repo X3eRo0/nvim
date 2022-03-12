@@ -136,15 +136,15 @@ return require("packer").startup(
             "akinsho/toggleterm.nvim",
             config = "require('toggleterm-config')"
         }
-        use {
-            "glepnir/galaxyline.nvim",
-            branch = "main",
-            event = "BufWinEnter",
-            -- your statusline
-            config = "require('galaxyline-config')",
-            -- some optional icons
-            requires = {"kyazdani42/nvim-web-devicons", opt = true}
-        }
+        -- use {
+        --     "glepnir/galaxyline.nvim",
+        --     branch = "main",
+        --     event = "BufWinEnter",
+        --     -- your statusline
+        --     config = "require('galaxyline-config')",
+        --     -- some optional icons
+        --     requires = {"kyazdani42/nvim-web-devicons", opt = true}
+        -- }
         use {
             "andweeb/presence.nvim",
             config = function()
@@ -194,6 +194,18 @@ return require("packer").startup(
                 vim.api.nvim_set_keymap("v", "<A-l>", ":MoveHBlock(1)<CR>", {noremap = true, silent = true})
                 vim.api.nvim_set_keymap("v", "<A-h>", ":MoveHBlock(-1)<CR>", {noremap = true, silent = true})
             end
+        }
+        use {
+            "feline-nvim/feline.nvim",
+            config = "require('feline-config')",
+            requires = {"kyazdani42/nvim-web-devicons", opt = true}
+        }
+        use {
+            "famiu/bufdelete.nvim"
+        }
+        use {
+            "rcarriga/nvim-notify",
+            config = "vim.notify = require('notify')"
         }
     end
 )

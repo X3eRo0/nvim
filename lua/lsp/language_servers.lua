@@ -25,7 +25,8 @@ local langservers = {
     "cssls",
     "pylsp",
     "sumneko_lua",
-    "clangd"
+    "clangd",
+    "cmake"
 }
 
 -- Use an on_attach function to only map the following keys
