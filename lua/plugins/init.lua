@@ -3,8 +3,8 @@ return require("packer").startup(
         -- Packer can manage itself
         use {"wbthomason/packer.nvim"}
         use {
-            "tiagovla/tokyodark.nvim"
-            -- config = "vim.cmd('colorscheme rose-pine')"
+            "tiagovla/tokyodark.nvim",
+            config = "vim.cmd('colorscheme rose-pine')"
         }
         use {
             "marko-cerovac/material.nvim",
@@ -179,7 +179,7 @@ return require("packer").startup(
                 vim.g.sonokai_style = "andromeda"
                 vim.g.sonokai_enable_italic = 0
                 vim.g.sonokai_disable_italic_comment = 0
-                vim.cmd("colorscheme sonokai")
+                -- vim.cmd("colorscheme sonokai")
             end
         }
         use {
