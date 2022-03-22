@@ -207,5 +207,8 @@ return require("packer").startup(
             "rcarriga/nvim-notify",
             config = "vim.notify = require('notify')"
         }
+        use {
+            "williamboman/nvim-lsp-installer"
+        }
     end
 )
