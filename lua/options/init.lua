@@ -36,8 +36,6 @@ vim.bo.autoindent = true
 vim.o.expandtab = true
 vim.bo.expandtab = true
 
--- vim.cmd [[colorscheme material]]
--- vim.g.material_style = 'darker'
 -- blankline options
 
 vim.opt.list = true

@@ -2,29 +2,6 @@ return require("packer").startup(
     function(use)
         -- Packer can manage itself
         use {"wbthomason/packer.nvim"}
-        use {
-            "tiagovla/tokyodark.nvim",
-            config = "vim.cmd('colorscheme rose-pine')"
-        }
-        use {
-            "marko-cerovac/material.nvim",
-            config = function()
-                -- Options (see available options below)
-                vim.g.material_style = "deep ocean"
-                -- Load colorscheme after options
-                -- vim.cmd("colorscheme material")
-            end
-        }
-
-        use {
-            "catppuccin/nvim",
-            as = "catppuccin"
-            -- config = function()
-            --     vim.cmd("colorscheme catppuccin")
-            -- end
-        }
-
-        use {"mangeshrex/uwu.vim"}
 
         use {
             "nvim-treesitter/nvim-treesitter",
@@ -113,19 +90,6 @@ return require("packer").startup(
             config = "require('blankline-config')",
             event = "BufRead"
         }
-        use(
-            {
-                "rose-pine/neovim",
-                as = "rose-pine",
-                config = function()
-                    -- Options (see available options below)
-                    vim.g.rose_pine_variant = "base"
-
-                    -- Load colorscheme after options
-                    -- vim.cmd("colorscheme rose-pine")
-                end
-            }
-        )
         use {
             "mhartington/formatter.nvim",
             config = "require('format-config')",
@@ -136,6 +100,7 @@ return require("packer").startup(
             "akinsho/toggleterm.nvim",
             config = "require('toggleterm-config')"
         }
+
         -- use {
         --     "glepnir/galaxyline.nvim",
         --     branch = "main",
@@ -145,6 +110,7 @@ return require("packer").startup(
         --     -- some optional icons
         --     requires = {"kyazdani42/nvim-web-devicons", opt = true}
         -- }
+
         use {
             "andweeb/presence.nvim",
             config = function()
@@ -174,15 +140,6 @@ return require("packer").startup(
         }
         use {"mhinz/vim-startify"}
         use {
-            "sainnhe/sonokai",
-            config = function()
-                vim.g.sonokai_style = "andromeda"
-                vim.g.sonokai_enable_italic = 0
-                vim.g.sonokai_disable_italic_comment = 0
-                -- vim.cmd("colorscheme sonokai")
-            end
-        }
-        use {
             "fedepujol/move.nvim",
             config = function()
                 vim.api.nvim_set_keymap("n", "<A-j>", ":MoveLine(2)<CR>", {noremap = true, silent = true})
@@ -209,6 +166,117 @@ return require("packer").startup(
         }
         use {
             "williamboman/nvim-lsp-installer"
+        }
+
+        -- Colorschemes
+        -- Tokyodark
+        use {
+            "tiagovla/tokyodark.nvim",
+            config = function()
+                -- vim.cmd("colorscheme rose-pine")
+            end
+        }
+
+        -- Material
+        use {
+            "marko-cerovac/material.nvim",
+            config = function()
+                -- Options (see available options below)
+                vim.g.material_style = "deep ocean"
+                -- Load colorscheme after options
+                -- vim.cmd("colorscheme material")
+            end
+        }
+
+        -- Catppuccin
+        use {
+            "catppuccin/nvim",
+            as = "catppuccin",
+            config = function()
+                -- vim.cmd("colorscheme catppuccin")
+            end
+        }
+
+        -- Vscode
+        use {
+            "Mofiqul/vscode.nvim",
+            config = function()
+                -- -- For dark theme
+                -- vim.g.vscode_style = "dark"
+                -- -- For light theme
+                -- vim.g.vscode_style = "light"
+                -- -- Enable transparent background
+                -- vim.g.vscode_transparent = 1
+                -- -- Enable italic comment
+                -- vim.g.vscode_italic_comment = 1
+                -- -- Disable nvim-tree background color
+                -- vim.g.vscode_disable_nvimtree_bg = true
+                -- vim.cmd("colorscheme vscode")
+            end
+        }
+
+        -- Vim Nightfly
+        use {
+            "bluz71/vim-nightfly-guicolors",
+            config = function()
+                -- vim.cmd("colorscheme nightfly")
+            end
+        }
+
+        -- Moonfly
+        use {
+            "bluz71/vim-moonfly-colors",
+            config = function()
+                -- vim.cmd("colorscheme moonfly")
+            end
+        }
+
+        -- Zephyr
+        use {
+            "glepnir/zephyr-nvim",
+            config = function()
+                -- vim.cmd("colorscheme zephyr")
+            end
+        }
+
+        -- Omni
+        use {
+            "yonlu/omni.vim",
+            config = function()
+                vim.cmd("colorscheme omni")
+            end
+        }
+
+        -- Rose Pine
+        use {
+            "rose-pine/neovim",
+            as = "rose-pine",
+            config = function()
+                -- Options (see available options below)
+                vim.g.rose_pine_variant = "base"
+
+                -- Load colorscheme after options
+                -- vim.cmd("colorscheme rose-pine")
+            end
+        }
+
+        -- Sonokai
+        use {
+            "sainnhe/sonokai",
+            config = function()
+                vim.g.sonokai_style = "andromeda"
+                vim.g.sonokai_enable_italic = 0
+                vim.g.sonokai_disable_italic_comment = 0
+                -- vim.cmd("colorscheme sonokai")
+            end
+        }
+
+        -- UwU
+        use {
+            "mangeshrex/uwu.vim",
+            config = function()
+                -- vim.cmd("colorscheme uwu")
+            end
         }
     end
 )
