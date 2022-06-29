@@ -1,4 +1,5 @@
 vim.cmd("filetype plugin indent on")
+vim.cmd("set laststatus=3") -- global statusline
 vim.o.shortmess = vim.o.shortmess .. "c"
 vim.o.hidden = true
 vim.o.whichwrap = "b,s,<,>,[,],h,l"
@@ -41,3 +42,8 @@ vim.bo.expandtab = true
 vim.opt.list = true
 vim.opt.listchars:append("eol:↴")
 -- vim.opt.listchars:append("space:⋅")
+--
+vim.g.tokyodark_transparent_background = false
+vim.g.tokyodark_enable_italic_comment = false
+vim.g.tokyodark_enable_italic = false
+vim.g.tokyodark_color_gamma = "1.0"

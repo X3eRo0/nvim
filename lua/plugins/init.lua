@@ -17,6 +17,7 @@ return require("packer").startup(
             config = "require('bufferline-config')"
         }
 
+        -- nvim-tree
         use {
             "kyazdani42/nvim-tree.lua",
             requires = "kyazdani42/nvim-web-devicons"
@@ -172,29 +173,25 @@ return require("packer").startup(
         -- Tokyodark
         use {
             "tiagovla/tokyodark.nvim",
-            config = function()
-                -- vim.cmd("colorscheme rose-pine")
-            end
+            config="require('colorscheme-config')"
+        }
+        -- Tokyonight
+        use {
+            "folke/tokyonight.nvim",
+            config="require('colorscheme-config')"
         }
 
         -- Material
         use {
             "marko-cerovac/material.nvim",
-            config = function()
-                -- Options (see available options below)
-                vim.g.material_style = "deep ocean"
-                -- Load colorscheme after options
-                -- vim.cmd("colorscheme material")
-            end
+            config="require('colorscheme-config')"
         }
 
         -- Catppuccin
         use {
             "catppuccin/nvim",
             as = "catppuccin",
-            config = function()
-                -- vim.cmd("colorscheme catppuccin")
-            end
+            config="require('colorscheme-config')"
         }
 
         -- Vscode
@@ -243,7 +240,7 @@ return require("packer").startup(
         use {
             "yonlu/omni.vim",
             config = function()
-                vim.cmd("colorscheme omni")
+                -- vim.cmd("colorscheme omni")
             end
         }
 
@@ -251,13 +248,7 @@ return require("packer").startup(
         use {
             "rose-pine/neovim",
             as = "rose-pine",
-            config = function()
-                -- Options (see available options below)
-                vim.g.rose_pine_variant = "base"
-
-                -- Load colorscheme after options
-                -- vim.cmd("colorscheme rose-pine")
-            end
+            config="require('colorscheme-config')"
         }
 
         -- Sonokai
@@ -274,9 +265,7 @@ return require("packer").startup(
         -- UwU
         use {
             "mangeshrex/uwu.vim",
-            config = function()
-                -- vim.cmd("colorscheme uwu")
-            end
+            config="require('colorscheme-config')"
         }
     end
 )

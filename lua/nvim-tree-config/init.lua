@@ -7,7 +7,7 @@ nvim_tree.setup {
     renderer = {
         add_trailing = false,
         group_empty = false,
-        highlight_git = true,
+        highlight_git = false,
         full_name = false,
         highlight_opened_files = "none",
         root_folder_modifier = ":~",
@@ -29,7 +29,7 @@ nvim_tree.setup {
                 file = true,
                 folder = true,
                 folder_arrow = true,
-                git = true,
+                git = false,
             },
             glyphs = {
                 default = "",
@@ -55,7 +55,7 @@ nvim_tree.setup {
                 },
             },
         },
-        special_files = { "Cargo.toml", "Makefile", "README.md", "readme.md" },
+        special_files = { "Cargo.toml", "Makefile", "README.md", "readme.md", "CMakeLists.txt"},
     },
     respect_buf_cwd = true,
     disable_netrw = true,
@@ -101,7 +101,6 @@ nvim_tree.setup {
         height = 25,
         hide_root_folder = false,
         side = "left",
-        auto_resize = true,
         mappings = {
             custom_only = false,
             list = {}
@@ -110,30 +109,30 @@ nvim_tree.setup {
         relativenumber = false,
         signcolumn = "yes"
     },
---    actions = {
---        use_system_clipboard = true,
---        change_dir = {
---            enable = true,
---            global = false,
---            restrict_above_cwd = false,
---        },
---        expand_all = {
---            max_folder_discovery = 300,
---        },
---        open_file = {
---            quit_on_open = false,
---            resize_window = true,
---            window_picker = {
---                enable = true,
---                chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
---                exclude = {
---                    filetype = { "notify", "packer", "qf", "diff", "fugitive", "fugitiveblame" },
---                    buftype = { "nofile", "terminal", "help" },
---                },
---            },
---        },
---        remove_file = {
---            close_window = true,
---        },
---    },
+   actions = {
+       use_system_clipboard = true,
+       change_dir = {
+           enable = true,
+           global = false,
+           restrict_above_cwd = false,
+       },
+       expand_all = {
+           max_folder_discovery = 300,
+       },
+       open_file = {
+           quit_on_open = false,
+           resize_window = true,
+           window_picker = {
+               enable = true,
+               chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
+               exclude = {
+                   filetype = { "notify", "packer", "qf", "diff", "fugitive", "fugitiveblame" },
+                   buftype = { "nofile", "terminal", "help" },
+               },
+           },
+       },
+       remove_file = {
+           close_window = true,
+       },
+   },
 }
