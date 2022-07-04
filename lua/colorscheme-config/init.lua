@@ -1,4 +1,4 @@
-local colorscheme = "moonfly"
+local colorscheme = "PaperColor"
 local cmd = vim.api.nvim_command
 local g = vim.g
 local opt = vim.opt
@@ -21,7 +21,15 @@ else
         g.moonflyUndercurls = false
         g.moonflyUnderlineMatchParen = false
         g.moonflyWinSeparator = 2
-        opt.fillchars = { horiz = '━', horizup = '┻', horizdown = '┳', vert = '┃', vertleft = '┫', vertright = '┣', verthoriz = '╋', }
+        opt.fillchars = {
+            horiz = "━",
+            horizup = "┻",
+            horizdown = "┳",
+            vert = "┃",
+            vertleft = "┫",
+            vertright = "┣",
+            verthoriz = "╋"
+        }
     end
 
     if colorscheme == "vscode" then

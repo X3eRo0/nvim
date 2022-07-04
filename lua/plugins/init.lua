@@ -17,11 +17,11 @@ return require("packer").startup(
             config = "require('bufferline-config')"
         }
 
-        -- nvim-tree
-        use {
-            "kyazdani42/nvim-tree.lua",
-            requires = "kyazdani42/nvim-web-devicons"
-        }
+        -- -- nvim-tree
+        -- use {
+        --     "kyazdani42/nvim-tree.lua",
+        --     requires = "kyazdani42/nvim-web-devicons"
+        -- }
 
         use {
             "windwp/nvim-ts-autotag",
@@ -169,29 +169,54 @@ return require("packer").startup(
             "williamboman/nvim-lsp-installer"
         }
 
+        -- use {
+        --     "X3eRo0/dirbuf.nvim",
+        --     config = "require('dirbuf-config')"
+        -- }
+        use {
+            "TimUntersberger/neogit",
+            requires = "nvim-lua/plenary.nvim",
+            config="require('neogit').setup()"
+        }
+
+        -- -- ranger
+        -- use {
+        --     "Lokaltog/neoranger"
+        -- }
+
         -- Colorschemes
         -- Tokyodark
         use {
             "tiagovla/tokyodark.nvim",
-            config="require('colorscheme-config')"
+            config = "require('colorscheme-config')"
+        }
+        -- Paper color - slim
+        use {
+            "pappasam/papercolor-theme-slim",
+            config = "require('colorscheme-config')"
+        }
+
+        use {
+            "X3eRo0/papercolor-theme",
+            config = "require('colorscheme-config')"
         }
         -- Tokyonight
         use {
             "folke/tokyonight.nvim",
-            config="require('colorscheme-config')"
+            config = "require('colorscheme-config')"
         }
 
         -- Material
         use {
             "marko-cerovac/material.nvim",
-            config="require('colorscheme-config')"
+            config = "require('colorscheme-config')"
         }
 
         -- Catppuccin
         use {
             "catppuccin/nvim",
             as = "catppuccin",
-            config="require('colorscheme-config')"
+            config = "require('colorscheme-config')"
         }
 
         -- Vscode
@@ -248,7 +273,7 @@ return require("packer").startup(
         use {
             "rose-pine/neovim",
             as = "rose-pine",
-            config="require('colorscheme-config')"
+            config = "require('colorscheme-config')"
         }
 
         -- Sonokai
@@ -265,7 +290,7 @@ return require("packer").startup(
         -- UwU
         use {
             "mangeshrex/uwu.vim",
-            config="require('colorscheme-config')"
+            config = "require('colorscheme-config')"
         }
     end
 )

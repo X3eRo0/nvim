@@ -15,7 +15,7 @@ map("i", "kj", "<ESC>", {noremap = true, silent = false})
 map("n", "<leader>F", ":Format<CR>", {noremap = true, silent = true})
 map("n", "<leader>f", ":Telescope find_files theme=dropdown<cr>", {noremap = true, silent = true})
 map("n", "<leader>r", ":Telescope live_grep theme=dropdown<cr>", {noremap = true, silent = true})
-map("n", "<leader>e", ":NvimTreeToggle<CR>", {noremap = true, silent = true})
+-- map("n", "<leader>e", ":NvimTreeToggle<CR>", {noremap = true, silent = true})
 map("n", "<leader>S", ":source $MYVIMRC<CR>", {noremap = true, silent = true})
 -- map("n", "gcc", ":CommentToggle<CR>", {noremap = true, silent = true})
 -- map("v", "gc", ":CommentToggle<CR>", {noremap = true, silent = true})
@@ -65,3 +65,6 @@ map(
     ":lua require('toggleterm.terminal').Terminal:new({direction = 'float'}):toggle()<CR>",
     {noremap = true, silent = true}
 )
+
+
+map("n", "<leader>e", ":lua require('dirbuf').open(vim.fn.input('Directory: ', '', 'dir'))<CR>", {noremap = true, silent = true})
