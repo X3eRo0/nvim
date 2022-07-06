@@ -43,10 +43,6 @@ vim.opt.list = true
 vim.opt.listchars:append("eol:↴")
 -- vim.opt.listchars:append("space:⋅")
 
--- netrw options
-vim.g.netrw_liststyle=1
-vim.g.netrw_keepdir=0
-
 --
 vim.g.tokyodark_transparent_background = false
 vim.g.tokyodark_enable_italic_comment = false

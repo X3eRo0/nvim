@@ -17,6 +17,15 @@ return require("packer").startup(
             config = "require('bufferline-config')"
         }
 
+        use {
+            "onsails/lspkind.nvim"
+        }
+
+        use {
+            "j-hui/fidget.nvim",
+            config="require('fidget-config')"
+        }
+
         -- -- nvim-tree
         -- use {
         --     "kyazdani42/nvim-tree.lua",
@@ -50,6 +59,11 @@ return require("packer").startup(
             config = "require('lsp')"
         }
 
+        use {
+            "yamatsum/nvim-nonicons",
+            requires = {"kyazdani42/nvim-web-devicons"}
+        }
+
         use {"hrsh7th/cmp-nvim-lsp"}
         use {"hrsh7th/cmp-buffer"}
         use {"hrsh7th/cmp-path"}
@@ -58,7 +72,6 @@ return require("packer").startup(
         use {"hrsh7th/vim-vsnip"}
         use {"hrsh7th/vim-vsnip-integ"}
         use {"rafamadriz/friendly-snippets"}
-        use {"onsails/lspkind-nvim"}
         use {
             "norcalli/nvim-colorizer.lua",
             config = "require('colorizer-config')",
@@ -77,13 +90,10 @@ return require("packer").startup(
                 }
             end
         }
-        use {"tpope/vim-surround"}
+        use {"kylechui/nvim-surround"}
         use {
-            "terrortylor/nvim-comment"
-        }
-        use {
-            "windwp/nvim-spectre",
-            config = "require('spectre-config')"
+            "numToStr/Comment.nvim",
+            config = "require('comment-config')"
         }
         use {"monaqa/dial.nvim"}
         use {
@@ -173,10 +183,17 @@ return require("packer").startup(
         --     "X3eRo0/dirbuf.nvim",
         --     config = "require('dirbuf-config')"
         -- }
+
+        use {
+            "nvim-lua/plenary.nvim"
+        }
         use {
             "TimUntersberger/neogit",
-            requires = "nvim-lua/plenary.nvim",
-            config="require('neogit').setup()"
+            requires = {
+                "nvim-lua/plenary.nvim",
+                "sindrets/diffview.nvim"
+            },
+            config = "require('neogit-config')"
         }
 
         -- -- ranger
@@ -290,6 +307,11 @@ return require("packer").startup(
         -- UwU
         use {
             "mangeshrex/uwu.vim",
+            config = "require('colorscheme-config')"
+        }
+
+        use {
+            "projekt0n/github-nvim-theme",
             config = "require('colorscheme-config')"
         }
     end

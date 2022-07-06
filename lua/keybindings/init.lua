@@ -27,10 +27,10 @@ map("n", "<C-p>", '"_dP', {noremap = true, silent = true})
 map("v", "<", "<gv", {noremap = true, silent = false})
 map("v", ">", ">gv", {noremap = true, silent = false})
 
-map("n", "<leader>sr", ':lua require("spectre").open()<CR>', {noremap = true, silent = false})
-map("n", "<leader>sw", ':lua require("spectre").open_visual({select_word=true})<CR>', {noremap = true, silent = false})
-map("v", "<leader>s", ':lua require("spectre").open_visual()<CR>', {noremap = true, silent = false})
-map("n", "<leader>sp", 'viw:lua require("spectre").open_file_search()<CR>', {noremap = true, silent = false})
+-- map("n", "<leader>sr", ':lua require("spectre").open()<CR>', {noremap = true, silent = false})
+-- map("n", "<leader>sw", ':lua require("spectre").open_visual({select_word=true})<CR>', {noremap = true, silent = false})
+-- map("v", "<leader>s", ':lua require("spectre").open_visual()<CR>', {noremap = true, silent = false})
+-- map("n", "<leader>sp", 'viw:lua require("spectre").open_file_search()<CR>', {noremap = true, silent = false})
 
 map("n", "C-a", "<Plug>(dial-increment)", {noremap = true, silent = false})
 map("n", "C-x", "<Plug>(dial-decrement)", {noremap = true, silent = false})
@@ -67,4 +67,5 @@ map(
 )
 
 
-map("n", "<leader>e", ":lua require('dirbuf').open(vim.fn.input('Directory: ', '', 'dir'))<CR>", {noremap = true, silent = true})
+-- map("n", "<leader>e", ":lua require('dirbuf').open(vim.fn.input('Directory: ', '', 'dir'))<CR>", {noremap = true, silent = true})
+map("n", "<leader>e", ":e .<CR>", {noremap = true, silent = true})

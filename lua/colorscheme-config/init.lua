@@ -1,4 +1,4 @@
-local colorscheme = "PaperColor"
+local colorscheme = "github_dark_default"
 local cmd = vim.api.nvim_command
 local g = vim.g
 local opt = vim.opt
@@ -14,6 +14,21 @@ else
         g.tokyonight_italic_functions = false
         g.tokyonight_italic_comments = false
         g.tokyonight_italic_keywords = false
+    end
+
+    if colorscheme:find("^github") ~= nil then
+        require("github-theme").setup(
+            {
+                theme_style = "dark_default",
+                function_style = "NONE",
+                dark_float = true,
+                comment_style = "NONE",
+                keyword_style = "NONE",
+                sidebars = {"qf", "vista_kind", "terminal", "packer"},
+                -- Change the "hint" color to the "orange" color, and make the "error" color bright red
+                colors = {hint = "orange", error = "#ff0000"}
+            }
+        )
     end
 
     if colorscheme == "moonfly" then

@@ -1,6 +1,6 @@
 local colors = {
-    bg = "#14141f",
-    fg = "#efeff5",
+    bg = "#efeff5",
+    fg = "#212121",
     yellow = "#e0af68",
     cyan = "#56b6c2",
     darkblue = "#081633",
@@ -85,8 +85,8 @@ end
 local function vimode_hl()
     return {
         name = vi_mode_utils.get_mode_highlight_name(),
-        fg = colors.bg,
-        bg = colors.fg,
+        fg = colors.fg,
+        bg = colors.bg,
         style = "bold"
     }
 end
@@ -323,7 +323,7 @@ table.insert(
 table.insert(
     components.active,
     {
-        comps.git.add,
+        -- comps.git.add,
         comps.git.change,
         comps.git.remove,
         comps.file.os,
