@@ -26,12 +26,6 @@ return require("packer").startup(
             config="require('fidget-config')"
         }
 
-        -- -- nvim-tree
-        -- use {
-        --     "kyazdani42/nvim-tree.lua",
-        --     requires = "kyazdani42/nvim-web-devicons"
-        -- }
-
         use {
             "windwp/nvim-ts-autotag",
             after = "nvim-treesitter"
@@ -57,11 +51,6 @@ return require("packer").startup(
         use {
             "neovim/nvim-lspconfig",
             config = "require('lsp')"
-        }
-
-        use {
-            "yamatsum/nvim-nonicons",
-            requires = {"kyazdani42/nvim-web-devicons"}
         }
 
         use {"hrsh7th/cmp-nvim-lsp"}
@@ -149,7 +138,6 @@ return require("packer").startup(
                 )
             end
         }
-        use {"mhinz/vim-startify"}
         use {
             "fedepujol/move.nvim",
             config = function()
@@ -172,10 +160,6 @@ return require("packer").startup(
             "famiu/bufdelete.nvim"
         }
         use {
-            "rcarriga/nvim-notify",
-            config = "vim.notify = require('notify')"
-        }
-        use {
             "williamboman/nvim-lsp-installer"
         }
 
@@ -183,6 +167,10 @@ return require("packer").startup(
         --     "X3eRo0/dirbuf.nvim",
         --     config = "require('dirbuf-config')"
         -- }
+        use {
+            "X3eRo0/dired.nvim",
+            config = "require('dired-config')"
+        }
 
         use {
             "nvim-lua/plenary.nvim"
@@ -193,13 +181,8 @@ return require("packer").startup(
                 "nvim-lua/plenary.nvim",
                 "sindrets/diffview.nvim"
             },
-            config = "require('neogit-config')"
+            config = "require('neogit-config')",
         }
-
-        -- -- ranger
-        -- use {
-        --     "Lokaltog/neoranger"
-        -- }
 
         -- Colorschemes
         -- Tokyodark

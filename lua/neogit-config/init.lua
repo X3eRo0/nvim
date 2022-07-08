@@ -9,7 +9,7 @@ neogit.setup {
     -- Disabling `auto_refresh` will make it so you have to manually refresh the status after you open it.
     auto_refresh = true,
     disable_builtin_notifications = false,
-    use_magit_keybindings = false,
+    use_magit_keybindings = true,
     commit_popup = {
         kind = "split"
     },
@@ -31,30 +31,6 @@ neogit.setup {
         --
         diffview = true
     },
-    -- Setting any section to `false` will make the section not render at all
-    sections = {
-        untracked = {
-            folded = false
-        },
-        unstaged = {
-            folded = false
-        },
-        staged = {
-            folded = false
-        },
-        stashes = {
-            folded = true
-        },
-        unpulled = {
-            folded = true
-        },
-        unmerged = {
-            folded = false
-        },
-        recent = {
-            folded = true
-        }
-    },
     -- override/add mappings
     mappings = {
         -- modify status buffer mappings
@@ -62,7 +38,7 @@ neogit.setup {
             -- Adds a mapping with "B" as key that does the "BranchPopup" command
             ["B"] = "BranchPopup",
             -- Removes the default mapping of "s"
-            ["s"] = ""
+            -- ["s"] = ""
         }
     }
 }
