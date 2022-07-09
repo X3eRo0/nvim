@@ -95,6 +95,11 @@ return require("packer").startup(
             config = "require('format-config')",
             cmd = "Format"
         }
+        use {
+            "lukas-reineke/lsp-format.nvim",
+            config = "require('format-config')",
+            cmd = "Format"
+        }
         use {"tami5/lspsaga.nvim"}
         use {
             "akinsho/toggleterm.nvim",

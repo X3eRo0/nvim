@@ -107,6 +107,9 @@ require("formatter").setup(
                     }
                 end
             }
+        },
+        ["*"] = {
+            require("formatter.filetypes.any").remove_trailing_whitespace
         }
     }
 )
@@ -115,7 +118,7 @@ vim.api.nvim_exec(
     [[
 augroup FormatAutogroup
   autocmd!
-  autocmd BufWritePost *.c,*.cpp,*.py,*.lua FormatWrite
+  autocmd BufWritePost *.c,*.cpp,*.py,*.lua,*.sh,*.js,*.html FormatWrite
 augroup END
 ]],
     true
