@@ -5,9 +5,12 @@ require("formatter").setup(
                 -- prettier
                 function()
                     return {
-                        exe = "/home/x3ero0/node_modules/.bin/prettier",
-                        args = {"--stdin-filepath", vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)), "--single-quote"},
-                        stdin = true
+                        exe = "/usr/bin/prettierd",
+                        args = {vim.fn.fnameescape(vim.api.nvim_buf_get_name(0))},
+                        stdin = true,
+                        env = {
+                            string.format('PRETTIERD_DEFAULT_CONFIG=%s', vim.fn.expand('~/.config/nvim/.prettierrc')),
+                        },
                     }
                 end
             },
@@ -55,15 +58,9 @@ require("formatter").setup(
                 -- prettier
                 function()
                     return {
-                        exe = "/home/x3ero0/node_modules/.bin/prettier",
+                        exe = "/usr/bin/prettierd",
                         args = {
-                            "--stdin-filepath",
                             vim.fn.shellescape(vim.api.nvim_buf_get_name(0)),
-                            "--single-quote",
-                            "--tab-width",
-                            "4",
-                            "--end-of-line",
-                            "lf"
                         },
                         stdin = true
                     }
@@ -73,15 +70,9 @@ require("formatter").setup(
                 -- prettier
                 function()
                     return {
-                        exe = "/home/x3ero0/node_modules/.bin/prettier",
+                        exe = "/usr/bin/prettierd",
                         args = {
-                            "--stdin-filepath",
                             vim.fn.shellescape(vim.api.nvim_buf_get_name(0)),
-                            "--single-quote",
-                            "--tab-width",
-                            "4",
-                            "--end-of-line",
-                            "lf"
                         },
                         stdin = true
                     }
@@ -91,8 +82,8 @@ require("formatter").setup(
                 -- luafmt
                 function()
                     return {
-                        exe = "/home/x3ero0/node_modules/.bin/luafmt",
-                        args = {"--stdin"},
+                        exe = "/home/x3ero0/.cargo/bin/stylua",
+                        args = {"--indent-width", "4", "--line-endings", "Unix", "--indent-type", "Spaces", "-"},
                         stdin = true
                     }
                 end

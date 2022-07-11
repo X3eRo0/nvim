@@ -10,6 +10,6 @@ if vim.g.nvui then
     vim.cmd [[NvuiScrollAnimationDuration 0.1]]
     vim.cmd [[NvuiCursorAnimationDuration 0.1]]
     vim.cmd [[NvuiMoveAnimationDuration 0.1]]
-    vim.cmd [[NvuiTitlebarFontFamily JetbrainsMono NerdFont Medium]]
-    vim.cmd [[set guifont=JetBrainsMono\ Nerd\ Font\ Mono:h14]]
+    vim.cmd [[NvuiTitlebarFontFamily BlexMono Nerd Font]]
+    vim.cmd [[set guifont=BlexMono\ Nerd\ Font:h14]]
 end

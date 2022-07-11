@@ -1,4 +1,4 @@
-local colorscheme = "github_dark_default"
+local colorscheme = "moonfly"
 local cmd = vim.api.nvim_command
 local g = vim.g
 local opt = vim.opt
@@ -19,7 +19,7 @@ else
     if colorscheme:find("^github") ~= nil then
         require("github-theme").setup(
             {
-                theme_style = "dark_default",
+                theme_style = "light_default",
                 function_style = "NONE",
                 dark_float = true,
                 comment_style = "NONE",
