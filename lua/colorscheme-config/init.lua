@@ -1,4 +1,4 @@
-local colorscheme = "moonfly"
+local colorscheme = "github_dark_colorblind"
 local cmd = vim.api.nvim_command
 local g = vim.g
 local opt = vim.opt

@@ -300,4 +300,9 @@ return require("packer").startup(function(use)
         "projekt0n/github-nvim-theme",
         config = "require('colorscheme-config')",
     })
+
+    use({
+        "hawier-dev/hollow.vim",
+        config = "require('colorscheme-config')",
+    })
 end)
