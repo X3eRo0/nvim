@@ -142,16 +142,6 @@ return require("packer").startup(function(use)
     })
     use({
         "fedepujol/move.nvim",
-        config = function()
-            vim.api.nvim_set_keymap("n", "<A-j>", ":MoveLine(2)<CR>", { noremap = true, silent = true })
-            vim.api.nvim_set_keymap("n", "<A-k>", ":MoveLine(0)<CR>", { noremap = true, silent = true })
-            vim.api.nvim_set_keymap("v", "<A-j>", ":MoveBlock(2)<CR>", { noremap = true, silent = true })
-            vim.api.nvim_set_keymap("v", "<A-k>", ":MoveBlock(0)<CR>", { noremap = true, silent = true })
-            vim.api.nvim_set_keymap("n", "<A-l>", ":MoveHChar(2)<CR>", { noremap = true, silent = true })
-            vim.api.nvim_set_keymap("n", "<A-h>", ":MoveHChar(-1)<CR>", { noremap = true, silent = true })
-            vim.api.nvim_set_keymap("v", "<A-l>", ":MoveHBlock(1)<CR>", { noremap = true, silent = true })
-            vim.api.nvim_set_keymap("v", "<A-h>", ":MoveHBlock(-1)<CR>", { noremap = true, silent = true })
-        end,
     })
     use({
         "feline-nvim/feline.nvim",
@@ -332,6 +322,9 @@ return require("packer").startup(function(use)
     })
     use({
         "vim-utils/vim-man"
+    })
+    use({
+        "shoumodip/compile.nvim"
     })
 
 end)
