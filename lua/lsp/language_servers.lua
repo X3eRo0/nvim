@@ -2,6 +2,8 @@
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
+
+local navic = require("nvim-navic")
 local on_attach = function(client, bufnr)
     local function buf_set_keymap(...)
         vim.api.nvim_buf_set_keymap(bufnr, ...)
@@ -14,13 +16,13 @@ local on_attach = function(client, bufnr)
     buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 
     -- Mappings.
-    local opts = {noremap = true, silent = true}
+    local opts = { noremap = true, silent = true }
 
     -- See `:help vim.lsp.*` for documentation on any of the below functions
     buf_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
     buf_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
     buf_set_keymap("n", "gdp", "<cmd>Lspsaga preview_definition<CR>", opts)
-    buf_set_keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)
+    -- buf_set_keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)
     buf_set_keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
     buf_set_keymap("n", "gk", "<cmd>Lspsaga signature_help<CR>", opts)
     buf_set_keymap("n", "<space>wa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", opts)
@@ -48,8 +50,10 @@ local on_attach = function(client, bufnr)
     --     "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({ border = border })<CR>",
     --     opts
     -- )
-    -- buf_set_keymap("n", "[d", '<Cmd>lua vim.lsp.diagnostic.goto_prev({popup_opts = {source = "always"}})<CR>', opts)
-    -- buf_set_keymap("n", "]d", '<Cmd>lua vim.lsp.diagnostic.goto_next({popup_opts = {source = "always"}})<CR>', opts)
+    vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
+    vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
+
+    navic.attach(client, bufnr)
 end
 
 local lsp_installer = require("nvim-lsp-installer")
@@ -69,43 +73,36 @@ local lsp_installer = require("nvim-lsp-installer")
 --         server:setup(opts)
 --     end
 -- )
-lsp_installer.setup(
-    {
-        ui = {
-            border = "rounded",
-            icons = {
-                server_installed = "✓",
-                server_pending = "➜",
-                server_uninstalled = "✗"
-            }
-        }
-    }
-)
+lsp_installer.setup({
+    ui = {
+        border = "rounded",
+        icons = {
+            server_installed = "✓",
+            server_pending = "➜",
+            server_uninstalled = "✗",
+        },
+    },
+})
 
 local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
 local opts = {
     on_attach = on_attach,
     capabilities = capabilities,
     flags = {
-        debounce_text_changes = 150
-    }
+        debounce_text_changes = 150,
+    },
 }
 
-local lua_opts =
-    vim.tbl_deep_extend(
-    "force",
-    {
-        settings = {
-            Lua = {
-                runtime = {version = "LuaJIT", path = vim.split(package.path, ";")},
-                diagnostics = {globals = {"vim"}},
-                workspace = {library = vim.api.nvim_get_runtime_file("", true), checkThirdParty = false},
-                telemetry = {enable = false}
-            }
-        }
+local lua_opts = vim.tbl_deep_extend("force", {
+    settings = {
+        Lua = {
+            runtime = { version = "LuaJIT", path = vim.split(package.path, ";") },
+            diagnostics = { globals = { "vim" } },
+            workspace = { library = vim.api.nvim_get_runtime_file("", true), checkThirdParty = false },
+            telemetry = { enable = false },
+        },
     },
-    opts
-)
+}, opts)
 require("lspconfig").sumneko_lua.setup(lua_opts)
 require("lspconfig").clangd.setup(opts)
 require("lspconfig").pyright.setup(opts)

@@ -78,7 +78,12 @@ return require("packer").startup(function(use)
             })
         end,
     })
-    use({ "kylechui/nvim-surround" })
+    use({
+        "kylechui/nvim-surround",
+        config = function()
+            require("nvim-surround").setup()
+        end,
+    })
     use({
         "numToStr/Comment.nvim",
         config = "require('comment-config')",
@@ -305,4 +310,28 @@ return require("packer").startup(function(use)
         "hawier-dev/hollow.vim",
         config = "require('colorscheme-config')",
     })
+
+    use({
+        "rockerBOO/boo-colorscheme-nvim",
+        config = "require('colorscheme-config')",
+    })
+
+    use({
+        "B4mbus/oxocarbon-lua.nvim",
+        config = "require('colorscheme-config')",
+    })
+
+    use({
+        "SmiteshP/nvim-navic",
+        requires = "neovim/nvim-lspconfig",
+    })
+    use({
+        "X3eRo0/winbar.nvim",
+        requires = "SmiteshP/nvim-navic",
+        config = "require('winbar-config')",
+    })
+    use({
+        "vim-utils/vim-man"
+    })
+
 end)

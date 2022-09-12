@@ -5,7 +5,7 @@ require("formatter").setup(
                 -- prettier
                 function()
                     return {
-                        exe = "/usr/bin/prettierd",
+                        exe = "/usr/local/bin/prettierd",
                         args = {vim.fn.fnameescape(vim.api.nvim_buf_get_name(0))},
                         stdin = true,
                         env = {
@@ -30,7 +30,7 @@ require("formatter").setup(
                     return {
                         exe = "clang-format",
                         args = {
-                            "-style='{BasedOnStyle: WebKit, IndentWidth: 4}'",
+                            "-style='{BasedOnStyle: WebKit, IndentWidth: 4, SortIncludes: false}'",
                             "--assume-filename",
                             vim.api.nvim_buf_get_name(0)
                         },
@@ -45,7 +45,7 @@ require("formatter").setup(
                     return {
                         exe = "clang-format",
                         args = {
-                            "-style='{BasedOnStyle: WebKit, IndentWidth: 4}'",
+                            "-style='{BasedOnStyle: WebKit, IndentWidth: 4, SortIncludes: false}'",
                             "--assume-filename",
                             vim.api.nvim_buf_get_name(0)
                         },
@@ -58,7 +58,7 @@ require("formatter").setup(
                 -- prettier
                 function()
                     return {
-                        exe = "/usr/bin/prettierd",
+                        exe = "/usr/local/bin/prettierd",
                         args = {
                             vim.fn.shellescape(vim.api.nvim_buf_get_name(0)),
                         },
@@ -70,7 +70,7 @@ require("formatter").setup(
                 -- prettier
                 function()
                     return {
-                        exe = "/usr/bin/prettierd",
+                        exe = "/usr/local/bin/prettierd",
                         args = {
                             vim.fn.shellescape(vim.api.nvim_buf_get_name(0)),
                         },

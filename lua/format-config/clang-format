@@ -5,6 +5,13 @@ IndentWidth: 4
 ---
 Language: Cpp
 # Force pointers to the type for C++.
+SortIncludes: false
+DerivePointerAlignment: false
+PointerAlignment: Left
+---
+Language: C
+# Force pointers to the type for C++.
+SortIncludes: false
 DerivePointerAlignment: false
 PointerAlignment: Left
 ---

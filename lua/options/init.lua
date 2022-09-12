@@ -5,7 +5,7 @@ vim.o.hidden = true
 vim.o.whichwrap = "b,s,<,>,[,],h,l"
 vim.o.pumheight = 8
 vim.o.fileencoding = "utf-8"
-vim.o.cmdheight = 2
+vim.o.cmdheight = 1
 vim.o.inccommand = "nosplit"
 vim.o.splitbelow = true
 vim.o.splitright = true
@@ -42,6 +42,8 @@ vim.bo.expandtab = true
 vim.opt.list = true
 vim.opt.listchars:append("eol:↴")
 -- vim.opt.listchars:append("space:⋅")
+
+vim.g.ft_man_open_mode = 'vert'
 
 --
 vim.g.tokyodark_transparent_background = false

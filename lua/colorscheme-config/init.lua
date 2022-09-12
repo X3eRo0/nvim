@@ -1,4 +1,4 @@
-local colorscheme = "github_dark_colorblind"
+local colorscheme = "oxocarbon-lua"
 local cmd = vim.api.nvim_command
 local g = vim.g
 local opt = vim.opt
@@ -29,6 +29,19 @@ else
                 colors = {hint = "orange", error = "#ff0000"}
             }
         )
+    end
+
+    if colorscheme == "boo" then
+        require("boo-colorscheme").use({
+            -- theme = "crimson_moonlight",
+            -- theme = "forest_stream",
+            -- theme = "sunset_cloud",
+            theme = "radioactive_waste",
+        })
+    end
+
+    if colorscheme == "oxocarbon-lua" then
+        vim.g.oxocarbon_lua_disable_italic = 1
     end
 
     if colorscheme == "moonfly" then
