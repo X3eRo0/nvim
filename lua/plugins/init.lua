@@ -9,12 +9,14 @@ return require("packer").startup(function(use)
         config = "require('treesitter-config')",
     })
 
-    use({
-        "akinsho/bufferline.nvim",
-        requires = "kyazdani42/nvim-web-devicons",
-        event = "BufWinEnter",
-        config = "require('bufferline-config')",
-    })
+    use({"kyazdani42/nvim-web-devicons",})
+
+    -- use({
+    --     "akinsho/bufferline.nvim",
+    --     requires = "kyazdani42/nvim-web-devicons",
+    --     event = "BufWinEnter",
+    --     config = "require('bufferline-config')",
+    -- })
 
     use({
         "onsails/lspkind.nvim",
@@ -67,16 +69,7 @@ return require("packer").startup(function(use)
     })
     use({
         "lewis6991/gitsigns.nvim",
-        requires = {
-            "nvim-lua/plenary.nvim",
-        },
-        config = function()
-            require("gitsigns").setup({
-                current_line_blame = true,
-                signcolumn = true,
-                numhl = true,
-            })
-        end,
+        config = "require('gitsigns-config')"
     })
     use({
         "kylechui/nvim-surround",
@@ -324,7 +317,16 @@ return require("packer").startup(function(use)
         "vim-utils/vim-man"
     })
     use({
-        "shoumodip/compile.nvim"
+        "X3eRo0/compile.nvim"
+    })
+    use({
+        "ishan9299/modus-theme-vim"
+    })
+    use({
+        "Th3Whit3Wolf/one-nvim"
+    })
+    use({
+        "rebelot/kanagawa.nvim"
     })
 
 end)

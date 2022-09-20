@@ -16,6 +16,23 @@ else
         g.tokyonight_italic_keywords = false
     end
 
+    if colorscheme == "one-nvim" then
+        vim.g.one_nvim_transparent_bg = false
+    end
+
+    -- modus-theme-vim
+    if colorscheme:find("^modus") ~= nil then
+        -- modus-vivendi
+        -- modus-operandi
+        vim.g.modus_moody_enable = true
+        vim.g.modus_yellow_comments = true
+        vim.g.modus_green_strings = true
+        vim.g.modus_faint_syntax = true
+        vim.g.modus_cursorline_intense = true
+        vim.g.modus_termtrans_enable = true
+        vim.g.modus_dim_inactive_window = true
+    end
+
     if colorscheme:find("^github") ~= nil then
         require("github-theme").setup(
             {
