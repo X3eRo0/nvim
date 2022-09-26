@@ -289,10 +289,10 @@ return require("packer").startup(function(use)
         config = "require('colorscheme-config')",
     })
 
-    use({
-        "hawier-dev/hollow.vim",
-        config = "require('colorscheme-config')",
-    })
+    -- use({
+    --     "hawier-dev/hollow.vim",
+    --     config = "require('colorscheme-config')",
+    -- })
 
     use({
         "rockerBOO/boo-colorscheme-nvim",
