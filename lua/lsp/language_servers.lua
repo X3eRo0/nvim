@@ -106,3 +106,4 @@ local lua_opts = vim.tbl_deep_extend("force", {
 require("lspconfig").sumneko_lua.setup(lua_opts)
 require("lspconfig").clangd.setup(opts)
 require("lspconfig").pyright.setup(opts)
+require("lspconfig").rust_analyzer.setup(opts)
