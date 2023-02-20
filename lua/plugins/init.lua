@@ -158,7 +158,8 @@ return require("packer").startup(function(use)
     -- })
 
     use({
-        "X3eRo0/dired.nvim",
+        "/home/x3ero0/dired.nvim",
+        -- "X3eRo0/dired.nvim",
         requires = "MunifTanjim/nui.nvim",
         config = "require('dired-config')",
     })
@@ -300,7 +301,7 @@ return require("packer").startup(function(use)
     })
 
     use({
-        "B4mbus/oxocarbon-lua.nvim",
+        "nyoom-engineering/oxocarbon.nvim",
         config = "require('colorscheme-config')",
     })
 
@@ -328,5 +329,8 @@ return require("packer").startup(function(use)
     use({
         "rebelot/kanagawa.nvim",
     })
-    use({ "rootkiter/vim-hexedit" })
+    use({ "metalelf0/jellybeans-nvim", requires = "rktjmp/lush.nvim" })
+    -- use({
+    --     "RaafatTurki/hex.nvim", config="require('hex').setup()"
+    -- })
 end)

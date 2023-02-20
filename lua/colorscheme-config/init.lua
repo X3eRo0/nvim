@@ -1,7 +1,9 @@
-local colorscheme = "oxocarbon-lua"
+local colorscheme = "jellybeans-nvim"
 local cmd = vim.api.nvim_command
 local g = vim.g
 local opt = vim.opt
+
+-- jellybeans-nvim
 
 local colo_ok, _ = pcall(cmd, "colo " .. colorscheme)
 if not colo_ok then
@@ -34,18 +36,22 @@ else
     end
 
     if colorscheme:find("^github") ~= nil then
-        require("github-theme").setup(
-            {
-                theme_style = "light_default",
-                function_style = "NONE",
-                dark_float = true,
-                comment_style = "NONE",
-                keyword_style = "NONE",
-                sidebars = {"qf", "vista_kind", "terminal", "packer"},
-                -- Change the "hint" color to the "orange" color, and make the "error" color bright red
-                colors = {hint = "orange", error = "#ff0000"}
-            }
-        )
+        -- github_dimmed
+        -- github_dark_default
+        -- github_dark_colorblind
+        -- github_light
+        -- github_light_default
+        -- github_light_colorblind
+        require("github-theme").setup({
+            theme_style = "light_default",
+            function_style = "NONE",
+            dark_float = true,
+            comment_style = "NONE",
+            keyword_style = "NONE",
+            sidebars = { "qf", "vista_kind", "terminal", "packer" },
+            -- Change the "hint" color to the "orange" color, and make the "error" color bright red
+            colors = { hint = "orange", error = "#ff0000" },
+        })
     end
 
     if colorscheme == "boo" then
@@ -57,8 +63,9 @@ else
         })
     end
 
-    if colorscheme == "oxocarbon-lua" then
-        vim.g.oxocarbon_lua_disable_italic = 1
+    if colorscheme == "oxocarbon" then
+        -- vim.g.oxocarbon_lua_disable_italic = 1
+        vim.opt.background = "dark" -- set this to dark or light
     end
 
     if colorscheme == "moonfly" then
@@ -73,7 +80,7 @@ else
             vert = "┃",
             vertleft = "┫",
             vertright = "┣",
-            verthoriz = "╋"
+            verthoriz = "╋",
         }
     end
 
@@ -92,111 +99,151 @@ else
 
     if colorscheme == "rose-pine" then
         -- Options (see available options below)
-        vim.g.rose_pine_variant = "base"
+        require("rose-pine").setup({
+            --- @usage 'main' | 'moon'
+            dark_variant = "main",
+            bold_vert_split = false,
+            dim_nc_background = false,
+            disable_background = false,
+            disable_float_background = false,
+            disable_italics = true,
+
+            --- @usage string hex value or named color from rosepinetheme.com/palette
+            groups = {
+                background = "base",
+                panel = "surface",
+                border = "highlight_med",
+                comment = "muted",
+                link = "iris",
+                punctuation = "subtle",
+
+                error = "love",
+                hint = "iris",
+                info = "foam",
+                warn = "gold",
+
+                headings = {
+                    h1 = "iris",
+                    h2 = "foam",
+                    h3 = "rose",
+                    h4 = "gold",
+                    h5 = "pine",
+                    h6 = "foam",
+                },
+                -- or set all headings at once
+                -- headings = 'subtle'
+            },
+
+            -- Change specific vim highlight groups
+            highlight_groups = {
+                ColorColumn = { bg = "rose" },
+            },
+        })
+
+        -- set colorscheme after options
+        vim.cmd("colorscheme rose-pine")
+        --
+        --
     end
     if colorscheme == "catppuccin" then
         g.catppuccin_flavor = "frappe" -- "latte", "machhiato", "mocha"
-        require("catppuccin").setup(
-            {
-                transparent_background = false,
-                term_colors = false,
-                styles = {
-                    comments = "NONE",
-                    conditionals = "NONE",
-                    loops = "NONE",
-                    functions = "NONE",
-                    keywords = "NONE",
-                    strings = "NONE",
-                    variables = "NONE",
-                    numbers = "NONE",
-                    booleans = "NONE",
-                    properties = "NONE",
-                    types = "NONE",
-                    operators = "NONE"
+        require("catppuccin").setup({
+            transparent_background = false,
+            term_colors = false,
+            styles = {
+                comments = "NONE",
+                conditionals = "NONE",
+                loops = "NONE",
+                functions = "NONE",
+                keywords = "NONE",
+                strings = "NONE",
+                variables = "NONE",
+                numbers = "NONE",
+                booleans = "NONE",
+                properties = "NONE",
+                types = "NONE",
+                operators = "NONE",
+            },
+            integrations = {
+                treesitter = true,
+                native_lsp = {
+                    enabled = true,
+                    virtual_text = {
+                        errors = "NONE",
+                        hints = "NONE",
+                        warnings = "NONE",
+                        information = "NONE",
+                    },
+                    underlines = {
+                        errors = "underline",
+                        hints = "underline",
+                        warnings = "underline",
+                        information = "underline",
+                    },
                 },
-                integrations = {
-                    treesitter = true,
-                    native_lsp = {
-                        enabled = true,
-                        virtual_text = {
-                            errors = "NONE",
-                            hints = "NONE",
-                            warnings = "NONE",
-                            information = "NONE"
-                        },
-                        underlines = {
-                            errors = "underline",
-                            hints = "underline",
-                            warnings = "underline",
-                            information = "underline"
-                        }
-                    },
-                    coc_nvim = false,
-                    lsp_trouble = false,
-                    cmp = true,
-                    lsp_saga = false,
-                    gitgutter = false,
-                    gitsigns = true,
-                    telescope = true,
-                    nvimtree = {
-                        enabled = true,
-                        show_root = false,
-                        transparent_panel = false
-                    },
-                    neotree = {
-                        enabled = false,
-                        show_root = false,
-                        transparent_panel = false
-                    },
-                    which_key = false,
-                    indent_blankline = {
-                        enabled = true,
-                        colored_indent_levels = false
-                    },
-                    dashboard = true,
-                    neogit = false,
-                    vim_sneak = false,
-                    fern = false,
-                    barbar = false,
-                    bufferline = true,
-                    markdown = true,
-                    lightspeed = false,
-                    ts_rainbow = false,
-                    hop = false,
-                    notify = true,
-                    telekasten = true,
-                    symbols_outline = true
-                }
-            }
-        )
+                coc_nvim = false,
+                lsp_trouble = false,
+                cmp = true,
+                lsp_saga = false,
+                gitgutter = false,
+                gitsigns = true,
+                telescope = true,
+                nvimtree = {
+                    enabled = true,
+                    show_root = false,
+                    transparent_panel = false,
+                },
+                neotree = {
+                    enabled = false,
+                    show_root = false,
+                    transparent_panel = false,
+                },
+                which_key = false,
+                indent_blankline = {
+                    enabled = true,
+                    colored_indent_levels = false,
+                },
+                dashboard = true,
+                neogit = false,
+                vim_sneak = false,
+                fern = false,
+                barbar = false,
+                bufferline = true,
+                markdown = true,
+                lightspeed = false,
+                ts_rainbow = false,
+                hop = false,
+                notify = true,
+                telekasten = true,
+                symbols_outline = true,
+            },
+        })
     end
 
     -- Material
     if colorscheme == "material" then
         g.material_style = "deep ocean"
-        require("material").setup(
-            {
-                contrast = {
-                    sidebars = true,
-                    floating_windows = true,
-                    non_current_windows = true,
-                    popup_menu = true
-                },
-                italics = {
-                    comments = false,
-                    functions = false,
-                    keywords = false
-                },
-                high_visibility = {
-                    darker = true
-                }
-            }
-        )
+        require("material").setup({
+            contrast = {
+                sidebars = true,
+                floating_windows = true,
+                non_current_windows = true,
+                popup_menu = true,
+            },
+            italics = {
+                comments = false,
+                functions = false,
+                keywords = false,
+            },
+            high_visibility = {
+                darker = true,
+            },
+        })
         -- notify if setup is loaded
-        vim.notify("Material and Setup loaded!", "info", {render = "minimal"})
+        vim.notify("Material and Setup loaded!", "info", { render = "minimal" })
     end
 
     -- re-require
     cmd("colo " .. colorscheme)
-    vim.notify("Colorscheme loaded!", "info", {render = "minimal"})
+    vim.notify("Colorscheme loaded!", "info", { render = "minimal" })
 end
