@@ -24,6 +24,7 @@ return require("packer").startup(function(use)
 
     use({
         "j-hui/fidget.nvim",
+        tag = 'legacy',
         config = "require('fidget-config')",
     })
 
@@ -84,6 +85,7 @@ return require("packer").startup(function(use)
     use({ "monaqa/dial.nvim" })
     use({
         "lukas-reineke/indent-blankline.nvim",
+        commit="3ad57e569d1c47cf4fa2308f555003e0a5509204",
         config = "require('blankline-config')",
         event = "BufRead",
     })
@@ -158,8 +160,7 @@ return require("packer").startup(function(use)
     -- })
 
     use({
-        "/home/x3ero0/dired.nvim",
-        -- "X3eRo0/dired.nvim",
+        "X3eRo0/dired.nvim",
         requires = "MunifTanjim/nui.nvim",
         config = "require('dired-config')",
     })
@@ -330,6 +331,7 @@ return require("packer").startup(function(use)
         "rebelot/kanagawa.nvim",
     })
     use({ "metalelf0/jellybeans-nvim", requires = "rktjmp/lush.nvim" })
+
     -- use({
     --     "RaafatTurki/hex.nvim", config="require('hex').setup()"
     -- })
