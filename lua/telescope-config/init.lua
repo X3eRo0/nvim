@@ -10,7 +10,7 @@ require("telescope").setup {
             vertical = {mirror = false}
         },
         find_command = {"rg", "--no-heading", "--with-filename", "--line-number", "--column", "--smart-case"},
-        prompt_prefix = " ",
+        prompt_prefix = "🔎 ",
         selection_caret = " ",
         entry_prefix = "  ",
         initial_mode = "insert",
