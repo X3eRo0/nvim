@@ -94,7 +94,11 @@ return require("packer").startup(function(use)
         config = "require('format-config')",
         cmd = "Format",
     })
-    use({ "tami5/lspsaga.nvim" })
+    use ({
+        'nvimdev/lspsaga.nvim',
+        after = 'nvim-lspconfig',
+        config = "require('lsp/lspsaga')",
+    })
     use({
         "akinsho/toggleterm.nvim",
         config = "require('toggleterm-config')",

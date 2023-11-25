@@ -2,7 +2,6 @@ require("plugins")
 require("keybindings")
 require("options")
 require("comment-config")
--- require("nvim-tree-config")
 require("netrw-config")
 if vim.g.nvui then
     -- Configure through vim commands
