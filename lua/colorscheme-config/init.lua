@@ -11,6 +11,7 @@
 -- github_light_high_contrast
 -- github_light_colorblind
 -- github_light_tritanopia
+-- midnight
 
 local colorscheme = "jellybeans-nvim"
 local cmd = vim.api.nvim_command

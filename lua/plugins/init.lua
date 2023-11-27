@@ -85,7 +85,7 @@ return require("packer").startup(function(use)
     use({
         "nvimdev/lspsaga.nvim",
         after = "nvim-lspconfig",
-        config = "require('lsp/lspsaga')"
+        config = "require('lsp/lspsaga')",
     })
 
     use({
@@ -332,7 +332,8 @@ return require("packer").startup(function(use)
         "rebelot/kanagawa.nvim",
     })
     use({ "metalelf0/jellybeans-nvim", requires = "rktjmp/lush.nvim" })
-    use({ "daltonmenezes/aura-theme"})
+    use({ "daltonmenezes/aura-theme" })
+    use({ "dasupradyumna/midnight.nvim" })
 
     -- use({
     --     "RaafatTurki/hex.nvim", config="require('hex').setup()"
