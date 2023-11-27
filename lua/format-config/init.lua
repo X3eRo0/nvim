@@ -4,7 +4,7 @@ require("formatter").setup({
             -- prettier
             function()
                 return {
-                    exe = "/usr/local/bin/prettierd",
+                    exe = "prettierd",
                     args = { vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)) },
                     stdin = true,
                     env = {
@@ -67,7 +67,7 @@ require("formatter").setup({
             -- prettier
             function()
                 return {
-                    exe = "/usr/local/bin/prettierd",
+                    exe = "prettierd",
                     args = {
                         vim.fn.shellescape(vim.api.nvim_buf_get_name(0)),
                     },
@@ -79,7 +79,7 @@ require("formatter").setup({
             -- prettier
             function()
                 return {
-                    exe = "/usr/local/bin/prettierd",
+                    exe = "prettierd",
                     args = {
                         vim.fn.shellescape(vim.api.nvim_buf_get_name(0)),
                     },
@@ -91,7 +91,7 @@ require("formatter").setup({
             -- luafmt
             function()
                 return {
-                    exe = "/home/x3ero0/.cargo/bin/stylua",
+                    exe = "stylua",
                     args = { "--indent-width", "4", "--line-endings", "Unix", "--indent-type", "Spaces", "-" },
                     stdin = true,
                 }
