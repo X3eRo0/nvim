@@ -18,8 +18,6 @@ local cmd = vim.api.nvim_command
 local g = vim.g
 local opt = vim.opt
 
--- jellybeans-nvim
-
 local colo_ok, _ = pcall(cmd, "colo " .. colorscheme)
 if not colo_ok then
     vim.notify("Colorscheme " .. colorscheme .. " not found!")
