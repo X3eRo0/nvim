@@ -150,18 +150,11 @@ return require("packer").startup(function(use)
     use({
         "famiu/bufdelete.nvim",
     })
-    use({
-        "williamboman/nvim-lsp-installer",
-    })
 
-    -- use {
-    --     "X3eRo0/dirbuf.nvim",
-    --     config = "require('dirbuf-config')"
-    -- }
-
-    -- use({
-    --     "MunifTanjim/nui.nvim",
-    -- })
+    use {
+        "williamboman/mason.nvim",
+        "williamboman/mason-lspconfig.nvim",
+    }
 
     use({
         "X3eRo0/dired.nvim",
@@ -323,8 +316,16 @@ return require("packer").startup(function(use)
         "vim-utils/vim-man",
     })
     use({
-        "X3eRo0/compile.nvim",
-    })
+        "ej-shafran/compile-mode.nvim",
+        branch = "latest",
+        -- or a specific version:
+        -- tag = "v2.0.0"
+        requires = {
+            {"nvim-lua/plenary.nvim"},
+            {"m00qek/baleia.nvim", tag = "v1.3.0"},
+        },
+        config="require('compile_mode')"
+  })
     use({
         "ishan9299/modus-theme-vim",
     })
