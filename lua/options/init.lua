@@ -44,9 +44,3 @@ vim.opt.listchars:append("eol:↴")
 -- vim.opt.listchars:append("space:⋅")
 
 vim.g.ft_man_open_mode = 'vert'
-
---
-vim.g.tokyodark_transparent_background = false
-vim.g.tokyodark_enable_italic_comment = false
-vim.g.tokyodark_enable_italic = false
-vim.g.tokyodark_color_gamma = "1.0"

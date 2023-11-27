@@ -11,20 +11,12 @@ return require("packer").startup(function(use)
 
     use({ "kyazdani42/nvim-web-devicons" })
 
-    -- use({
-    --     "akinsho/bufferline.nvim",
-    --     requires = "kyazdani42/nvim-web-devicons",
-    --     event = "BufWinEnter",
-    --     config = "require('bufferline-config')",
-    -- })
-
     use({
         "onsails/lspkind.nvim",
     })
 
     use({
         "j-hui/fidget.nvim",
-        tag = 'legacy',
         config = "require('fidget-config')",
     })
 
@@ -43,16 +35,12 @@ return require("packer").startup(function(use)
         config = "require('autopairs-config')",
         after = "nvim-cmp",
     })
+
     use({
         "nvim-telescope/telescope.nvim",
         requires = { "nvim-lua/plenary.nvim" },
         cmd = "Telescope",
         config = "require('telescope-config')",
-    })
-
-    use({
-        "neovim/nvim-lspconfig",
-        config = "require('lsp')",
     })
 
     use({ "hrsh7th/cmp-nvim-lsp" })
@@ -85,7 +73,7 @@ return require("packer").startup(function(use)
     use({ "monaqa/dial.nvim" })
     use({
         "lukas-reineke/indent-blankline.nvim",
-        commit="3ad57e569d1c47cf4fa2308f555003e0a5509204",
+        commit = "3ad57e569d1c47cf4fa2308f555003e0a5509204",
         config = "require('blankline-config')",
         event = "BufRead",
     })
@@ -94,11 +82,12 @@ return require("packer").startup(function(use)
         config = "require('format-config')",
         cmd = "Format",
     })
-    use ({
-        'nvimdev/lspsaga.nvim',
-        after = 'nvim-lspconfig',
-        config = "require('lsp/lspsaga')",
+    use({
+        "nvimdev/lspsaga.nvim",
+        after = "nvim-lspconfig",
+        config = "require('lsp/lspsaga')"
     })
+
     use({
         "akinsho/toggleterm.nvim",
         config = "require('toggleterm-config')",
@@ -139,9 +128,11 @@ return require("packer").startup(function(use)
             })
         end,
     })
+
     use({
         "fedepujol/move.nvim",
     })
+
     use({
         "feline-nvim/feline.nvim",
         config = "require('feline-config')",
@@ -151,10 +142,15 @@ return require("packer").startup(function(use)
         "famiu/bufdelete.nvim",
     })
 
-    use {
+    use({
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
-    }
+    })
+
+    use({
+        "neovim/nvim-lspconfig",
+        config = "require('lsp')",
+    })
 
     use({
         "X3eRo0/dired.nvim",
@@ -321,11 +317,11 @@ return require("packer").startup(function(use)
         -- or a specific version:
         -- tag = "v2.0.0"
         requires = {
-            {"nvim-lua/plenary.nvim"},
-            {"m00qek/baleia.nvim", tag = "v1.3.0"},
+            { "nvim-lua/plenary.nvim" },
+            { "m00qek/baleia.nvim", tag = "v1.3.0" },
         },
-        config="require('compile_mode')"
-  })
+        config = "require('compile_mode')",
+    })
     use({
         "ishan9299/modus-theme-vim",
     })
@@ -336,6 +332,7 @@ return require("packer").startup(function(use)
         "rebelot/kanagawa.nvim",
     })
     use({ "metalelf0/jellybeans-nvim", requires = "rktjmp/lush.nvim" })
+    use({ "daltonmenezes/aura-theme"})
 
     -- use({
     --     "RaafatTurki/hex.nvim", config="require('hex').setup()"

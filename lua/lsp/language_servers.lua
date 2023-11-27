@@ -38,18 +38,6 @@ local on_attach = function(client, bufnr)
     buf_set_keymap("n", "<space>de", "<cmd>Lspsaga show_line_diagnostics<cr>", opts)
     buf_set_keymap("n", "<C-f>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>", opts)
     buf_set_keymap("n", "<C-b>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>", opts)
-    -- buf_set_keymap(
-    --     "n",
-    --     "<space>f",
-    --     "<cmd>lua vim.lsp.buf.formatting({tabSize=4, insertSpaces=true, trimTrailingWhitespace=true})<CR>",
-    --     opts
-    -- )
-    -- buf_set_keymap(
-    --     "n",
-    --     "<leader>de",
-    --     "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({ border = border })<CR>",
-    --     opts
-    -- )
     vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
     vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
 
@@ -60,19 +48,7 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protoc
 local opts = {
     on_attach = on_attach,
     capabilities = capabilities,
-    flags = {
-        debounce_text_changes = 150,
-    },
 }
-
-
-require('mason').setup({
-    PATH="append",
-})
-
-require('mason-lspconfig').setup({
-    ensure_installed = { "pyright", "clangd", "lua_ls", "rust_analyzer" }
-})
 
 local lua_opts = vim.tbl_deep_extend("force", {
     settings = {

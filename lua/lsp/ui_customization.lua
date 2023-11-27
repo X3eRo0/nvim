@@ -60,17 +60,7 @@ _G.LspDiagnosticsPopupHandler = function()
         vim.diagnostic.open_float(0, {scope = "cursor"}) -- for neovim 0.6.0+, replaces show_{line,position}_diagnostics
     end
 end
--- vim.cmd [[
--- augroup LSPDiagnosticsOnHover
---   autocmd!
---   autocmd CursorHold <buffer>   lua _G.LspDiagnosticsPopupHandler()
--- augroup END
--- ]]
--- -- NOTE: https://github.com/neovim/nvim-lspconfig/wiki/UI-customization
--- function M.on_attach()
---     vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {border = border})
---     vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.hover, {border = border})
--- end
+
 function M.setup()
     setup_diags()
 end

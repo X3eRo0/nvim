@@ -3,6 +3,6 @@ require("indent_blankline").setup {
     show_current_context = true,
     show_current_context_start = false,
     buftype_exclude = {"terminal"},
-    filetype_exclude = {"dashboard", "NvimTree", "packer", "startify", "dirbuf", "lsp-installer", "man"},
+    filetype_exclude = {"dashboard", "NvimTree", "packer", "startify", "dirbuf", "lsp-installer", "man", "dired"},
     show_end_of_line = false
 }

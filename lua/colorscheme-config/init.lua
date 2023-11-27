@@ -1,4 +1,18 @@
-local colorscheme = "github_dark_high_contrast"
+-- jellybeans-nvim
+-- tokyonight
+-- moonfly
+-- material
+-- github_dark
+-- github_dark_dimmed
+-- github_dark_high_contrast
+-- github_dark_colorblind
+-- github_dark_tritanopia
+-- github_light
+-- github_light_high_contrast
+-- github_light_colorblind
+-- github_light_tritanopia
+
+local colorscheme = "jellybeans-nvim"
 local cmd = vim.api.nvim_command
 local g = vim.g
 local opt = vim.opt
