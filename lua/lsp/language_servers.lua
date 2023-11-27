@@ -55,3 +55,37 @@ local on_attach = function(client, bufnr)
 
     navic.attach(client, bufnr)
 end
+
+local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
+local opts = {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    flags = {
+        debounce_text_changes = 150,
+    },
+}
+
+
+require('mason').setup({
+    PATH="append",
+})
+
+require('mason-lspconfig').setup({
+    ensure_installed = { "pyright", "clangd", "lua_ls", "rust_analyzer" }
+})
+
+local lua_opts = vim.tbl_deep_extend("force", {
+    settings = {
+        Lua = {
+            runtime = { version = "LuaJIT", path = vim.split(package.path, ";") },
+            diagnostics = { globals = { "vim" } },
+            workspace = { library = vim.api.nvim_get_runtime_file("", true), checkThirdParty = false },
+            telemetry = { enable = false },
+        },
+    },
+}, opts)
+
+require("lspconfig").lua_ls.setup(lua_opts)
+require("lspconfig").clangd.setup(opts)
+require("lspconfig").pyright.setup(opts)
+require("lspconfig").rust_analyzer.setup(opts)
