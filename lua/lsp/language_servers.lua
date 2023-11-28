@@ -61,7 +61,18 @@ local lua_opts = vim.tbl_deep_extend("force", {
     },
 }, opts)
 
+local rust_opts = vim.tbl_deep_extend("force", {
+    filetypes = {"rust"},
+    settins = {
+        ["rust-analyzer"] = {
+            cargo = {
+                allFeatures = true,
+            }
+        }
+    }
+}, opts)
+
 require("lspconfig").lua_ls.setup(lua_opts)
 require("lspconfig").clangd.setup(opts)
 require("lspconfig").pyright.setup(opts)
-require("lspconfig").rust_analyzer.setup(opts)
+require("lspconfig").rust_analyzer.setup(rust_opts)
