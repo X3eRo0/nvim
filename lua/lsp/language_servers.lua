@@ -20,8 +20,8 @@ local on_attach = function(client, bufnr)
 
     -- See `:help vim.lsp.*` for documentation on any of the below functions
     buf_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-    buf_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-    buf_set_keymap("n", "gdp", "<cmd>Lspsaga preview_definition<CR>", opts)
+    buf_set_keymap("n", "gd", "<cmd>Telescop lsp_definition<CR>", opts)
+    buf_set_keymap("n", "gdp", "<cmd>Lspsaga peek_definition<CR>", opts)
     buf_set_keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)
     buf_set_keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
     buf_set_keymap("n", "gk", "<cmd>Lspsaga signature_help<CR>", opts)
@@ -32,8 +32,9 @@ local on_attach = function(client, bufnr)
     buf_set_keymap("n", "<space>rn", "<cmd>Lspsaga rename<CR>", opts)
     buf_set_keymap("n", "<space>ca", "<cmd>Lspsaga code_action<CR>", opts)
     buf_set_keymap("v", "<space>ca", ":<C-U>Lspsaga range_code_action<CR>", opts)
+    buf_set_keymap("n", "<space>co", "<cmd>Lspsaga outline<CR>", opts)
     -- buf_set_keymap("n", "<space>ca", "<cmd>CodeActionMenu<CR>", opts)
-    buf_set_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
+    buf_set_keymap("n", "gr", "<cmd>Lspsaga finder<CR>", opts)
     buf_set_keymap("n", "<space>q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", opts)
     buf_set_keymap("n", "<space>de", "<cmd>Lspsaga show_line_diagnostics<cr>", opts)
     buf_set_keymap("n", "<C-f>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>", opts)
@@ -62,14 +63,14 @@ local lua_opts = vim.tbl_deep_extend("force", {
 }, opts)
 
 local rust_opts = vim.tbl_deep_extend("force", {
-    filetypes = {"rust"},
+    filetypes = { "rust" },
     settins = {
         ["rust-analyzer"] = {
             cargo = {
                 allFeatures = true,
-            }
-        }
-    }
+            },
+        },
+    },
 }, opts)
 
 require("lspconfig").lua_ls.setup(lua_opts)

@@ -113,16 +113,6 @@ return require("packer").startup(function(use)
         config = "require('toggleterm-config')",
     })
 
-    -- use {
-    --     "glepnir/galaxyline.nvim",
-    --     branch = "main",
-    --     event = "BufWinEnter",
-    --     -- your statusline
-    --     config = "require('galaxyline-config')",
-    --     -- some optional icons
-    --     requires = {"kyazdani42/nvim-web-devicons", opt = true}
-    -- }
-
     use({
         "andweeb/presence.nvim",
         config = function()
@@ -153,11 +143,11 @@ return require("packer").startup(function(use)
         "fedepujol/move.nvim",
     })
 
-    use({
-        "feline-nvim/feline.nvim",
-        config = "require('feline-config')",
-        requires = { "kyazdani42/nvim-web-devicons", opt = true },
-    })
+    -- use({
+    --     "freddiehaddad/feline.nvim",
+    --     config = "require('feline-config')",
+    --     requires = { "kyazdani42/nvim-web-devicons", opt = true },
+    -- })
     use({
         "famiu/bufdelete.nvim",
     })
@@ -188,6 +178,10 @@ return require("packer").startup(function(use)
             "sindrets/diffview.nvim",
         },
         config = "require('neogit-config')",
+    })
+    use({
+        "strash/everybody-wants-that-line.nvim",
+        config = 'require("everybody-wants-that-line").setup()',
     })
 
     -- Colorschemes

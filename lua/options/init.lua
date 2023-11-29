@@ -12,9 +12,9 @@ vim.o.splitright = true
 vim.opt.termguicolors = true
 vim.o.conceallevel = 0
 vim.o.showtabline = 0
-vim.o.showmode = false
+vim.o.showmode = true
 vim.o.backup = false
-vim.o.writebackup = false
+vim.o.writebackup = true
 vim.o.updatetime = 300
 vim.o.timeoutlen = 500
 vim.o.clipboard = "unnamedplus"
@@ -43,4 +43,4 @@ vim.opt.list = true
 vim.opt.listchars:append("eol:↴")
 -- vim.opt.listchars:append("space:⋅")
 
-vim.g.ft_man_open_mode = 'vert'
+vim.g.ft_man_open_mode = "vert"
