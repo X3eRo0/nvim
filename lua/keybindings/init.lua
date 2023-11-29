@@ -82,5 +82,5 @@ map("n", "<A-h>", ":MoveHChar(-1)<CR>", { noremap = true, silent = true })
 map("v", "<A-l>", ":MoveHBlock(1)<CR>", { noremap = true, silent = true })
 map("v", "<A-h>", ":MoveHBlock(-1)<CR>", { noremap = true, silent = true })
 
-map("n", "<Tab>", ":bn<cr>", {noremap = true, silent = true})
-map("n", "<S-Tab>", ":bp<cr>", {noremap = true, silent = true})
+map("n", "<Tab>", ":bn<cr>", { noremap = true, silent = true })
+map("n", "<S-Tab>", ":bp<cr>", { noremap = true, silent = true })

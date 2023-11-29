@@ -183,6 +183,29 @@ return require("packer").startup(function(use)
         "strash/everybody-wants-that-line.nvim",
         config = 'require("everybody-wants-that-line").setup()',
     })
+    use({
+        "SmiteshP/nvim-navic",
+        requires = "neovim/nvim-lspconfig",
+    })
+    use({
+        "X3eRo0/winbar.nvim",
+        requires = "SmiteshP/nvim-navic",
+        config = "require('winbar-config')",
+    })
+    use({
+        "vim-utils/vim-man",
+    })
+    use({
+        "ej-shafran/compile-mode.nvim",
+        branch = "latest",
+        -- or a specific version:
+        -- tag = "v2.0.0"
+        requires = {
+            { "nvim-lua/plenary.nvim" },
+            { "m00qek/baleia.nvim", tag = "v1.3.0" },
+        },
+        config = "require('compile_mode')",
+    })
 
     -- Colorschemes
     -- Tokyodark
@@ -311,30 +334,6 @@ return require("packer").startup(function(use)
     use({
         "nyoom-engineering/oxocarbon.nvim",
         config = "require('colorscheme-config')",
-    })
-
-    use({
-        "SmiteshP/nvim-navic",
-        requires = "neovim/nvim-lspconfig",
-    })
-    use({
-        "X3eRo0/winbar.nvim",
-        requires = "SmiteshP/nvim-navic",
-        config = "require('winbar-config')",
-    })
-    use({
-        "vim-utils/vim-man",
-    })
-    use({
-        "ej-shafran/compile-mode.nvim",
-        branch = "latest",
-        -- or a specific version:
-        -- tag = "v2.0.0"
-        requires = {
-            { "nvim-lua/plenary.nvim" },
-            { "m00qek/baleia.nvim", tag = "v1.3.0" },
-        },
-        config = "require('compile_mode')",
     })
     use({
         "ishan9299/modus-theme-vim",
