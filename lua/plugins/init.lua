@@ -9,6 +9,13 @@ local ensure_packer = function()
     return false
 end
 
+local packer_group = vim.api.nvim_create_augroup("Packer", { clear = true })
+vim.api.nvim_create_autocmd("BufWritePost", {
+    command = "source <afile> | PackerCompile",
+    group = packer_group,
+    pattern = vim.fn.expand("$MYVIMRC"),
+})
+
 local packer_bootstrap = ensure_packer()
 
 return require("packer").startup(function(use)
@@ -93,7 +100,7 @@ return require("packer").startup(function(use)
     use({
         "mhartington/formatter.nvim",
         config = "require('format-config')",
-        cmd = "Format",
+        event = "VimEnter",
     })
     use({
         "nvimdev/lspsaga.nvim",

@@ -64,7 +64,6 @@ require("fidget").setup({
             max_height = 0, -- Maximum height of the notification window
             x_padding = 1, -- Padding from right edge of window boundary
             y_padding = 0, -- Padding from bottom edge of window boundary
-            align_bottom = true, -- Whether to bottom-align the notification window
             relative = "editor", -- What the notification window position is relative to
         },
     },
