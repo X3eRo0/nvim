@@ -20,6 +20,7 @@ map("n", "<leader>r", ":Telescope live_grep theme=dropdown<cr>", { noremap = tru
 -- map("v", "gc", ":CommentToggle<CR>", {noremap = true, silent = true})
 map("n", "<leader>hh", ":split<CR>", { noremap = true, silent = true })
 map("n", "<leader>rr", ":Recompile<CR>", { noremap = true, silent = true })
+map("n", "<leader>rc", ":Compile<CR>", { noremap = true, silent = true })
 map("n", "<leader>gg", ":Neogit<CR>", { noremap = true, silent = true })
 map("n", "<leader>vv", ":vsplit<CR>", { noremap = true, silent = true })
 map("n", "<leader>mv", ":call man#get_page_from_cword('vertical', v:count)<CR>", { noremap = true, silent = true })

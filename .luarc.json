@@ -3,5 +3,8 @@
     "Lua.diagnostics.globals": [
         "vim",
         "peek_definition"
+    ],
+    "diagnostics.disable": [
+        "missing-fields"
     ]
 }

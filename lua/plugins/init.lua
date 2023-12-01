@@ -181,7 +181,13 @@ return require("packer").startup(function(use)
     })
     use({
         "strash/everybody-wants-that-line.nvim",
-        config = 'require("everybody-wants-that-line").setup()',
+        config = function()
+            require("everybody-wants-that-line").setup({
+                filename = {
+                    enabled = false,
+                },
+            })
+        end,
     })
     use({
         "SmiteshP/nvim-navic",
