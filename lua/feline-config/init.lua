@@ -2,4 +2,4 @@
 -- feline.setup({
 --     preset = 'default',
 -- })
-require("feline-config.6cdh")
+require("feline-config.x3ero02")

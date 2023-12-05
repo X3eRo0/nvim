@@ -143,11 +143,11 @@ return require("packer").startup(function(use)
         "fedepujol/move.nvim",
     })
 
-    -- use({
-    --     "freddiehaddad/feline.nvim",
-    --     config = "require('feline-config')",
-    --     requires = { "kyazdani42/nvim-web-devicons", opt = true },
-    -- })
+    use({
+        "freddiehaddad/feline.nvim",
+        config = "require('feline-config')",
+        requires = { "kyazdani42/nvim-web-devicons", opt = true },
+    })
     use({
         "famiu/bufdelete.nvim",
     })
@@ -179,16 +179,16 @@ return require("packer").startup(function(use)
         },
         config = "require('neogit-config')",
     })
-    use({
-        "strash/everybody-wants-that-line.nvim",
-        config = function()
-            require("everybody-wants-that-line").setup({
-                filename = {
-                    enabled = false,
-                },
-            })
-        end,
-    })
+    -- use({
+    --     "strash/everybody-wants-that-line.nvim",
+    --     config = function()
+    --         require("everybody-wants-that-line").setup({
+    --             filename = {
+    --                 enabled = false,
+    --             },
+    --         })
+    --     end,
+    -- })
     use({
         "SmiteshP/nvim-navic",
         requires = "neovim/nvim-lspconfig",
