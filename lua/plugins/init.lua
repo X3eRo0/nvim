@@ -79,6 +79,7 @@ return require("packer").startup(function(use)
     use({
         "lewis6991/gitsigns.nvim",
         config = "require('gitsigns-config')",
+        event = "BufReadPre",
     })
     use({
         "kylechui/nvim-surround",
@@ -143,11 +144,6 @@ return require("packer").startup(function(use)
         "fedepujol/move.nvim",
     })
 
-    use({
-        "freddiehaddad/feline.nvim",
-        config = "require('feline-config')",
-        requires = { "kyazdani42/nvim-web-devicons", opt = true },
-    })
     use({
         "famiu/bufdelete.nvim",
     })
