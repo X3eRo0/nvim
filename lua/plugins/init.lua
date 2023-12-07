@@ -36,11 +36,6 @@ return require("packer").startup(function(use)
     })
 
     use({
-        "j-hui/fidget.nvim",
-        config = "require('fidget-config')",
-    })
-
-    use({
         "windwp/nvim-ts-autotag",
         after = "nvim-treesitter",
     })
@@ -98,6 +93,7 @@ return require("packer").startup(function(use)
         config = "require('blankline-config')",
         event = "BufRead",
     })
+
     use({
         "mhartington/formatter.nvim",
         config = "require('format-config')",
@@ -112,32 +108,6 @@ return require("packer").startup(function(use)
     use({
         "akinsho/toggleterm.nvim",
         config = "require('toggleterm-config')",
-    })
-
-    use({
-        "andweeb/presence.nvim",
-        config = function()
-            require("presence"):setup({
-                -- General options
-                auto_update = true,
-                neovim_image_text = "The One True Text Editor",
-                main_image = "neovim",
-                client_id = "793271441293967371",
-                log_level = nil,
-                debounce_timeout = 10,
-                enable_line_number = false,
-                blacklist = {},
-                buttons = true,
-                -- Rich Presence text options
-                editing_text = "Editing %s",
-                file_explorer_text = "Browsing %s",
-                git_commit_text = "Committing changes",
-                plugin_manager_text = "Managing plugins",
-                reading_text = "Reading %s",
-                workspace_text = "Working on %s",
-                line_number_text = "Line %s out of %s",
-            })
-        end,
     })
 
     use({
@@ -175,25 +145,16 @@ return require("packer").startup(function(use)
         },
         config = "require('neogit-config')",
     })
-    -- use({
-    --     "strash/everybody-wants-that-line.nvim",
-    --     config = function()
-    --         require("everybody-wants-that-line").setup({
-    --             filename = {
-    --                 enabled = false,
-    --             },
-    --         })
-    --     end,
-    -- })
     use({
         "SmiteshP/nvim-navic",
         requires = "neovim/nvim-lspconfig",
     })
-    use({
-        "X3eRo0/winbar.nvim",
-        requires = "SmiteshP/nvim-navic",
-        config = "require('winbar-config')",
-    })
+    -- use({
+    --     "X3eRo0/winbar.nvim",
+    --     requires = "SmiteshP/nvim-navic",
+    --     config = "require('winbar-config')",
+    -- })
+
     use({
         "vim-utils/vim-man",
     })
