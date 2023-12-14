@@ -68,7 +68,7 @@ return require("packer").startup(function(use)
     use({ "rafamadriz/friendly-snippets" })
     use({
         "norcalli/nvim-colorizer.lua",
-        config = "require('colorizer-config')",
+        config = "require'colorizer'.setup()",
         event = "BufRead",
     })
     use({
