@@ -15,7 +15,7 @@
 -- sonokai
 -- omni
 -- zephyr
--- uwu
+-- everblush
 -- sunset_cloud
 -- radioactive_waste
 -- forest_stream
@@ -26,7 +26,7 @@
 -- PaperColorSlim
 -- tokyodark
 
-local colorscheme = "github_dark_high_contrast"
+local colorscheme = "midnight"
 local cmd = vim.api.nvim_command
 local g = vim.g
 local opt = vim.opt
