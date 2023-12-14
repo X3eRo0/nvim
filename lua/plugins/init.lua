@@ -153,7 +153,7 @@ local plugins = {
 			{ "m00qek/baleia.nvim", tag = "v1.3.0" },
 		},
 		config = function()
-			require("compile_mode")
+			require("compile-config")
 		end,
 	},
 	{
@@ -200,8 +200,6 @@ local plugins = {
 	{
 		enabled = true,
 		"dasupradyumna/midnight.nvim",
-		-- priority = 1000,
-
 		config = function()
 			require("colorscheme-config")
 		end,
