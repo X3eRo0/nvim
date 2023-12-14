@@ -12,7 +12,10 @@ map("n", "<C-G>", ":Bdelete!<CR>", { noremap = true, silent = false })
 -- map("i", "jk", "<ESC>", { noremap = true, silent = false })
 -- map("i", "kj", "<ESC>", { noremap = true, silent = false })
 
-map("n", "<leader>F", ":Format<CR>", { noremap = true, silent = true })
+vim.keymap.set({ "n", "v" }, "<leader>F", function()
+	require("conform").format({ lsp_fallback = true, async = false, timeout_ms = 500 })
+end, { desc = "Format file or range" })
+
 map("n", "<leader>f", ":Telescope find_files theme=dropdown<cr>", { noremap = true, silent = true })
 map("n", "<leader>r", ":Telescope live_grep theme=dropdown<cr>", { noremap = true, silent = true })
 -- map("n", "gcc", ":CommentToggle<CR>", {noremap = true, silent = true})
@@ -51,23 +54,23 @@ map("n", "<C-Right>", ":vertical resize -3<CR>", { noremap = true, silent = true
 map("n", "<C-Up>", ":resize +3<CR>", { noremap = true, silent = true })
 map("n", "<C-Down>", ":resize -3<CR>", { noremap = true, silent = true })
 map(
-    "n",
-    "<leader>tp",
-    ":lua require('toggleterm.terminal').Terminal:new({cmd = 'python', direction = 'float'}):toggle() <CR>",
-    { noremap = true, silent = true }
+	"n",
+	"<leader>tp",
+	":lua require('toggleterm.terminal').Terminal:new({cmd = 'python', direction = 'float'}):toggle() <CR>",
+	{ noremap = true, silent = true }
 )
 map(
-    "n",
-    "<leader>tl",
-    ":lua require('toggleterm.terminal').Terminal:new({cmd = 'lazygit', direction = 'float'}):toggle()<CR>",
-    { noremap = true, silent = true }
+	"n",
+	"<leader>tl",
+	":lua require('toggleterm.terminal').Terminal:new({cmd = 'lazygit', direction = 'float'}):toggle()<CR>",
+	{ noremap = true, silent = true }
 )
 
 map(
-    "n",
-    "<leader>tt",
-    ":lua require('toggleterm.terminal').Terminal:new({direction = 'float'}):toggle()<CR>",
-    { noremap = true, silent = true }
+	"n",
+	"<leader>tt",
+	":lua require('toggleterm.terminal').Terminal:new({direction = 'float'}):toggle()<CR>",
+	{ noremap = true, silent = true }
 )
 
 map("n", "<leader>e", "<cmd>e .<CR>", { noremap = true, silent = true })
