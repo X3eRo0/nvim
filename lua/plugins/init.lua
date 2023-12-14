@@ -1,320 +1,302 @@
-local ensure_packer = function()
-    local fn = vim.fn
-    local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-    if fn.empty(fn.glob(install_path)) > 0 then
-        fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
-        vim.cmd([[packadd packer.nvim]])
-        return true
-    end
-    return false
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+    vim.fn.system({
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "https://github.com/folke/lazy.nvim.git",
+        "--branch=stable", -- latest stable release
+        lazypath,
+    })
 end
+vim.opt.rtp:prepend(lazypath)
 
-local packer_group = vim.api.nvim_create_augroup("Packer", { clear = true })
-vim.api.nvim_create_autocmd("BufWritePost", {
-    command = "source <afile> | PackerCompile",
-    group = packer_group,
-    pattern = vim.fn.expand("$MYVIMRC"),
-})
+require("lazy").setup({ -- Packer can manage itself
+    { "wbthomason/packer.nvim" },
 
-local packer_bootstrap = ensure_packer()
-
-return require("packer").startup(function(use)
-    -- Packer can manage itself
-    use({ "wbthomason/packer.nvim" })
-
-    use({
+    {
         "nvim-treesitter/nvim-treesitter",
-        run = ":TSUpdate",
+        build = ":TSUpdate",
         event = "BufWinEnter",
-        config = "require('treesitter-config')",
-    })
+        config = function()
+            require("treesitter-config")
+        end,
+    },
 
-    use({ "kyazdani42/nvim-web-devicons" })
+    { "kyazdani42/nvim-web-devicons" },
 
-    use({
+    {
         "onsails/lspkind.nvim",
-    })
+    },
 
-    use({
+    {
         "windwp/nvim-ts-autotag",
-        after = "nvim-treesitter",
-    })
+        dependencies = { "nvim-treesitter" },
+    },
 
-    use({
+    {
         "p00f/nvim-ts-rainbow",
-        after = "nvim-treesitter",
-    })
+        dependencies = { "nvim-treesitter" },
+    },
 
-    use({
+    {
         "windwp/nvim-autopairs",
-        config = "require('autopairs-config')",
-        after = "nvim-cmp",
-    })
+        config = function()
+            require("autopairs-config")
+        end,
+        dependencies = "nvim-cmp",
+    },
 
-    use({
+    {
         "nvim-telescope/telescope.nvim",
-        requires = { "nvim-lua/plenary.nvim" },
+        dependencies = { "nvim-lua/plenary.nvim" },
         cmd = "Telescope",
-        config = "require('telescope-config')",
-    })
+        config = function()
+            require("telescope-config")
+        end,
+    },
 
-    use({ "hrsh7th/cmp-nvim-lsp" })
-    use({ "hrsh7th/cmp-buffer" })
-    use({ "hrsh7th/cmp-path" })
-    use({ "hrsh7th/nvim-cmp" })
-    use({ "hrsh7th/cmp-vsnip" })
-    use({ "hrsh7th/vim-vsnip" })
-    use({ "hrsh7th/vim-vsnip-integ" })
-    use({ "rafamadriz/friendly-snippets" })
-    use({
+    { "hrsh7th/cmp-nvim-lsp" },
+    { "hrsh7th/cmp-buffer" },
+    { "hrsh7th/cmp-path" },
+    { "hrsh7th/nvim-cmp" },
+    { "hrsh7th/cmp-vsnip" },
+    { "hrsh7th/vim-vsnip" },
+    { "hrsh7th/vim-vsnip-integ" },
+    { "rafamadriz/friendly-snippets" },
+    {
         "norcalli/nvim-colorizer.lua",
-        config = "require('colorizer-config')",
+        config = function()
+            require("colorizer-config")
+        end,
         event = "BufRead",
-    })
-    use({
+    },
+    {
         "lewis6991/gitsigns.nvim",
-        config = "require('gitsigns-config')",
+        config = function()
+            require("gitsigns-config")
+        end,
         event = "BufReadPre",
-    })
-    use({
+    },
+    {
         "kylechui/nvim-surround",
         config = function()
             require("nvim-surround").setup()
         end,
-    })
-    use({
+    },
+    {
         "numToStr/Comment.nvim",
-        config = "require('comment-config')",
-    })
-    use({ "monaqa/dial.nvim" })
-    use({
+        config = function()
+            require("comment-config")
+        end,
+    },
+    { "monaqa/dial.nvim" },
+    {
         "lukas-reineke/indent-blankline.nvim",
         commit = "3ad57e569d1c47cf4fa2308f555003e0a5509204",
-        config = "require('blankline-config')",
+        config = function()
+            require("blankline-config")
+        end,
         event = "BufRead",
-    })
+    },
 
-    use({
+    {
         "mhartington/formatter.nvim",
-        config = "require('format-config')",
+        config = function()
+            require("format-config")
+        end,
         event = "VimEnter",
-    })
-    use({
+    },
+    {
         "nvimdev/lspsaga.nvim",
-        after = "nvim-lspconfig",
-        config = "require('lsp/lspsaga')",
-    })
+        dependencies = { "nvim-lspconfig" },
+        config = function()
+            require("lsp/lspsaga")
+        end,
+    },
 
-    use({
+    {
         "akinsho/toggleterm.nvim",
-        config = "require('toggleterm-config')",
-    })
+        config = function()
+            require("toggleterm-config")
+        end,
+    },
 
-    use({
+    {
         "fedepujol/move.nvim",
-    })
+    },
 
-    use({
+    {
         "famiu/bufdelete.nvim",
-    })
+    },
 
-    use({
+    {
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
-    })
+    },
 
-    use({
+    {
         "neovim/nvim-lspconfig",
-        config = "require('lsp')",
-    })
+        config = function()
+            require("lsp")
+        end,
+    },
 
-    use({
-        "X3eRo0/dired.nvim",
-        requires = "MunifTanjim/nui.nvim",
-        config = "require('dired-config')",
-    })
+    {
+        "x3ero0/dired.nvim",
+        dependencies = { "MunifTanjim/nui.nvim" },
+        config = function()
+            require("dired-config")
+        end,
+    },
 
-    use({
+    {
         "nvim-lua/plenary.nvim",
-    })
-    use({
+    },
+    {
         "TimUntersberger/neogit",
-        requires = {
+        dependencies = {
             "nvim-lua/plenary.nvim",
             "sindrets/diffview.nvim",
         },
-        config = "require('neogit-config')",
-    })
-    use({
+        config = function()
+            require("neogit-config")
+        end,
+    },
+    {
         "SmiteshP/nvim-navic",
-        requires = "neovim/nvim-lspconfig",
-    })
-    -- use({
+        dependencies = { "neovim/nvim-lspconfig" },
+    },
+
+    -- {
     --     "X3eRo0/winbar.nvim",
-    --     requires = "SmiteshP/nvim-navic",
-    --     config = "require('winbar-config')",
+    --     dependencies = {"SmiteshP/nvim-navic"},
+    --     config = function()
+    --     require('winbar-config')
+    --     end,,
     -- })
 
-    use({
+    {
         "vim-utils/vim-man",
-    })
-    use({
+    },
+
+    -- {
+    --     "shoumodip/compile.nvim",
+    -- },
+
+    {
         "ej-shafran/compile-mode.nvim",
         branch = "latest",
         -- or a specific version:
         -- tag = "v2.0.0"
-        requires = {
+        dependencies = {
             { "nvim-lua/plenary.nvim" },
             { "m00qek/baleia.nvim", tag = "v1.3.0" },
         },
-        config = "require('compile_mode')",
-    })
+        config = function()
+            require("compile_mode")
+        end,
+    },
+
+    {
+        "RaafatTurki/hex.nvim",
+        config = function()
+            require("hex").setup()
+        end,
+    },
 
     -- Colorschemes
     -- Tokyodark
-    use({
+    {
         "tiagovla/tokyodark.nvim",
-        config = "require('colorscheme-config')",
-    })
+    },
     -- Paper color - slim
-    use({
+    {
         "pappasam/papercolor-theme-slim",
-        config = "require('colorscheme-config')",
-    })
+    },
 
-    use({
+    {
         "X3eRo0/papercolor-theme",
-        config = "require('colorscheme-config')",
-    })
+    },
+
     -- Tokyonight
-    use({
+    {
         "folke/tokyonight.nvim",
-        config = "require('colorscheme-config')",
-    })
+    },
 
     -- Material
-    use({
+    {
         "marko-cerovac/material.nvim",
-        config = "require('colorscheme-config')",
-    })
+    },
 
     -- Catppuccin
-    use({
+    {
         "catppuccin/nvim",
-        as = "catppuccin",
-        config = "require('colorscheme-config')",
-    })
+        name = "catppuccin",
+    },
 
     -- Vscode
-    use({
+    {
         "Mofiqul/vscode.nvim",
-        config = function()
-            -- -- For dark theme
-            -- vim.g.vscode_style = "dark"
-            -- -- For light theme
-            -- vim.g.vscode_style = "light"
-            -- -- Enable transparent background
-            -- vim.g.vscode_transparent = 1
-            -- -- Enable italic comment
-            -- vim.g.vscode_italic_comment = 1
-            -- -- Disable nvim-tree background color
-            -- vim.g.vscode_disable_nvimtree_bg = true
-            -- vim.cmd("colorscheme vscode")
-        end,
-    })
+    },
 
     -- Vim Nightfly
-    use({
+    {
         "bluz71/vim-nightfly-guicolors",
-        config = function()
-            -- vim.cmd("colorscheme nightfly")
-        end,
-    })
+    },
 
     -- Moonfly
-    use({
+    {
         "bluz71/vim-moonfly-colors",
-        config = function()
-            -- vim.cmd("colorscheme moonfly")
-        end,
-    })
+    },
 
     -- Zephyr
-    use({
+    {
         "glepnir/zephyr-nvim",
-        config = function()
-            -- vim.cmd("colorscheme zephyr")
-        end,
-    })
+    },
 
     -- Omni
-    use({
+    {
         "yonlu/omni.vim",
-        config = function()
-            -- vim.cmd("colorscheme omni")
-        end,
-    })
+    },
 
     -- Rose Pine
-    use({
+    {
         "rose-pine/neovim",
-        as = "rose-pine",
-        config = "require('colorscheme-config')",
-    })
+        name = "rose-pine",
+    },
 
     -- Sonokai
-    use({
+    {
         "sainnhe/sonokai",
-        config = function()
-            vim.g.sonokai_style = "andromeda"
-            vim.g.sonokai_enable_italic = 0
-            vim.g.sonokai_disable_italic_comment = 0
-            -- vim.cmd("colorscheme sonokai")
-        end,
-    })
+    },
 
     -- UwU
-    use({
+    {
         "mangeshrex/uwu.vim",
-        config = "require('colorscheme-config')",
-    })
+    },
 
-    use({
+    {
         "projekt0n/github-nvim-theme",
-        config = "require('colorscheme-config')",
-    })
+    },
 
-    -- use({
-    --     "hawier-dev/hollow.vim",
-    --     config = "require('colorscheme-config')",
-    -- })
-
-    use({
+    {
         "rockerBOO/boo-colorscheme-nvim",
-        config = "require('colorscheme-config')",
-    })
+    },
 
-    use({
+    {
         "nyoom-engineering/oxocarbon.nvim",
-        config = "require('colorscheme-config')",
-    })
-    use({
+    },
+    {
         "ishan9299/modus-theme-vim",
-    })
-    use({
+    },
+    {
         "Th3Whit3Wolf/one-nvim",
-    })
-    use({
+    },
+    {
         "rebelot/kanagawa.nvim",
-    })
-    use({ "metalelf0/jellybeans-nvim", requires = "rktjmp/lush.nvim" })
-    use({ "daltonmenezes/aura-theme" })
-    use({ "dasupradyumna/midnight.nvim" })
-
-    -- use({
-    --     "RaafatTurki/hex.nvim", config="require('hex').setup()"
-    -- })
-    if packer_bootstrap then
-        require("packer").sync()
-    end
-end)
+    },
+    { "metalelf0/jellybeans-nvim", dependencies = { "rktjmp/lush.nvim" } },
+    { "daltonmenezes/aura-theme" },
+    { "dasupradyumna/midnight.nvim" },
+})

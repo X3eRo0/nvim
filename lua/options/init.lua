@@ -36,6 +36,7 @@ vim.o.autoindent = true
 vim.bo.autoindent = true
 vim.o.expandtab = true
 vim.bo.expandtab = true
+vim.opt.backspace = "indent,eol,start"
 
 -- blankline options
 

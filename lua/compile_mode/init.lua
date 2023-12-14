@@ -3,4 +3,5 @@ require("compile-mode").setup({
     -- no_baleia_support = true,
     default_command = "",
     recompile_no_fail = true,
+    jump_error_in_buffer = true,
 })

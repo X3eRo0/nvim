@@ -15,7 +15,6 @@ map("n", "<C-G>", ":Bdelete!<CR>", { noremap = true, silent = false })
 map("n", "<leader>F", ":Format<CR>", { noremap = true, silent = true })
 map("n", "<leader>f", ":Telescope find_files theme=dropdown<cr>", { noremap = true, silent = true })
 map("n", "<leader>r", ":Telescope live_grep theme=dropdown<cr>", { noremap = true, silent = true })
--- map("n", "<leader>e", ":NvimTreeToggle<CR>", {noremap = true, silent = true})
 -- map("n", "gcc", ":CommentToggle<CR>", {noremap = true, silent = true})
 -- map("v", "gc", ":CommentToggle<CR>", {noremap = true, silent = true})
 map("n", "<leader>hh", ":split<CR>", { noremap = true, silent = true })
@@ -71,8 +70,7 @@ map(
     { noremap = true, silent = true }
 )
 
--- map("n", "<leader>e", ":lua require('dirbuf').open(vim.fn.input('Directory: ', '', 'dir'))<CR>", {noremap = true, silent = true})
-map("n", "<leader>e", ":e .<CR>", { noremap = true, silent = true })
+map("n", "<leader>e", "<cmd>e .<CR>", { noremap = true, silent = true })
 
 map("n", "<A-j>", ":MoveLine(1)<CR>", { noremap = true, silent = true })
 map("n", "<A-k>", ":MoveLine(-1)<CR>", { noremap = true, silent = true })

@@ -12,8 +12,21 @@
 -- github_light_colorblind
 -- github_light_tritanopia
 -- midnight
+-- sonokai
+-- omni
+-- zephyr
+-- uwu
+-- sunset_cloud
+-- radioactive_waste
+-- forest_stream
+-- crimson_moonlight
+-- oxocarbon
+-- aura
+-- PaperColor
+-- PaperColorSlim
+-- tokyodark
 
-local colorscheme = "jellybeans-nvim"
+local colorscheme = "github_dark_high_contrast"
 local cmd = vim.api.nvim_command
 local g = vim.g
 local opt = vim.opt
@@ -29,6 +42,20 @@ else
         g.tokyonight_italic_functions = false
         g.tokyonight_italic_comments = false
         g.tokyonight_italic_keywords = false
+    end
+
+    if colorscheme == "sonokai" then
+        g.sonokai_style = "andromeda"
+        g.sonokai_enable_italic = 0
+        g.sonokai_disable_italic_comment = 0
+    end
+
+    if colorscheme == "PaperColor" then
+        vim.opt.background = "dark" -- set this to dark or light
+    end
+
+    if colorscheme == "PaperColorSlim" then
+        vim.opt.background = "dark" -- set this to dark or light
     end
 
     if colorscheme == "one-nvim" then

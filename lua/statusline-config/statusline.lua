@@ -58,16 +58,19 @@ M.get_git_lsp_status = function(self)
         return is_head_empty and string.format("%%=[%s, %s] ", signs.head or "", lsp or "") or "%="
     end
 
+    -- return is_head_empty
+    --         and string.format("%%=[%s] +%s,~%s,-%s [%s] ", signs.head, signs.added, signs.changed, signs.removed, lsp)
+    --     or "%="
     return is_head_empty
-            and string.format("%%=[%s] +%s,~%s,-%s [%s] ", signs.head, signs.added, signs.changed, signs.removed, lsp)
-        or "%="
+            and string.format("[%s] +%s,~%s,-%s [%s] ", signs.head, signs.added, signs.changed, signs.removed, lsp)
+        or ""
 end
 
 M.get_filename = function(self)
     if self:is_truncated(self.trunc_width.filename) then
         return " %<%f %m%r"
     end
-    return " %<%F %m%r"
+    return " %<%F %m%r "
 end
 
 M.get_filetype = function()
@@ -85,7 +88,7 @@ end
 M.set_active = function(self)
     local colors = self.colors
 
-    local filename = colors.inactive .. self:get_filename()
+    local filename = colors.active .. self:get_filename()
     local filetype = colors.filetype .. self:get_filetype()
     local git = colors.git .. self:get_git_lsp_status() .. self.separators[active_sep][1]
     local line_col = colors.line_col .. self:get_line_col()
@@ -102,15 +105,16 @@ M.set_active = function(self)
     -- vim.print(string.format("%s, %d", self:get_line_col() .. self:get_lines_and_size(), remaining_width))
 
     -- Distribute space evenly on both sides
-    local num = math.floor(total_width / 2) - remaining_width - math.floor(git_width / 2)
-    local padding = string.rep(" ", num)
+    -- local num = math.floor(total_width / 2) - remaining_width - math.floor(git_width / 2)
+    -- local padding = string.rep(" ", num)
 
     return table.concat({
         colors.active,
+        git,
+        "%=",
         filename,
         filetype,
-        git,
-        padding,
+        "%=",
         line_col,
         line_size,
     })
