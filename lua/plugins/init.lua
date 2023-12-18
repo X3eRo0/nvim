@@ -111,8 +111,8 @@ local plugins = {
         end,
     },
     {
-        -- "x3ero0/dired.nvim",
-        dir = "/home/x3ero0/dired.nvim",
+        "x3ero0/dired.nvim",
+        -- dir = "/home/x3ero0/dired.nvim",
         name = "dired.nvim",
         dependencies = { "MunifTanjim/nui.nvim" },
         config = function()
@@ -133,15 +133,18 @@ local plugins = {
     {
         "SmiteshP/nvim-navic",
         dependencies = { "neovim/nvim-lspconfig" },
+        config = function()
+            require("navic-config")
+        end,
     },
 
     -- {
     --     "X3eRo0/winbar.nvim",
-    --     dependencies = {"SmiteshP/nvim-navic"},
+    --     dependencies = { "SmiteshP/nvim-navic" },
     --     config = function()
-    --     require('winbar-config')
-    --     end,,
-    -- })
+    --         require("winbar-config")
+    --     end,
+    -- },
     "vim-utils/vim-man",
     {
         "ej-shafran/compile-mode.nvim",
@@ -170,47 +173,193 @@ local plugins = {
         end,
     },
 
-    -- Colorschemes
-    -- { enabled=false, "tiagovla/tokyodark.nvim", priority=1000},
-    -- { enabled=false, "pappasam/papercolor-theme-slim", priority=1000},
-    -- { enabled=false, "X3eRo0/papercolor-theme", priority=1000},
-    -- { enabled=false, "folke/tokyonight.nvim", priority=1000},
-    -- { enabled=false, "marko-cerovac/material.nvim", priority=1000},
-    -- { enabled=false, "Mofiqul/vscode.nvim", priority=1000},
-    -- { enabled=false, "bluz71/vim-nightfly-guicolors", priority=1000},
-    -- { enabled=false, "bluz71/vim-moonfly-colors", priority=1000},
-    -- { enabled=false, "nvimdev/zephyr-nvim", priority=1000},
-    -- { enabled=false, "yonlu/omni.vim", priority=1000},
-    -- { enabled=false, "sainnhe/sonokai", priority=1000},
-    -- { enabled=false, "Everblush/everblush.vim"},
-    -- { enabled = false, "projekt0n/github-nvim-theme", priority = 1000 },
-    -- { enabled = false, "rockerBOO/boo-colorscheme-nvim", priority = 1000 },
-    -- { enabled = false, "nyoom-engineering/oxocarbon.nvim", priority = 1000 },
-    -- { enabled = false, "ishan9299/modus-theme-vim", priority = 1000 },
-    -- { enabled = false, "Th3Whit3Wolf/one-nvim", priority = 1000 },
-    -- { enabled = false, "rebelot/kanagawa.nvim", priority = 1000 },
-    -- { enabled = false, "techtuner/aura-neovim", priority = 1000 },
+    -- Colorscheme
+    {
+        enabled = false,
+        "tiagovla/tokyodark.nvim",
+        priority = 1000,
+        config = function()
+            require("colorscheme-config")
+        end,
+    },
+    {
+        enabled = false,
+        "pappasam/papercolor-theme-slim",
+        priority = 1000,
+        config = function()
+            require("colorscheme-config")
+        end,
+    },
     {
         enabled = true,
+        "X3eRo0/papercolor-theme",
+        priority = 1000,
+        config = function()
+            require("colorscheme-config")
+        end,
+    },
+    {
+        enabled = false,
+        "folke/tokyonight.nvim",
+        priority = 1000,
+        config = function()
+            require("colorscheme-config")
+        end,
+    },
+    {
+        enabled = false,
+        "marko-cerovac/material.nvim",
+        priority = 1000,
+        config = function()
+            require("colorscheme-config")
+        end,
+    },
+    {
+        enabled = false,
+        "Mofiqul/vscode.nvim",
+        priority = 1000,
+        config = function()
+            require("colorscheme-config")
+        end,
+    },
+    {
+        enabled = false,
+        "bluz71/vim-nightfly-guicolors",
+        priority = 1000,
+        config = function()
+            require("colorscheme-config")
+        end,
+    },
+    {
+        enabled = false,
+        "bluz71/vim-moonfly-colors",
+        priority = 1000,
+        config = function()
+            require("colorscheme-config")
+        end,
+    },
+    {
+        enabled = false,
+        "nvimdev/zephyr-nvim",
+        priority = 1000,
+        config = function()
+            require("colorscheme-config")
+        end,
+    },
+    {
+        enabled = false,
+        "yonlu/omni.vim",
+        priority = 1000,
+        config = function()
+            require("colorscheme-config")
+        end,
+    },
+    {
+        enabled = false,
+        "sainnhe/sonokai",
+        priority = 1000,
+        config = function()
+            require("colorscheme-config")
+        end,
+    },
+    {
+        enabled = false,
+        "Everblush/everblush.vim",
+        priority = 1000,
+        config = function()
+            require("colorscheme-config")
+        end,
+    },
+    {
+        enabled = false,
+        "projekt0n/github-nvim-theme",
+        priority = 1000,
+        config = function()
+            require("colorscheme-config")
+        end,
+    },
+    {
+        enabled = false,
+        "rockerBOO/boo-colorscheme-nvim",
+        priority = 1000,
+        config = function()
+            require("colorscheme-config")
+        end,
+    },
+    {
+        enabled = false,
+        "nyoom-engineering/oxocarbon.nvim",
+        priority = 1000,
+        config = function()
+            require("colorscheme-config")
+        end,
+    },
+    {
+        enabled = false,
+        "ishan9299/modus-theme-vim",
+        priority = 1000,
+        config = function()
+            require("colorscheme-config")
+        end,
+    },
+    {
+        enabled = false,
+        "Th3Whit3Wolf/one-nvim",
+        priority = 1000,
+        config = function()
+            require("colorscheme-config")
+        end,
+    },
+    {
+        enabled = false,
+        "rebelot/kanagawa.nvim",
+        priority = 1000,
+        config = function()
+            require("colorscheme-config")
+        end,
+    },
+    {
+        enabled = false,
+        "techtuner/aura-neovim",
+        priority = 1000,
+        config = function()
+            require("colorscheme-config")
+        end,
+    },
+    {
+        enabled = false,
         "dasupradyumna/midnight.nvim",
         config = function()
             require("colorscheme-config")
         end,
     },
-    -- {
-    --     enabled = false,
-    --     "rose-pine/neovim",
-    --     name = "rose-pine",
-    --     priority = 1000,
-    -- },
-    -- { enabled = false, "metalelf0/jellybeans-nvim", dependencies = { "rktjmp/lush.nvim" }, priority = 1000 },
-    -- -- Catppuccin
-    -- {
-    --     enabled = false,
-    --     "catppuccin/nvim",
-    --     name = "catppuccin",
-    --     priority = 1000,
-    -- },
+    {
+        enabled = false,
+        "rose-pine/neovim",
+        name = "rose-pine",
+        priority = 1000,
+        config = function()
+            require("colorscheme-config")
+        end,
+    },
+    {
+        enabled = false,
+        "metalelf0/jellybeans-nvim",
+        dependencies = { "rktjmp/lush.nvim" },
+        priority = 1000,
+        config = function()
+            require("colorscheme-config")
+        end,
+    },
+    {
+        enabled = false,
+        "catppuccin/nvim",
+        name = "catppuccin",
+        priority = 1000,
+        config = function()
+            require("colorscheme-config")
+        end,
+    },
 }
 
 local opts = {}

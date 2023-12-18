@@ -26,7 +26,7 @@
 -- PaperColorSlim
 -- tokyodark
 
-local colorscheme = "midnight"
+local colorscheme = "PaperColor"
 local cmd = vim.api.nvim_command
 local g = vim.g
 local opt = vim.opt

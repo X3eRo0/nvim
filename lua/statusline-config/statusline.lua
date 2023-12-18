@@ -1,5 +1,6 @@
 local fn = vim.fn
 local api = vim.api
+local hls = require("utils.highlights")
 
 local M = {}
 
@@ -55,34 +56,49 @@ M.get_git_lsp_status = function(self)
     local is_head_empty = signs.head ~= ""
 
     if self:is_truncated(self.trunc_width.git_status) then
-        return is_head_empty and string.format("%%=[%s, %s] ", signs.head or "", lsp or "") or "%="
+        return is_head_empty and string.format("[%s, %s] ", signs.head or "", lsp or "") or "%="
     end
 
     -- return is_head_empty
     --         and string.format("%%=[%s] +%s,~%s,-%s [%s] ", signs.head, signs.added, signs.changed, signs.removed, lsp)
     --     or "%="
     return is_head_empty
-            and string.format("[%s] +%s,~%s,-%s [%s] ", signs.head, signs.added, signs.changed, signs.removed, lsp)
+            and string.format(
+                "[%s] +%s,~%s,-%s [%s] ",
+                hls.hl(signs.head, "GitCommitBranch"),
+                hls.hl(signs.added, "GitSignsAdd"),
+                hls.hl(signs.changed, "GitSignsChange"),
+                hls.hl(signs.removed, "GitSignsDelete"),
+                lsp
+            )
         or ""
 end
 
 M.get_filename = function(self)
     if self:is_truncated(self.trunc_width.filename) then
-        return " %<%f %m%r"
+        local filename = string.format("%s", hls.hl("%<%f", "Bold")) .. " %m%r%h%w%q "
+        -- return "%<%f %m%r "
+        return filename
     end
-    return " %<%F %m%r "
+    local filename = string.format("%s", hls.hl("%<%F", "Bold")) .. " %m%r%h%w%q "
+    -- return "%<%F %m%r "
+    return filename
 end
 
 M.get_filetype = function()
-    return " %y "
+    return "%y "
 end
 
 M.get_line_col = function()
-    return " %04l,%04c "
+    return "%04l,%04c "
 end
 
 M.get_lines_and_size = function()
-    return " %LL,%{line2byte('$')}B "
+    return "%LL,%{line2byte('$')}B "
+end
+
+M.get_percentage = function()
+    return "%p%%"
 end
 
 M.set_active = function(self)
@@ -100,6 +116,7 @@ M.set_active = function(self)
     local remaining_width = string.len(tostring(vim.fn.line2byte(vim.fn.line("$") + 1)))
         + 15
         + string.len(vim.fn.line("$"))
+    local percentage = M.get_percentage()
     -- vim.print(string.format("%s, %d", "total", total_width))
     -- vim.print(string.format("%s, %d", self:get_git_lsp_status(), git_width))
     -- vim.print(string.format("%s, %d", self:get_line_col() .. self:get_lines_and_size(), remaining_width))
@@ -117,11 +134,12 @@ M.set_active = function(self)
         "%=",
         line_col,
         line_size,
+        percentage,
     })
 end
 
 M.set_inactive = function(self)
-    return self.colors.inactive .. "%= %F %="
+    return self.colors.inactive .. "%F"
 end
 
 Statusline = setmetatable(M, {

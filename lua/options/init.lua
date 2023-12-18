@@ -4,7 +4,6 @@ vim.o.shortmess = vim.o.shortmess .. "c"
 vim.o.hidden = true
 vim.o.whichwrap = "b,s,<,>,[,],h,l"
 vim.o.pumheight = 8
--- vim.o.fileencoding = "utf-8"
 vim.o.cmdheight = 1
 vim.o.inccommand = "nosplit"
 vim.o.splitbelow = true

@@ -54,20 +54,13 @@ map("n", "<C-Down>", ":resize -3<CR>", { noremap = true, silent = true })
 map(
     "n",
     "<leader>tp",
-    ":lua require('toggleterm.terminal').Terminal:new({cmd = 'python', direction = 'float'}):toggle() <CR>",
+    ":lua require('toggleterm.terminal').Terminal:new({cmd = 'python', direction = 'vertical'}):toggle() <CR>",
     { noremap = true, silent = true }
 )
 map(
     "n",
-    "<leader>tl",
-    ":lua require('toggleterm.terminal').Terminal:new({cmd = 'lazygit', direction = 'float'}):toggle()<CR>",
-    { noremap = true, silent = true }
-)
-
-map(
-    "n",
-    "<leader>tt",
-    ":lua require('toggleterm.terminal').Terminal:new({direction = 'float'}):toggle()<CR>",
+    "<leader>tv",
+    ":lua require('toggleterm.terminal').Terminal:new({direction = 'vertical'}):toggle() <CR>",
     { noremap = true, silent = true }
 )
 
