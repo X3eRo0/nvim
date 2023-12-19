@@ -16,17 +16,19 @@
 -- omni
 -- zephyr
 -- everblush
--- sunset_cloud
--- radioactive_waste
--- forest_stream
--- crimson_moonlight
+-- boo-- sunset_cloud
+-- boo-- radioactive_waste
+-- boo-- forest_stream
+-- boo-- crimson_moonlight
 -- oxocarbon
 -- aura
 -- PaperColor
 -- PaperColorSlim
 -- tokyodark
+-- modus-vivendi
+-- modus-operandi
 
-local colorscheme = "PaperColor"
+local colorscheme = "modus-operandi"
 local cmd = vim.api.nvim_command
 local g = vim.g
 local opt = vim.opt

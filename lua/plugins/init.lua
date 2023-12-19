@@ -111,8 +111,8 @@ local plugins = {
         end,
     },
     {
-        "x3ero0/dired.nvim",
-        -- dir = "/home/x3ero0/dired.nvim",
+        -- "x3ero0/dired.nvim",
+        dir = "/home/x3ero0/dired.nvim",
         name = "dired.nvim",
         dependencies = { "MunifTanjim/nui.nvim" },
         config = function()
@@ -191,7 +191,7 @@ local plugins = {
         end,
     },
     {
-        enabled = true,
+        enabled = false,
         "X3eRo0/papercolor-theme",
         priority = 1000,
         config = function()
@@ -295,7 +295,7 @@ local plugins = {
         end,
     },
     {
-        enabled = false,
+        enabled = true,
         "ishan9299/modus-theme-vim",
         priority = 1000,
         config = function()

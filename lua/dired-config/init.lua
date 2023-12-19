@@ -28,4 +28,7 @@ require("dired").setup({
         dired_toggle_hide_details = "(",
         dired_quit = "q",
     },
+    colors = {
+        DiredDirectoryName = { link = {}, bg = "NONE", fg = "9370DB", gui = "bold" },
+    },
 })
