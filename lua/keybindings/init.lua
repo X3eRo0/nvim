@@ -1,5 +1,5 @@
 vim.g.mapleader = " "
-local map = vim.api.nvim_set_keymap
+local map = vim.keymap.set
 -- map("n", "<C-h>", "<C-w>h", { noremap = true, silent = false })
 -- map("n", "<C-l>", "<C-w>l", { noremap = true, silent = false })
 -- map("n", "<C-j>", "<C-w>j", { noremap = true, silent = false })
@@ -12,6 +12,17 @@ map("n", "<C-G>", ":Bdelete!<CR>", { noremap = true, silent = false })
 -- map("i", "jk", "<ESC>", { noremap = true, silent = false })
 -- map("i", "kj", "<ESC>", { noremap = true, silent = false })
 
+map("n", "<leader>rr", ":make<CR>", { noremap = true, silent = true })
+map("n", "<leader>rc", function()
+    local cmd = "set makeprg=" .. vim.fn.input("Command: ", "", "file"):gsub(" ", "\\ ")
+    vim.cmd(cmd)
+    vim.cmd("make")
+end, { noremap = true, silent = true })
+map("n", "<leader>co", ":copen<CR>", { noremap = true, silent = true })
+map("n", "<leader>cn", ":cnext<CR>", { noremap = true, silent = true })
+map("n", "<leader>cp", ":cprev<CR>", { noremap = true, silent = true })
+map("n", "<leader>cl", ":clist<CR>", { noremap = true, silent = true })
+
 map("n", "<leader>F", ":Format<CR>", { noremap = true, silent = true })
 
 map("n", "<leader>f", ":Telescope find_files theme=dropdown<cr>", { noremap = true, silent = true })
@@ -19,8 +30,6 @@ map("n", "<leader>r", ":Telescope live_grep theme=dropdown<cr>", { noremap = tru
 -- map("n", "gcc", ":CommentToggle<CR>", {noremap = true, silent = true})
 -- map("v", "gc", ":CommentToggle<CR>", {noremap = true, silent = true})
 map("n", "<leader>hh", ":split<CR>", { noremap = true, silent = true })
-map("n", "<leader>rr", ":Recompile<CR>", { noremap = true, silent = true })
-map("n", "<leader>rc", ":Compile<CR>", { noremap = true, silent = true })
 map("n", "<leader>gg", ":Neogit<CR>", { noremap = true, silent = true })
 map("n", "<leader>vv", ":vsplit<CR>", { noremap = true, silent = true })
 map("n", "<leader>mv", ":call man#get_page_from_cword('vertical', v:count)<CR>", { noremap = true, silent = true })

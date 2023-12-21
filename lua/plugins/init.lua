@@ -23,14 +23,6 @@ local plugins = {
     "kyazdani42/nvim-web-devicons",
     "onsails/lspkind.nvim",
     {
-        "windwp/nvim-ts-autotag",
-        dependencies = { "nvim-treesitter" },
-    },
-    {
-        "p00f/nvim-ts-rainbow",
-        dependencies = { "nvim-treesitter" },
-    },
-    {
         "windwp/nvim-autopairs",
         config = function()
             require("autopairs-config")
@@ -54,13 +46,6 @@ local plugins = {
     "hrsh7th/vim-vsnip-integ",
     "rafamadriz/friendly-snippets",
     {
-        "norcalli/nvim-colorizer.lua",
-        config = function()
-            require("colorizer").setup()
-        end,
-        event = { "BufRead" },
-    },
-    {
         "lewis6991/gitsigns.nvim",
         config = function()
             require("gitsigns-config")
@@ -79,7 +64,6 @@ local plugins = {
             require("comment-config")
         end,
     },
-    "monaqa/dial.nvim",
     {
         "lukas-reineke/indent-blankline.nvim",
         commit = "3ad57e569d1c47cf4fa2308f555003e0a5509204",
@@ -87,13 +71,6 @@ local plugins = {
             require("blankline-config")
         end,
         event = { "BufRead" },
-    },
-    {
-        "nvimdev/lspsaga.nvim",
-        dependencies = { "nvim-lspconfig" },
-        config = function()
-            require("lsp/lspsaga")
-        end,
     },
     {
         "akinsho/toggleterm.nvim",
@@ -111,8 +88,8 @@ local plugins = {
         end,
     },
     {
-        -- "x3ero0/dired.nvim",
-        dir = "/home/x3ero0/dired.nvim",
+        "x3ero0/dired.nvim",
+        -- dir = "/home/x3ero0/dired.nvim",
         name = "dired.nvim",
         dependencies = { "MunifTanjim/nui.nvim" },
         config = function()
@@ -146,25 +123,19 @@ local plugins = {
     --     end,
     -- },
     "vim-utils/vim-man",
-    {
-        "ej-shafran/compile-mode.nvim",
-        branch = "latest",
-        -- or a specific version:
-        -- tag = "v2.0.0"
-        dependencies = {
-            { "nvim-lua/plenary.nvim" },
-            { "m00qek/baleia.nvim", tag = "v1.3.0" },
-        },
-        config = function()
-            require("compile-config")
-        end,
-    },
-    {
-        "RaafatTurki/hex.nvim",
-        config = function()
-            require("hex").setup()
-        end,
-    },
+    -- {
+    --     "ej-shafran/compile-mode.nvim",
+    --     branch = "latest",
+    --     -- or a specific version:
+    --     -- tag = "v2.0.0"
+    --     dependencies = {
+    --         { "nvim-lua/plenary.nvim" },
+    --         { "m00qek/baleia.nvim", tag = "v1.3.0" },
+    --     },
+    --     config = function()
+    --         require("compile-config")
+    --     end,
+    -- },
     {
         "mhartington/formatter.nvim",
         event = { "BufReadPre", "BufNewFile" },
@@ -287,7 +258,7 @@ local plugins = {
         end,
     },
     {
-        enabled = false,
+        enabled = true,
         "nyoom-engineering/oxocarbon.nvim",
         priority = 1000,
         config = function()
@@ -295,7 +266,7 @@ local plugins = {
         end,
     },
     {
-        enabled = true,
+        enabled = false,
         "ishan9299/modus-theme-vim",
         priority = 1000,
         config = function()
@@ -355,6 +326,14 @@ local plugins = {
         enabled = false,
         "catppuccin/nvim",
         name = "catppuccin",
+        priority = 1000,
+        config = function()
+            require("colorscheme-config")
+        end,
+    },
+    {
+        enabled = false,
+        "wadackel/vim-dogrun",
         priority = 1000,
         config = function()
             require("colorscheme-config")

@@ -27,8 +27,9 @@
 -- tokyodark
 -- modus-vivendi
 -- modus-operandi
+-- dogrun
 
-local colorscheme = "modus-operandi"
+local colorscheme = "oxocarbon"
 local cmd = vim.api.nvim_command
 local g = vim.g
 local opt = vim.opt
