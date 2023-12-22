@@ -123,19 +123,19 @@ local plugins = {
     --     end,
     -- },
     "vim-utils/vim-man",
-    -- {
-    --     "ej-shafran/compile-mode.nvim",
-    --     branch = "latest",
-    --     -- or a specific version:
-    --     -- tag = "v2.0.0"
-    --     dependencies = {
-    --         { "nvim-lua/plenary.nvim" },
-    --         { "m00qek/baleia.nvim", tag = "v1.3.0" },
-    --     },
-    --     config = function()
-    --         require("compile-config")
-    --     end,
-    -- },
+    {
+        "ej-shafran/compile-mode.nvim",
+        branch = "latest",
+        -- or a specific version:
+        -- tag = "v2.0.0"
+        dependencies = {
+            { "nvim-lua/plenary.nvim" },
+            { "m00qek/baleia.nvim", tag = "v1.3.0" },
+        },
+        config = function()
+            require("compile-config")
+        end,
+    },
     {
         "mhartington/formatter.nvim",
         event = { "BufReadPre", "BufNewFile" },

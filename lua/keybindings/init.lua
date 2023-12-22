@@ -9,12 +9,8 @@ local map = vim.keymap.set
 map("n", "<C-g>", ":Bdelete<CR>", { noremap = true, silent = false })
 map("n", "<C-G>", ":Bdelete!<CR>", { noremap = true, silent = false })
 
-map("n", "<leader>rr", ":make<CR>", { noremap = true, silent = true })
-map("n", "<leader>rc", function()
-    local cmd = "set makeprg=" .. vim.fn.input("Command: ", "", "file"):gsub(" ", "\\ ")
-    vim.cmd(cmd)
-    vim.cmd("make")
-end, { noremap = true, silent = true })
+map("n", "<leader>rr", ":Recompile<CR>", { noremap = true, silent = true })
+map("n", "<leader>rc", ":Compile<CR>", { noremap = true, silent = true })
 
 map("n", "<leader>co", ":copen<CR>", { noremap = true, silent = true })
 map("n", "<leader>cn", ":cnext<CR>", { noremap = true, silent = true })
