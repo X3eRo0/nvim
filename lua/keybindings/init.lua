@@ -24,6 +24,9 @@ end, { noremap = true, silent = true })
 
 map("n", "<leader>rc", function()
     local inp = vim.fn.input("Command: ")
+    if #inp == 0 then
+        return
+    end
     inp = inp:gsub('"', '\\"')
     inp = string.format(
         'TermExec cmd="%s" dir=%s direction=horizontal go_back=0 start_in_insert=1',
@@ -39,6 +42,9 @@ map("n", "<leader>cc", function()
         vim.cmd(vim.g.saved_command)
     else
         local inp = vim.fn.input("Command: ")
+        if #inp == 0 then
+            return
+        end
         inp = inp:gsub('"', '\\"')
         inp = string.format(
             'TermExec cmd="%s" dir=%s direction=horizontal go_back=0 start_in_insert=1',
