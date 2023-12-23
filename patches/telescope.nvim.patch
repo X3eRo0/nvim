@@ -1,0 +1,13 @@
+diff --git a/lua/telescope/themes.lua b/lua/telescope/themes.lua
+index 69d12e8..d521837 100644
+--- a/lua/telescope/themes.lua
++++ b/lua/telescope/themes.lua
+@@ -115,7 +115,7 @@ function themes.get_ivy(opts)
+ 
+     layout_strategy = "bottom_pane",
+     layout_config = {
+-      height = 25,
++      height = 10,
+     },
+ 
+     border = true,

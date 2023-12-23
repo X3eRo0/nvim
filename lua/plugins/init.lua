@@ -343,3 +343,4 @@ local plugins = {
 
 local opts = {}
 require("lazy").setup(plugins, opts)
+require("plugins.apply_patches").apply_patches()
