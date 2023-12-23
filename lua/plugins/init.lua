@@ -64,21 +64,21 @@ local plugins = {
             require("comment-config")
         end,
     },
-    {
-        "lukas-reineke/indent-blankline.nvim",
-        commit = "3ad57e569d1c47cf4fa2308f555003e0a5509204",
-        config = function()
-            require("blankline-config")
-        end,
-        event = { "BufRead" },
-    },
+    -- {
+    --     "lukas-reineke/indent-blankline.nvim",
+    --     commit = "3ad57e569d1c47cf4fa2308f555003e0a5509204",
+    --     config = function()
+    --         require("blankline-config")
+    --     end,
+    --     event = { "BufRead" },
+    -- },
     {
         "akinsho/toggleterm.nvim",
         config = function()
             require("toggleterm-config")
         end,
     },
-    "famiu/bufdelete.nvim",
+    -- "famiu/bufdelete.nvim",
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
     {
@@ -123,19 +123,6 @@ local plugins = {
     --     end,
     -- },
     "vim-utils/vim-man",
-    {
-        "ej-shafran/compile-mode.nvim",
-        branch = "latest",
-        -- or a specific version:
-        -- tag = "v2.0.0"
-        dependencies = {
-            { "nvim-lua/plenary.nvim" },
-            { "m00qek/baleia.nvim", tag = "v1.3.0" },
-        },
-        config = function()
-            require("compile-config")
-        end,
-    },
     {
         "mhartington/formatter.nvim",
         event = { "BufReadPre", "BufNewFile" },
