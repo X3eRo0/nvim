@@ -33,12 +33,8 @@ local function setup_diags()
         --     spacing = 5,
         --     severity_limit = "Warning",
         -- },
-        -- signs = true,
-        -- update_in_insert = true,
-        -- float = {
-        --     source = "always",
-        --     border = "single",
-        -- },
+        update_in_insert = true,
+        underline = false,
         virtual_text = false,
     })
     -- _G.LspDiagnosticsShowPopup = function()
