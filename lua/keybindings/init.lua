@@ -30,7 +30,23 @@ map("n", "<leader>rc", function()
         inp,
         vim.g.current_dired_path
     )
+    vim.g.saved_command = inp
     vim.cmd(inp)
+end, { noremap = true, silent = true })
+
+map("n", "<leader>cc", function()
+    if vim.g.saved_command ~= nil then
+        vim.cmd(vim.g.saved_command)
+    else
+        local inp = vim.fn.input("Command: ")
+        inp = inp:gsub('"', '\\"')
+        inp = string.format(
+            'TermExec cmd="%s" dir=%s direction=horizontal go_back=0 start_in_insert=1',
+            inp,
+            vim.g.current_dired_path
+        )
+        vim.g.saved_command = inp
+    end
 end, { noremap = true, silent = true })
 
 map("n", "<leader>co", ":copen<CR>", { noremap = true, silent = true })
@@ -40,6 +56,7 @@ map("n", "<leader>cl", ":clist<CR>", { noremap = true, silent = true })
 
 map("n", "<leader>F", ":Format<CR>", { noremap = true, silent = true })
 map("n", "<leader>f", ':Telescope find_files theme=get_ivy prompt_title=""<cr>', { noremap = true, silent = true })
+map("n", "<leader>b", ':Telescope buffers theme=get_ivy prompt_title=""<cr>', { noremap = true, silent = true })
 map("n", "<leader>r", ':Telescope live_grep theme=get_ivy prompt_title=""<cr>', { noremap = true, silent = true })
 map("n", "<leader>hh", ":split<CR>", { noremap = true, silent = true })
 map("n", "<leader>gg", ":Neogit<CR>", { noremap = true, silent = true })
