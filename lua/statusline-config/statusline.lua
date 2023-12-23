@@ -53,25 +53,33 @@ M.get_git_lsp_status = function(self)
     -- use fallback because it doesn't set this variable on the initial `BufEnter`
     local signs = vim.b.gitsigns_status_dict or { head = "", added = 0, changed = 0, removed = 0 }
     local lsp = M.get_lsp_client()
-    local is_head_empty = signs.head ~= ""
+    local is_head_populated = signs.head ~= ""
+    local is_lsp_populated = lsp ~= ""
 
     if self:is_truncated(self.trunc_width.git_status) then
-        return is_head_empty and string.format("[%s, %s] ", signs.head or "", lsp or "") or "%="
+        return is_head_populated and string.format("[%s %s] ", signs.head or "", (", " .. lsp) or "") or "%="
     end
+    local out = ""
 
-    -- return is_head_empty
-    --         and string.format("%%=[%s] +%s,~%s,-%s [%s] ", signs.head, signs.added, signs.changed, signs.removed, lsp)
-    --     or "%="
-    return is_head_empty
-            and string.format(
-                "[%s] +%s,~%s,-%s [%s] ",
+    if is_head_populated then
+        out = out
+            .. string.format(
+                "[%s] +%s,~%s,-%s",
                 hls.hl(signs.head, "GitCommitBranch"),
                 hls.hl(signs.added, "GitSignsAdd"),
                 hls.hl(signs.changed, "GitSignsChange"),
-                hls.hl(signs.removed, "GitSignsDelete"),
-                lsp
+                hls.hl(signs.removed, "GitSignsDelete")
             )
-        or ""
+        if is_lsp_populated then
+            out = out .. " " -- seperator
+        end
+    end
+
+    if is_lsp_populated then
+        out = out .. string.format("[%s]", lsp)
+    end
+
+    return out
 end
 
 M.get_filename = function(self)

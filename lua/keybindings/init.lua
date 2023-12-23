@@ -58,7 +58,7 @@ end, { noremap = true, silent = true })
 map("n", "<leader>co", ":copen<CR>", { noremap = true, silent = true })
 map("n", "<leader>cn", ":cnext<CR>", { noremap = true, silent = true })
 map("n", "<leader>cp", ":cprev<CR>", { noremap = true, silent = true })
-map("n", "<leader>cl", ":clist<CR>", { noremap = true, silent = true })
+map("n", "<leader>cl", ":cclose<CR>", { noremap = true, silent = true })
 
 map("n", "<leader>F", ":Format<CR>", { noremap = true, silent = true })
 map("n", "<leader>f", ':Telescope find_files theme=get_ivy prompt_title=""<cr>', { noremap = true, silent = true })
