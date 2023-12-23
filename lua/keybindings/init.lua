@@ -6,8 +6,8 @@ local map = vim.keymap.set
 -- map("n", "<C-k>", "<C-w>k", { noremap = true, silent = false })
 -- map("n", "<C-c>", "<C-w>c", { noremap = true, silent = false })
 --
-map("n", "<C-g>", ":Bdelete<CR>", { noremap = true, silent = false })
-map("n", "<C-G>", ":Bdelete!<CR>", { noremap = true, silent = false })
+map("n", "<C-g>", ":bdelete<CR>", { noremap = true, silent = false })
+map("n", "<C-G>", ":bdelete!<CR>", { noremap = true, silent = false })
 
 map("n", "<leader>rr", function()
     vim.cmd("make")
@@ -59,6 +59,11 @@ map("n", "<leader>co", ":copen<CR>", { noremap = true, silent = true })
 map("n", "<leader>cn", ":cnext<CR>", { noremap = true, silent = true })
 map("n", "<leader>cp", ":cprev<CR>", { noremap = true, silent = true })
 map("n", "<leader>cl", ":cclose<CR>", { noremap = true, silent = true })
+
+map("n", "<leader>lo", ":lopen<CR>", { noremap = true, silent = true })
+map("n", "<leader>ln", ":lnext<CR>", { noremap = true, silent = true })
+map("n", "<leader>lp", ":lprev<CR>", { noremap = true, silent = true })
+map("n", "<leader>ll", ":lclose<CR>", { noremap = true, silent = true })
 
 map("n", "<leader>F", ":Format<CR>", { noremap = true, silent = true })
 map("n", "<leader>f", ':Telescope find_files theme=get_ivy prompt_title=""<cr>', { noremap = true, silent = true })
