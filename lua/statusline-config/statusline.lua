@@ -1,4 +1,3 @@
-local fn = vim.fn
 local api = vim.api
 local hls = require("utils.highlights")
 
@@ -36,13 +35,13 @@ M.trunc_width = setmetatable({
     end,
 })
 
-M.is_truncated = function(_, width)
+function M.is_truncated(_, width)
     local current_width = api.nvim_win_get_width(0)
     return current_width < width
 end
 
-M.get_lsp_client = function()
-    local clients = vim.lsp.get_active_clients()
+function M.get_lsp_client()
+    local clients = vim.lsp.get_clients({ bufnr = 0 })
     if next(clients) == nil then
         return ""
     end
@@ -119,11 +118,11 @@ M.set_active = function(self)
     local line_size = colors.line_col .. self:get_lines_and_size() .. self.separators[active_sep][2]
 
     -- Calculate available space on both sides of the git status
-    local total_width = api.nvim_win_get_width(0)
-    local git_width = vim.fn.strdisplaywidth(self:get_git_lsp_status())
-    local remaining_width = string.len(tostring(vim.fn.line2byte(vim.fn.line("$") + 1)))
-        + 15
-        + string.len(vim.fn.line("$"))
+    -- local total_width = api.nvim_win_get_width(0)
+    -- local git_width = vim.fn.strdisplaywidth(self:get_git_lsp_status())
+    -- local remaining_width = string.len(tostring(vim.fn.line2byte(vim.fn.line("$") + 1)))
+    --     + 15
+    --     + string.len(vim.fn.line("$"))
     local percentage = M.get_percentage()
     -- vim.print(string.format("%s, %d", "total", total_width))
     -- vim.print(string.format("%s, %d", self:get_git_lsp_status(), git_width))
