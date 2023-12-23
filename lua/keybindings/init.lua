@@ -9,8 +9,29 @@ local map = vim.keymap.set
 map("n", "<C-g>", ":Bdelete<CR>", { noremap = true, silent = false })
 map("n", "<C-G>", ":Bdelete!<CR>", { noremap = true, silent = false })
 
-map("n", "<leader>rr", ":Recompile<CR>", { noremap = true, silent = true })
-map("n", "<leader>rc", ":Compile<CR>", { noremap = true, silent = true })
+map("n", "<leader>rr", function()
+    vim.cmd("make")
+end, { noremap = true, silent = true })
+map("n", "<leader>rb", function()
+    local inp = vim.fn.input("set makeprg=")
+    inp = inp:gsub("\\", "\\\\")
+    inp = inp:gsub('"', '\\"')
+    inp = inp:gsub(" ", "\\ ")
+    inp = inp:gsub("|", "\\|")
+    vim.cmd("set makeprg=" .. inp)
+    vim.cmd("make")
+end, { noremap = true, silent = true })
+
+map("n", "<leader>rc", function()
+    local inp = vim.fn.input("Command: ")
+    inp = inp:gsub('"', '\\"')
+    inp = string.format(
+        'TermExec cmd="%s" dir=%s direction=horizontal go_back=0 start_in_insert=1',
+        inp,
+        vim.g.current_dired_path
+    )
+    vim.cmd(inp)
+end, { noremap = true, silent = true })
 
 map("n", "<leader>co", ":copen<CR>", { noremap = true, silent = true })
 map("n", "<leader>cn", ":cnext<CR>", { noremap = true, silent = true })
