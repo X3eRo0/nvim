@@ -2,7 +2,7 @@ if vim.g.neovide then
     -- Put anything you want to happen only in Neovide here
 
     -- guifont
-    vim.o.guifont = "Liga SFMono Nerd Font:h12" -- text below applies for VimScript
+    vim.o.guifont = "Liga SFMono Nerd Font:h11" -- text below applies for VimScript
 
     -- scroll animation length
     vim.g.neovide_scroll_animation_length = 0.1

@@ -3,7 +3,7 @@
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 
-local navic = require("nvim-navic")
+-- local navic = require("nvim-navic")
 local on_attach = function(client, bufnr)
     local function buf_set_keymap(...)
         vim.api.nvim_buf_set_keymap(bufnr, ...)
@@ -35,7 +35,7 @@ local on_attach = function(client, bufnr)
     vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
     vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
 
-    navic.attach(client, bufnr)
+    -- navic.attach(client, bufnr)
 end
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
