@@ -107,13 +107,13 @@ local plugins = {
             require("neogit-config")
         end,
     },
-    {
-        "SmiteshP/nvim-navic",
-        dependencies = { "neovim/nvim-lspconfig" },
-        config = function()
-            require("navic-config")
-        end,
-    },
+    -- {
+    --     "SmiteshP/nvim-navic",
+    --     dependencies = { "neovim/nvim-lspconfig" },
+    --     config = function()
+    --         require("navic-config")
+    --     end,
+    -- },
 
     -- {
     --     "X3eRo0/winbar.nvim",
