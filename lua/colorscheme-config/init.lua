@@ -28,8 +28,9 @@
 -- modus-vivendi
 -- modus-operandi
 -- dogrun
+-- hybrid
 
-local colorscheme = "oxocarbon"
+local colorscheme = "hybrid"
 local cmd = vim.api.nvim_command
 local g = vim.g
 local opt = vim.opt

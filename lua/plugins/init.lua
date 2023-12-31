@@ -245,7 +245,7 @@ local plugins = {
         end,
     },
     {
-        enabled = true,
+        enabled = false,
         "nyoom-engineering/oxocarbon.nvim",
         priority = 1000,
         config = function()
@@ -321,6 +321,14 @@ local plugins = {
     {
         enabled = false,
         "wadackel/vim-dogrun",
+        priority = 1000,
+        config = function()
+            require("colorscheme-config")
+        end,
+    },
+    {
+        enabled = true,
+        "HoNamDuong/hybrid.nvim",
         priority = 1000,
         config = function()
             require("colorscheme-config")
