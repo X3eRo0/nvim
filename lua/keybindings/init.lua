@@ -22,6 +22,22 @@ map("n", "<leader>rb", function()
     vim.cmd("make")
 end, { noremap = true, silent = true })
 
+map("n", "<leader>cr", function()
+    local inp = vim.fn.input("Command: ")
+    if #inp == 0 then
+        return
+    end
+    inp = inp:gsub('"', '\\"')
+    inp = string.format(
+        'TermExec cmd="%s" dir=%s direction=horizontal go_back=0 start_in_insert=1',
+        inp,
+        vim.g.current_dired_path
+    )
+    vim.g.saved_command = inp
+    vim.cmd(inp)
+    vim.cmd("wincmd p")
+end, { noremap = true, silent = true })
+
 map("n", "<leader>cc", function()
     if vim.g.saved_command ~= nil then
         vim.cmd(vim.g.saved_command)
