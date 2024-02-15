@@ -78,7 +78,7 @@ local plugins = {
             require("toggleterm-config")
         end,
     },
-    -- "famiu/bufdelete.nvim",
+    "famiu/bufdelete.nvim",
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
     {
@@ -277,7 +277,7 @@ local plugins = {
         end,
     },
     {
-        enabled = false,
+        enabled = true,
         "techtuner/aura-neovim",
         priority = 1000,
         config = function()
@@ -327,7 +327,7 @@ local plugins = {
         end,
     },
     {
-        enabled = true,
+        enabled = false,
         "HoNamDuong/hybrid.nvim",
         priority = 1000,
         config = function()
