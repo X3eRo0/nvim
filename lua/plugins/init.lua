@@ -99,6 +99,7 @@ local plugins = {
     "nvim-lua/plenary.nvim",
     {
         "TimUntersberger/neogit",
+        branch = "nightly",
         dependencies = {
             "nvim-lua/plenary.nvim",
             "sindrets/diffview.nvim",
@@ -295,15 +296,6 @@ local plugins = {
         enabled = false,
         "rose-pine/neovim",
         name = "rose-pine",
-        priority = 1000,
-        config = function()
-            require("colorscheme-config")
-        end,
-    },
-    {
-        enabled = false,
-        "metalelf0/jellybeans-nvim",
-        dependencies = { "rktjmp/lush.nvim" },
         priority = 1000,
         config = function()
             require("colorscheme-config")
