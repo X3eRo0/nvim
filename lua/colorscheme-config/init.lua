@@ -30,7 +30,7 @@
 -- dogrun
 -- hybrid
 
-local colorscheme = "aura"
+local colorscheme = "hybrid" -- aura
 local cmd = vim.api.nvim_command
 local g = vim.g
 local opt = vim.opt
@@ -87,14 +87,31 @@ else
         -- github_light_default
         -- github_light_colorblind
         require("github-theme").setup({
-            theme_style = "light_default",
-            function_style = "NONE",
-            dark_float = true,
-            comment_style = "NONE",
-            keyword_style = "NONE",
-            sidebars = { "qf", "vista_kind", "terminal", "packer" },
-            -- Change the "hint" color to the "orange" color, and make the "error" color bright red
-            colors = { hint = "orange", error = "#ff0000" },
+            options = {
+                style = {
+                    functions = "NONE",
+                    comments = "NONE",
+                    keywords = "NONE",
+                    -- Change the "hint" color to the "orange" color, and make the "error" color bright red
+                },
+                darken = {
+                    floats = true,
+                    sidebars = {
+                        list = {
+                            "qf",
+                            "vista_kind",
+                            "terminal",
+                            "packer",
+                        },
+                    },
+                },
+            },
+            specs = {
+                all = {
+                    hint = "orange",
+                    error = "#ff0000",
+                },
+            },
         })
     end
 

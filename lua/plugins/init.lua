@@ -99,7 +99,7 @@ local plugins = {
     "nvim-lua/plenary.nvim",
     {
         "TimUntersberger/neogit",
-        branch = "nightly",
+        branch = "master",
         dependencies = {
             "nvim-lua/plenary.nvim",
             "sindrets/diffview.nvim",
@@ -278,7 +278,7 @@ local plugins = {
         end,
     },
     {
-        enabled = true,
+        enabled = false,
         "techtuner/aura-neovim",
         priority = 1000,
         config = function()
@@ -319,7 +319,7 @@ local plugins = {
         end,
     },
     {
-        enabled = false,
+        enabled = true,
         "HoNamDuong/hybrid.nvim",
         priority = 1000,
         config = function()
