@@ -319,8 +319,24 @@ local plugins = {
         end,
     },
     {
-        enabled = true,
+        enabled = false,
         "HoNamDuong/hybrid.nvim",
+        priority = 1000,
+        config = function()
+            require("colorscheme-config")
+        end,
+    },
+    {
+        enabled = false,
+        "bettervim/yugen.nvim",
+        priority = 1000,
+        config = function()
+            require("colorscheme-config")
+        end,
+    },
+    {
+        enabled = true,
+        "slugbyte/lackluster.nvim",
         priority = 1000,
         config = function()
             require("colorscheme-config")

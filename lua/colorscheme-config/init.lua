@@ -31,8 +31,9 @@
 -- hybrid
 -- vague
 -- yugen
+-- lackluster
 
-local colorscheme = "yugen" -- aura
+local colorscheme = "lackluster" -- aura
 local cmd = vim.api.nvim_command
 local g = vim.g
 local opt = vim.opt

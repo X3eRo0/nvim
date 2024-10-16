@@ -65,9 +65,12 @@ M.get_git_lsp_status = function(self)
             .. string.format(
                 "[%s] +%s,~%s,-%s",
                 hls.hl(signs.head, "GitCommitBranch"),
-                hls.hl(signs.added, "GitSignsAdd"),
-                hls.hl(signs.changed, "GitSignsChange"),
-                hls.hl(signs.removed, "GitSignsDelete")
+                -- hls.hl(signs.added, "GitSignsAdd"),
+                -- hls.hl(signs.changed, "GitSignsChange"),
+                -- hls.hl(signs.removed, "GitSignsDelete")
+                hls.hl(signs.added, "DiffAdd"),
+                hls.hl(signs.changed, "DiffChange"),
+                hls.hl(signs.removed, "DiffDelete")
             )
         if is_lsp_populated then
             out = out .. " " -- seperator
