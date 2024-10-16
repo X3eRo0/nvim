@@ -32,6 +32,9 @@
 -- vague
 -- yugen
 -- lackluster
+-- obscure
+-- gruvbox
+-- midnight-desert
 
 local colorscheme = "lackluster" -- aura
 local cmd = vim.api.nvim_command

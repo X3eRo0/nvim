@@ -342,6 +342,33 @@ local plugins = {
             require("colorscheme-config")
         end,
     },
+    {
+        enabled = false,
+        "killitar/obscure.nvim",
+        priority = 1000,
+        config = function()
+            require("colorscheme-config")
+        end,
+    },
+    {
+        enabled = false,
+        "kanenorman/gruvbox-darker.nvim",
+        priority = 1000,
+        config = function()
+            require("colorscheme-config")
+        end,
+    },
+    {
+        enabled = false,
+        "CosecSecCot/midnight-desert.nvim",
+        dependencies = {
+            "rktjmp/lush.nvim",
+        },
+        priority = 1000,
+        config = function()
+            require("colorscheme-config")
+        end,
+    },
 }
 
 local opts = {}
