@@ -29,8 +29,10 @@
 -- modus-operandi
 -- dogrun
 -- hybrid
+-- vague
+-- yugen
 
-local colorscheme = "hybrid" -- aura
+local colorscheme = "yugen" -- aura
 local cmd = vim.api.nvim_command
 local g = vim.g
 local opt = vim.opt
