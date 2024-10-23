@@ -70,6 +70,12 @@ map("n", "<leader>ll", ":lclose<CR>", { noremap = true, silent = true })
 
 map("n", "<leader>F", ":Format<CR>", { noremap = true, silent = true })
 map("n", "<leader>f", ':Telescope find_files theme=get_ivy prompt_title=""<cr>', { noremap = true, silent = true })
+map(
+    "n",
+    "<leader>d",
+    ':Telescope find_files find_command=find,.,-type,d theme=get_ivy prompt_title=""<cr>',
+    { noremap = true, silent = true }
+)
 map("n", "<leader>b", ':Telescope buffers theme=get_ivy prompt_title=""<cr>', { noremap = true, silent = true })
 map("n", "<leader>r", ':Telescope live_grep theme=get_ivy prompt_title=""<cr>', { noremap = true, silent = true })
 map("n", "<leader>hh", ":split<CR>", { noremap = true, silent = true })

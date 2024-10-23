@@ -335,7 +335,7 @@ local plugins = {
         end,
     },
     {
-        enabled = true,
+        enabled = false,
         "slugbyte/lackluster.nvim",
         priority = 1000,
         config = function()
@@ -369,12 +369,45 @@ local plugins = {
             require("colorscheme-config")
         end,
     },
+    {
+        enabled = true,
+        "anAcc22/sakura.nvim",
+        priority = 1000,
+        dependencies = {
+            "rktjmp/lush.nvim",
+        },
+        config = function()
+            require("colorscheme-config")
+        end,
+    },
+    {
+        enabled = false,
+        "zenbones-theme/zenbones.nvim",
+        dependencies = {
+            "rktjmp/lush.nvim",
+        },
+        priority = 1000,
+        config = function()
+            require("colorscheme-config")
+        end,
+    },
+    {
+        enabled = false,
+        "vague2k/vague.nvim",
+        -- priority = 1000,
+        config = function()
+            require("vague").setup({
+                colors = { comment = "#3a3a45" },
+            })
+            require("colorscheme-config")
+        end,
+    },
 }
 
 local opts = {
     rocks = {
         enabled = false,
-    }
+    },
 }
 require("lazy").setup(plugins, opts)
 require("plugins.apply_patches").apply_patches()
