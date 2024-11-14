@@ -38,7 +38,7 @@
 -- zenbones
 -- vague
 
-local colorscheme = "sakura" -- aura
+local colorscheme = "gruber-darker" -- aura
 local cmd = vim.api.nvim_command
 local g = vim.g
 local opt = vim.opt
@@ -135,7 +135,7 @@ else
             -- theme = "crimson_moonlight",
             -- theme = "forest_stream",
             -- theme = "sunset_cloud",
-            theme = "radioactive_waste",
+            theme = "crimson_moonlight",
         })
     end
     if colorscheme == "oxocarbon" then

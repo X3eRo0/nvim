@@ -370,7 +370,7 @@ local plugins = {
         end,
     },
     {
-        enabled = true,
+        enabled = false,
         "anAcc22/sakura.nvim",
         priority = 1000,
         dependencies = {
@@ -399,6 +399,13 @@ local plugins = {
             require("vague").setup({
                 colors = { comment = "#3a3a45" },
             })
+            require("colorscheme-config")
+        end,
+    },
+    {
+        enabled = true,
+        "blazkowolf/gruber-darker.nvim",
+        config = function()
             require("colorscheme-config")
         end,
     },
