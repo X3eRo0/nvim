@@ -96,7 +96,7 @@ map("n", "<C-Up>", ":resize +3<CR>", { noremap = true, silent = true })
 map("n", "<C-Down>", ":resize -3<CR>", { noremap = true, silent = true })
 map(
     "n",
-    "<leader>tp",
+    "<leader>pp",
     ":lua require('toggleterm.terminal').Terminal:new({cmd = 'ipython3', direction = 'vertical'}):toggle() <CR>",
     { noremap = true, silent = true }
 )
@@ -110,3 +110,9 @@ map(
 map("n", "<leader>e", "<cmd>e .<CR>", { noremap = true, silent = true })
 map("n", "<Tab>", ":bn<cr>", { noremap = true, silent = true })
 map("n", "<S-Tab>", ":bp<cr>", { noremap = true, silent = true })
+
+-- Tab keybinds
+map("n", "<leader>to", ":tabnew<CR>", { noremap = true, silent = true })
+map("n", "<leader>tc", ":tabclose<CR>", { noremap = true, silent = true })
+map("n", "<leader>tn", ":tabnext<CR>", { noremap = true, silent = true })
+map("n", "<leader>tp", ":tabprevious<CR>", { noremap = true, silent = true })
