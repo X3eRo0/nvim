@@ -416,14 +416,14 @@ local plugins = {
         end,
     },
     {
-        enabled = false,
+        enabled = true,
         "blazkowolf/gruber-darker.nvim",
         config = function()
             require("colorscheme-config")
         end,
     },
     {
-        enabled = true,
+        enabled = false,
         "p00f/alabaster.nvim",
         config = function()
             require("colorscheme-config")
