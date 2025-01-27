@@ -37,6 +37,8 @@
 -- sakura
 -- zenbones
 -- vague
+-- alabaster
+-- gruber-darker
 
 local colorscheme = "gruber-darker" -- aura
 local cmd = vim.api.nvim_command

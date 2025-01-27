@@ -1,5 +1,6 @@
 {
   "Comment.nvim": { "branch": "master", "commit": "e30b7f2008e52442154b66f7c519bfd2f1e32acb" },
+  "alabaster.nvim": { "branch": "main", "commit": "8de3afd6b203e5469594108041721b8618a10889" },
   "aura-neovim": { "branch": "main", "commit": "463aa928c57d3790122128e061d712c8d34b4b9b" },
   "boo-colorscheme-nvim": { "branch": "main", "commit": "f329950b54d2a9462dd8169bb9cf0adbddef70b4" },
   "bufdelete.nvim": { "branch": "master", "commit": "f6bcea78afb3060b198125256f897040538bcb81" },
