@@ -45,15 +45,18 @@ local function setup_diags()
         },
     })
 
-    vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-        -- virtual_text = {
-        --     spacing = 5,
-        --     severity_limit = "Warning",
-        -- },
-        update_in_insert = true,
-        underline = false,
-        virtual_text = false,
-    })
+    -- vim.lsp.handlers["textDocument/publishDiagnostics"] = function(_, result, ctx, config)
+    --     config = config or {}
+    --     config.update_in_insert = true
+    --     config.underline = false
+    --     config.virtual_text = false
+    --
+    --     local bufnr = vim.uri_to_bufnr(result.uri) -- Convert URI to buffer number
+    --     if bufnr and vim.api.nvim_buf_is_loaded(bufnr) then
+    --         vim.diagnostic.set(ctx.client_id, bufnr, result.diagnostics, config)
+    --     end
+    -- end
+
     -- _G.LspDiagnosticsShowPopup = function()
     --     return vim.diagnostic.open_float(0, { scope = "cursor" })
     -- end

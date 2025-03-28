@@ -79,13 +79,11 @@ local plugins = {
         end,
     },
     "famiu/bufdelete.nvim",
-    "williamboman/mason.nvim",
-    "williamboman/mason-lspconfig.nvim",
     {
-        "neovim/nvim-lspconfig",
-        config = function()
-            require("lsp")
-        end,
+        "williamboman/mason.nvim",
+        dependencies = {
+            "WhoIsSethDaniel/mason-tool-installer.nvim",
+        },
     },
     {
         "x3ero0/dired.nvim",

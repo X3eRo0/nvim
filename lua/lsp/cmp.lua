@@ -45,14 +45,7 @@ cmp.setup({
     sources = {
         { name = "nvim_lsp" },
         { name = "path" },
-        -- For vsnip user.
         { name = "vsnip" },
-        -- For luasnip user.
-        -- { name = 'luasnip' },
-
-        -- For ultisnips user.
-        -- { name = 'ultisnips' },
-
         { name = "buffer" },
     },
     formatting = {

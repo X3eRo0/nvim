@@ -7,7 +7,7 @@ index 69d12e8..d521837 100644
      layout_strategy = "bottom_pane",
      layout_config = {
 -      height = 25,
-+      height = 10,
++      height = 15,
      },
  
      border = true,

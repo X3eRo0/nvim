@@ -1,6 +1,11 @@
-require("lsp/cmp")
-require("lsp/ui_customization").setup()
-require("lsp/language_servers")
-require("lsp/mason")
-require("lsp/mason-lspconfig")
--- require("lsp/lspsaga")
+require("lsp.mason")
+require("lsp.cmp")
+require("lsp.ui").setup()
+
+-- servers
+require("lsp.servers.clangd")
+require("lsp.servers.pyright")
+require("lsp.servers.lua_ls")
+
+-- main config
+require("lsp.lsp")
