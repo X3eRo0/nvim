@@ -15,7 +15,8 @@ M.capabilities = capabilities
 
 M.on_attach = function(client, _)
     if client.server_capabilities.inlayHintProvider then
-        vim.lsp.inlay_hint.enable(true)
+        -- enables inline type hints for all function arguments
+        -- vim.lsp.inlay_hint.enable(true)
     end
 end
 

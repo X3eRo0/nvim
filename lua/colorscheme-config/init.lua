@@ -39,8 +39,9 @@
 -- vague
 -- alabaster
 -- gruber-darker
+-- helix
 
-local colorscheme = "gruber-darker" -- aura
+local colorscheme = "aura" -- gruber-darker
 local cmd = vim.api.nvim_command
 local g = vim.g
 local opt = vim.opt
@@ -80,7 +81,7 @@ else
     end
 
     if colorscheme == "one-nvim" then
-        vim.g.one_nvim_transparent_bg = false
+        vim.g.one_nvim_transparent_bg = true
     end
 
     -- modus-theme-vim
@@ -179,11 +180,11 @@ else
         require("rose-pine").setup({
             --- @usage 'main' | 'moon'
             dark_variant = "main",
-            bold_vert_split = false,
-            dim_nc_background = false,
-            disable_background = false,
-            disable_float_background = false,
-            disable_italics = true,
+            styles = {
+                bold = true,
+                italic = false,
+                transparency = true,
+            },
 
             --- @usage string hex value or named color from rosepinetheme.com/palette
             groups = {

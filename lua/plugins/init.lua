@@ -289,7 +289,7 @@ local plugins = {
         end,
     },
     {
-        enabled = false,
+        enabled = true,
         "techtuner/aura-neovim",
         priority = 1000,
         config = function()
@@ -414,7 +414,7 @@ local plugins = {
         end,
     },
     {
-        enabled = true,
+        enabled = false,
         "blazkowolf/gruber-darker.nvim",
         config = function()
             require("colorscheme-config")
@@ -423,6 +423,14 @@ local plugins = {
     {
         enabled = false,
         "p00f/alabaster.nvim",
+        config = function()
+            require("colorscheme-config")
+        end,
+    },
+    {
+        enabled = false,
+        "oneslash/helix-nvim",
+        version = "*",
         config = function()
             require("colorscheme-config")
         end,
