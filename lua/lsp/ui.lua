@@ -22,7 +22,7 @@
 local M = {}
 
 local function setup_diags()
-    local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+    local signs = { Error = "", Warn = "", Hint = "󰌵", Info = " " }
     vim.diagnostic.config({
         signs = {
             text = {
@@ -39,7 +39,7 @@ local function setup_diags()
         float = {
             focusable = true,
             style = "minimal",
-            border = "rounded",
+            border = "none",
             header = "",
             prefix = "",
         },

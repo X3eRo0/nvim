@@ -28,10 +28,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
         buf_set_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
         buf_set_keymap("n", "<space>de", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
         buf_set_keymap("n", "[d", function()
-            vim.diagnostic.jump({ count = 1 })
+            vim.diagnostic.goto_prev()
         end, opts)
         buf_set_keymap("n", "]d", function()
-            vim.diagnostic.jump({ count = -1 })
+            vim.diagnostic.goto_next()
         end, opts)
     end,
 })

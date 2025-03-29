@@ -1,5 +1,5 @@
 require("lsp.mason")
-require("lsp.cmp")
+require("lsp.completion")
 require("lsp.ui").setup()
 
 -- servers
