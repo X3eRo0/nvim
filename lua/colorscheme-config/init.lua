@@ -1,6 +1,11 @@
+M = {}
+
+local colorscheme = "aura" -- gruber-darker
+
 -- jellybeans-nvim
 -- tokyonight
 -- moonfly
+-- nightfly
 -- material
 -- github_dark
 -- github_dark_dimmed
@@ -41,16 +46,13 @@
 -- gruber-darker
 -- helix
 
-local colorscheme = "aura" -- gruber-darker
-local cmd = vim.api.nvim_command
 local g = vim.g
 local opt = vim.opt
 
-local colo_ok, _ = pcall(cmd, "colo " .. colorscheme)
-if not colo_ok then
-    vim.notify("Colorscheme " .. colorscheme .. " not found!")
-    return
-else
+M.setup = function()
+    vim.cmd("colorscheme " .. colorscheme)
+    vim.notify("Colorscheme loaded!", vim.log.levels.INFO, { render = "minimal" })
+
     -- Tokyonight
     if colorscheme == "tokyonight" then
         g.tokyonight_style = "night"
@@ -69,7 +71,11 @@ else
         opt.background = "dark"
     end
 
+    ---@diagnostic disable-next-line: empty-block
     if colorscheme == "vague" then
+        require("vague").setup({
+            colors = { comment = "#3a3a45" },
+        })
     end
 
     if colorscheme == "PaperColor" then
@@ -138,6 +144,7 @@ else
             -- theme = "crimson_moonlight",
             -- theme = "forest_stream",
             -- theme = "sunset_cloud",
+            italic = false,
             theme = "crimson_moonlight",
         })
     end
@@ -217,11 +224,6 @@ else
                 ColorColumn = { bg = "rose" },
             },
         })
-
-        -- set colorscheme after options
-        vim.cmd("colorscheme rose-pine")
-        --
-        --
     end
     if colorscheme == "catppuccin" then
         g.catppuccin_flavor = "frappe" -- "latte", "machhiato", "mocha"
@@ -321,10 +323,6 @@ else
         -- vim.notify("Material and Setup loaded!", "info", { render = "minimal" })
     end
 
-    -- re-require
-    -- cmd("colo " .. colorscheme)
-    vim.notify("Colorscheme loaded!", "info", { render = "minimal" })
-
     -- post config
     if colorscheme == "sakura" then
         local purple = "#957fb8"
@@ -404,3 +402,9 @@ else
         end
     end
 end
+
+M.is_active = function(scheme)
+    return colorscheme:find(scheme, 1, true) ~= nil
+end
+
+return M

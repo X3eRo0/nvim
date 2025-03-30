@@ -11,6 +11,8 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+local csc = require("colorscheme-config")
+
 local plugins = {
     {
         "nvim-treesitter/nvim-treesitter",
@@ -97,7 +99,6 @@ local plugins = {
     {
         "stevearc/oil.nvim",
         ---@module 'oil'
-        ---@type oil.SetupOpts
         enabled = false,
         opts = {},
         -- Optional dependencies
@@ -145,294 +146,330 @@ local plugins = {
 
     -- Colorscheme
     {
-        enabled = false,
         "tiagovla/tokyodark.nvim",
-        priority = 1000,
+        cond = function()
+            return csc.is_active("tokyodark")
+        end,
         config = function()
-            require("colorscheme-config")
+            return csc.setup()
         end,
     },
     {
-        enabled = false,
         "pappasam/papercolor-theme-slim",
-        priority = 1000,
+        cond = function()
+            return csc.is_active("PaperColorSlim")
+        end,
         config = function()
-            require("colorscheme-config")
+            return csc.setup()
         end,
     },
     {
-        enabled = false,
         "X3eRo0/papercolor-theme",
-        priority = 1000,
+        cond = function()
+            return csc.is_active("PaperColor")
+        end,
         config = function()
-            require("colorscheme-config")
+            return csc.setup()
         end,
     },
     {
-        enabled = false,
         "folke/tokyonight.nvim",
-        priority = 1000,
+        cond = function()
+            return csc.is_active("tokyonight")
+        end,
         config = function()
-            require("colorscheme-config")
+            return csc.setup()
         end,
     },
     {
-        enabled = false,
         "marko-cerovac/material.nvim",
-        priority = 1000,
+        cond = function()
+            return csc.is_active("material")
+        end,
         config = function()
-            require("colorscheme-config")
+            return csc.setup()
         end,
     },
     {
-        enabled = false,
         "Mofiqul/vscode.nvim",
-        priority = 1000,
+        cond = function()
+            return csc.is_active("vscode")
+        end,
         config = function()
-            require("colorscheme-config")
+            return csc.setup()
         end,
     },
     {
-        enabled = false,
         "bluz71/vim-nightfly-guicolors",
-        priority = 1000,
+        cond = function()
+            return csc.is_active("nightfly")
+        end,
         config = function()
-            require("colorscheme-config")
+            return csc.setup()
         end,
     },
     {
-        enabled = false,
         "bluz71/vim-moonfly-colors",
-        priority = 1000,
+        cond = function()
+            return csc.is_active("moonfly")
+        end,
         config = function()
-            require("colorscheme-config")
+            return csc.setup()
         end,
     },
     {
-        enabled = false,
         "nvimdev/zephyr-nvim",
-        priority = 1000,
+        cond = function()
+            return csc.is_active("zephyr")
+        end,
         config = function()
-            require("colorscheme-config")
+            return csc.setup()
         end,
     },
     {
-        enabled = false,
         "yonlu/omni.vim",
-        priority = 1000,
+        cond = function()
+            return csc.is_active("omni")
+        end,
         config = function()
-            require("colorscheme-config")
+            return csc.setup()
         end,
     },
     {
-        enabled = false,
         "sainnhe/sonokai",
-        priority = 1000,
+        cond = function()
+            return csc.is_active("sonokai")
+        end,
         config = function()
-            require("colorscheme-config")
+            return csc.setup()
         end,
     },
     {
-        enabled = false,
         "Everblush/everblush.vim",
-        priority = 1000,
+        cond = function()
+            return csc.is_active("everblush")
+        end,
         config = function()
-            require("colorscheme-config")
+            return csc.setup()
         end,
     },
     {
-        enabled = false,
         "projekt0n/github-nvim-theme",
-        priority = 1000,
+        cond = function()
+            return csc.is_active("github")
+        end,
         config = function()
-            require("colorscheme-config")
+            return csc.setup()
         end,
     },
     {
-        enabled = false,
         "rockerBOO/boo-colorscheme-nvim",
-        priority = 1000,
+        cond = function()
+            return csc.is_active("boo")
+        end,
         config = function()
-            require("colorscheme-config")
+            return csc.setup()
         end,
     },
     {
-        enabled = false,
         "nyoom-engineering/oxocarbon.nvim",
-        priority = 1000,
+        cond = function()
+            return csc.is_active("oxocarbon")
+        end,
         config = function()
-            require("colorscheme-config")
+            return csc.setup()
         end,
     },
     {
-        enabled = false,
         "ishan9299/modus-theme-vim",
-        priority = 1000,
+        cond = function()
+            return csc.is_active("modus")
+        end,
         config = function()
-            require("colorscheme-config")
+            return csc.setup()
         end,
     },
     {
-        enabled = false,
         "Th3Whit3Wolf/one-nvim",
-        priority = 1000,
+        cond = function()
+            return csc.is_active("one-nvim")
+        end,
         config = function()
-            require("colorscheme-config")
+            return csc.setup()
         end,
     },
     {
-        enabled = false,
         "rebelot/kanagawa.nvim",
-        priority = 1000,
+        cond = function()
+            return csc.is_active("kanagawa")
+        end,
         config = function()
-            require("colorscheme-config")
+            return csc.setup()
         end,
     },
     {
-        enabled = true,
         "techtuner/aura-neovim",
-        priority = 1000,
+        cond = function()
+            return csc.is_active("aura")
+        end,
         config = function()
-            require("colorscheme-config")
+            return csc.setup()
         end,
     },
     {
-        enabled = false,
         "dasupradyumna/midnight.nvim",
+        cond = function()
+            return csc.is_active("midnight")
+        end,
         config = function()
-            require("colorscheme-config")
+            return csc.setup()
         end,
     },
     {
-        enabled = false,
         "rose-pine/neovim",
         name = "rose-pine",
-        priority = 1000,
+        cond = function()
+            return csc.is_active("rose-pine")
+        end,
         config = function()
-            require("colorscheme-config")
+            return csc.setup()
         end,
     },
     {
-        enabled = false,
         "catppuccin/nvim",
         name = "catppuccin",
-        priority = 1000,
+        cond = function()
+            return csc.is_active("catppuccin")
+        end,
         config = function()
-            require("colorscheme-config")
+            return csc.setup()
         end,
     },
     {
-        enabled = false,
         "wadackel/vim-dogrun",
-        priority = 1000,
+        cond = function()
+            return csc.is_active("dogrun")
+        end,
         config = function()
-            require("colorscheme-config")
+            return csc.setup()
         end,
     },
     {
-        enabled = false,
         "HoNamDuong/hybrid.nvim",
-        priority = 1000,
+        cond = function()
+            return csc.is_active("hybrid")
+        end,
         config = function()
-            require("colorscheme-config")
+            return csc.setup()
         end,
     },
     {
-        enabled = false,
         "bettervim/yugen.nvim",
-        priority = 1000,
+        cond = function()
+            return csc.is_active("yugen")
+        end,
         config = function()
-            require("colorscheme-config")
+            return csc.setup()
         end,
     },
     {
-        enabled = false,
         "slugbyte/lackluster.nvim",
-        priority = 1000,
+        cond = function()
+            return csc.is_active("lackluster")
+        end,
         config = function()
-            require("colorscheme-config")
+            return csc.setup()
         end,
     },
     {
-        enabled = false,
         "killitar/obscure.nvim",
-        priority = 1000,
+        cond = function()
+            return csc.is_active("obscure")
+        end,
         config = function()
-            require("colorscheme-config")
+            return csc.setup()
         end,
     },
     {
-        enabled = false,
         "kanenorman/gruvbox-darker.nvim",
-        priority = 1000,
+        cond = function()
+            return csc.is_active("gruvbox")
+        end,
         config = function()
-            require("colorscheme-config")
+            return csc.setup()
         end,
     },
     {
-        enabled = false,
         "CosecSecCot/midnight-desert.nvim",
         dependencies = {
             "rktjmp/lush.nvim",
         },
-        priority = 1000,
+        cond = function()
+            return csc.is_active("midnight-desert")
+        end,
         config = function()
-            require("colorscheme-config")
+            return csc.setup()
         end,
     },
     {
-        enabled = false,
         "anAcc22/sakura.nvim",
-        priority = 1000,
         dependencies = {
             "rktjmp/lush.nvim",
         },
+        cond = function()
+            return csc.is_active("sakura")
+        end,
         config = function()
-            require("colorscheme-config")
+            return csc.setup()
         end,
     },
     {
-        enabled = false,
         "zenbones-theme/zenbones.nvim",
         dependencies = {
             "rktjmp/lush.nvim",
         },
-        priority = 1000,
+        cond = function()
+            return csc.is_active("zenbones")
+        end,
         config = function()
-            require("colorscheme-config")
+            return csc.setup()
         end,
     },
     {
-        enabled = false,
         "vague2k/vague.nvim",
-        -- priority = 1000,
+        cond = function()
+            return csc.is_active("vague")
+        end,
         config = function()
-            require("vague").setup({
-                colors = { comment = "#3a3a45" },
-            })
-            require("colorscheme-config")
+            return csc.setup()
         end,
     },
     {
-        enabled = false,
         "blazkowolf/gruber-darker.nvim",
+        cond = function()
+            return csc.is_active("gruber-darker")
+        end,
         config = function()
-            require("colorscheme-config")
+            return csc.setup()
         end,
     },
     {
-        enabled = false,
         "p00f/alabaster.nvim",
+        cond = function()
+            return csc.is_active("alabaster")
+        end,
         config = function()
-            require("colorscheme-config")
+            return csc.setup()
         end,
     },
     {
-        enabled = false,
         "oneslash/helix-nvim",
         version = "*",
+        cond = function()
+            return csc.is_active("helix")
+        end,
         config = function()
-            require("colorscheme-config")
+            return csc.setup()
         end,
     },
 }
