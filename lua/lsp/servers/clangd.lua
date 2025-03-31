@@ -14,4 +14,4 @@ vim.lsp.config.clangd = {
     root_markers = { ".clang-format", ".git", "compile_commands.json", "CMakeLists.txt", "Makefile" },
 }
 
-vim.lsp.enable({ "clangd" })
+vim.lsp.enable("clangd")
