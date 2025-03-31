@@ -72,7 +72,11 @@ M.get_git_lsp_status = function(self)
         --         -- hls.hl(signs.changed, "DiffChange"),
         --         -- hls.hl(signs.removed, "DiffDelete")
         --     )
-        out = out .. string.format("[%s] +%s,~%s,-%s", signs.head, signs.added, signs.changed, signs.removed)
+        if signs.added ~= nil and signs.changed ~= nil and signs.removed ~= nil then
+            out = out .. string.format("[%s] +%s,~%s,-%s", signs.head, signs.added, signs.changed, signs.removed)
+        else
+            out = out .. string.format("[%s]", signs.head)
+        end
         if is_lsp_populated then
             out = out .. " " -- seperator
         end
