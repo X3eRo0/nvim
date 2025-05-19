@@ -1,6 +1,6 @@
 M = {}
 
-local colorscheme = "aura" -- gruber-darker
+local colorscheme = "gruber-darker" -- gruber-darker
 
 -- jellybeans-nvim
 -- tokyonight
