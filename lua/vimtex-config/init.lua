@@ -10,14 +10,14 @@ vim.g.maplocalleader = "\\"
 -- Compiler backend: use latexmk with SyncTeX enabled
 vim.g.vimtex_compiler_method = "latexmk"
 vim.g.vimtex_compiler_latexmk = {
+    executable = "latexmk",
     options = {
         "-pdf",
         "-shell-escape",
+        "-file-line-error",
         "-synctex=1",
-        "-interaction=nonstopmode",
     },
 }
-
 -- Tell VimTeX to use your Makefile
 -- vim.g.vimtex_compiler_method = "generic"
 -- vim.g.vimtex_compiler_generic = {
@@ -43,3 +43,24 @@ vim.g.vimtex_view_general_options =
 
 -- Ensure that your Neovim server is started with a known name
 vim.cmd("let $NVIM_LISTEN_ADDRESS='/tmp/nvim-server'")
+
+-- -- store window ID at startup
+-- if vim.fn.executable("xdotool") == 1 then
+--     vim.g.vim_window_id = vim.fn.system("xdotool getactivewindow")
+-- end
+--
+-- -- refocus function
+-- local function tex_focus_vim()
+--     vim.defer_fn(function()
+--         vim.fn.system("xdotool windowfocus " .. vim.g.vim_window_id)
+--         vim.cmd("redraw!")
+--     end, 200) -- delay in ms
+-- end
+--
+-- -- autocmd for VimTeX event
+-- vim.api.nvim_create_augroup("VimtexFocus", { clear = true })
+-- vim.api.nvim_create_autocmd("User", {
+--     group = "VimtexFocus",
+--     pattern = "VimtexEventView",
+--     callback = tex_focus_vim,
+-- })
