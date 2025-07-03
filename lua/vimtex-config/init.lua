@@ -8,17 +8,17 @@ vim.cmd([[
 vim.g.maplocalleader = "\\"
 
 -- Compiler backend: use latexmk with SyncTeX enabled
-vim.g.vimtex_compiler_method = "latexmk"
 vim.g.vimtex_compiler_latexmk = {
     executable = "latexmk",
     options = {
-        "-pdf",
-        "-shell-escape",
+        "-verbose",
         "-file-line-error",
         "-synctex=1",
+        -- tell latexmk to run pdflatex WITH shell-escape:
+        "-pdflatex=pdflatex -interaction=nonstopmode -shell-escape",
+        "-pdf",
     },
-}
--- Tell VimTeX to use your Makefile
+} -- Tell VimTeX to use your Makefile
 -- vim.g.vimtex_compiler_method = "generic"
 -- vim.g.vimtex_compiler_generic = {
 --     command = "make",
