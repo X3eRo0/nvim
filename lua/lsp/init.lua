@@ -7,7 +7,7 @@ require("lsp.servers.clangd")
 require("lsp.servers.pyright")
 require("lsp.servers.lua_ls")
 require("lsp.servers.texlab")
-require("lsp.servers.prettierd")
+require("lsp.servers.vtsls")
 
 -- main config
 require("lsp.lsp")

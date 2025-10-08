@@ -7,10 +7,10 @@ local ensure_installed = {
     "rust-analyzer",
     "shfmt",
     "stylua",
+    "vtsls",
 }
 
-
-require('mason').setup()
+require("mason").setup()
 require("mason-tool-installer").setup({
     ensure_installed = ensure_installed,
 })
