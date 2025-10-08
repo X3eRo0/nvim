@@ -6,8 +6,8 @@ require("dired").setup({
     sort_order = "name",
     keybinds = {
         dired_enter = "<cr>",
-        dired_back = "-",
-        dired_up = "_",
+        dired_back = "_",
+        dired_up = "-",
         dired_rename = "R",
         dired_create = "d",
         dired_delete = "D",
