@@ -1,32 +1,12 @@
-require("nvim-treesitter.configs").setup({
-    ensure_installed = {
-        "html",
-        "javascript",
-        "lua",
-        "c",
-        "cpp",
-        "python",
-        "bash",
-        "rust",
-        "markdown",
-        "markdown_inline",
-        "vimdoc",
-    },
-    highlight = {
-        enable = true,
-        additional_vim_regex_highlighting = false,
-    },
-    autotag = {
-        enable = true,
-    },
-    rainbow = {
-        enable = false,
-        extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
-        max_file_lines = nil, -- Do not enable for files with more than n lines, int
-        -- colors = {}, -- table of hex strings
-        -- termcolors = {} -- table of colour name strings
-    },
-    autopairs = {
-        enable = true,
-    },
+require("nvim-treesitter").setup({
+    install_dir = vim.fn.stdpath("data") .. "/site",
+})
+
+local group = vim.api.nvim_create_augroup("user-treesitter", { clear = true })
+
+vim.api.nvim_create_autocmd("FileType", {
+    group = group,
+    callback = function(args)
+        pcall(vim.treesitter.start, args.buf)
+    end,
 })

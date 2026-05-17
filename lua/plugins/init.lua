@@ -17,7 +17,7 @@ local plugins = {
     {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
-        event = { "BufWinEnter" },
+        lazy = false,
         config = function()
             require("treesitter-config")
         end,

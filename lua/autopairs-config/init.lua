@@ -1,6 +1,6 @@
 require("nvim-autopairs").setup(
     {
-        check_ts = true
+        check_ts = false
     }
 )
 local cmp_autopairs = require("nvim-autopairs.completion.cmp")

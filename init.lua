@@ -1,3 +1,4 @@
+require("utils.treesitter")
 require("plugins")
 require("keybindings")
 require("options")
