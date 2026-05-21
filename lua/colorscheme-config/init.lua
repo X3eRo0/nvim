@@ -1,6 +1,6 @@
 M = {}
 
-local colorscheme = "github_light" -- gruber-darker
+local colorscheme = "gruber-darker" -- gruber-darker
 
 -- jellybeans-nvim
 -- tokyonight
